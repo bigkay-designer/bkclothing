@@ -12,7 +12,7 @@
   position: absolute;
   bottom: 0px;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(240, 240, 240, 0.5);
   width: 100%;
   padding: 10px;
 }
@@ -27,7 +27,7 @@
 }
 
 .showcase .container .content .title h2 {
-  color: #f7a4a4;
+  color: red;
   text-transform: capitalize;
 }
 
@@ -36,16 +36,18 @@
 }
 
 .showcase .container .content .body h3 {
-  font-weight: 500;
-  color: #fff;
+  font-weight: 900;
+  color: black;
 }
 
 .showcase .container .content .body p {
   margin: 10px 0;
-  color: #e2e2e2;
+  color: #161616;
+  font-weight: 700;
 }
 
 .showcase .container .content .body button {
+  margin: 10px 0 0;
   color: white;
   background-color: chocolate;
   width: 50%;
