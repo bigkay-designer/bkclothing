@@ -1,0 +1,54 @@
+.showcase .container {
+  position: relative;
+}
+
+.showcase .container .banner img {
+  width: 100%;
+  min-height: 300px;
+  max-height: 75vh;
+}
+
+.showcase .container .content__wrapper {
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 10px;
+}
+
+.showcase .container .content {
+  margin-bottom: 30px;
+}
+
+.showcase .container .content .title {
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.showcase .container .content .title h2 {
+  color: #f7a4a4;
+  text-transform: capitalize;
+}
+
+.showcase .container .content .body {
+  text-align: center;
+}
+
+.showcase .container .content .body h3 {
+  font-weight: 500;
+  color: #fff;
+}
+
+.showcase .container .content .body p {
+  margin: 10px 0;
+  color: #e2e2e2;
+}
+
+.showcase .container .content .body button {
+  color: white;
+  background-color: chocolate;
+  width: 50%;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Showcase.css.map */
