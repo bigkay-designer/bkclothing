@@ -5,8 +5,10 @@
 .trending .wrapper {
   position: relative;
   max-width: 100%;
-  height: 560px;
+  height: 520px;
   margin: 0 auto;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
   overflow-x: scroll;
   scroll-behavior: smooth;
 }
@@ -64,6 +66,7 @@
 }
 
 .trending .container .item {
+  scroll-snap-align: center;
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
@@ -90,5 +93,31 @@
 
 .trending .container .item .body p {
   font-size: 18px;
+}
+
+@media screen and (max-width: 360px) {
+  .trending .wrapper {
+    height: 420px;
+  }
+  .trending .arrows {
+    top: 50%;
+  }
+  .trending .arrows .arrow1, .trending .arrows .arrow2 {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .trending .arrows .arrow1 {
+    margin-left: 100px;
+  }
+  .trending .arrows .arrow2 {
+    margin-right: 120px;
+  }
+  .trending .arrows .icon {
+    font-size: 20px;
+  }
+  .trending .container .item {
+    min-width: 310px;
+    margin: 0;
+  }
 }
 /*# sourceMappingURL=Trending.css.map */

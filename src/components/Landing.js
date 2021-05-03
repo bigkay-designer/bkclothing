@@ -1,6 +1,7 @@
 import React from 'react'
 import MainProducts from './MainProducts'
 import Showcase from './ShowCase'
+import Testimonials from './Testimonials'
 import Trending from './Trending'
 function Landing() {
     return (
@@ -8,6 +9,7 @@ function Landing() {
             <Showcase />
             <MainProducts />
             <Trending />
+            <Testimonials />
         </div>
     )
 }

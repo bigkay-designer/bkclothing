@@ -23,7 +23,7 @@ function Trending() {
                 <h2>Trending This Week</h2>
             </div>
             <div className="arrows">
-                <div onClick={()=> scrollLeftHandler(-372)} className="arrow2">
+                <div onClick={()=> scrollRightHandler(-372)} className="arrow2">
                     <ArrowBackIos className="icon" />
                 </div>
                 <div onClick={()=> scrollLeftHandler(372)}  className="arrow1">
@@ -57,6 +57,24 @@ function Trending() {
                         <div className="body">
                             <p>Hoodie</p>
                             <p>£129.00</p>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="img">
+                            <img src={item3} alt=""/>
+                        </div>
+                        <div className="body">
+                            <p>Hoodie</p>
+                            <p>£129.00</p>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="img">
+                            <img src={item2} alt=""/>
+                        </div>
+                        <div className="body">
+                            <p>Addidas hat</p>
+                            <p>£8.00</p>
                         </div>
                     </div>
                 </div>
