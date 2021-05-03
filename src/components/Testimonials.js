@@ -5,9 +5,9 @@ import './css/Testimonials.css'
 import { Button } from '@material-ui/core'
 
 function Testimonials (){
-
+    const [itemsLength, setItemsLength] = useState()
     const relElement = useRef(null)
-
+    let count = 1;
     const scrollRightHandler = (moveRight) =>{
         setTimeout(()=>{
             relElement.current.scrollLeft += moveRight
@@ -15,9 +15,17 @@ function Testimonials (){
     }
 
     const scrollLeftHandler = (moveLeft) =>{
-        setTimeout(()=>{
-            relElement.current.scrollLeft += moveLeft
-        }, 200)
+        setItemsLength(relElement.current.children[0].children.length)
+        count = count + 1
+
+        if(count >= itemsLength){
+            count = 0;
+            return relElement.current.scrollLeft = 0
+        }else{
+            setTimeout(()=>{
+                relElement.current.scrollLeft += moveLeft
+            }, 200)
+        }
     }
     return (
         <div className="testimonials">
