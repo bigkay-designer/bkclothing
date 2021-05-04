@@ -1,8 +1,8 @@
 .process {
-  margin-top: 70px;
+  margin: 70px 0 40px;
   background-color: #f8f8f8;
-  -webkit-box-shadow: 0px 1px 4px grey;
-          box-shadow: 0px 1px 4px grey;
+  -webkit-box-shadow: 0px 0px 2px grey;
+          box-shadow: 0px 0px 2px grey;
 }
 
 .process .container {

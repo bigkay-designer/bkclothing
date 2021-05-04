@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;400&display=swap');
+.newsletter{
+    background-color: #171613;
+    .container{
+        padding: 10px 15px;
+        .title{
+            color: #fff;
+            font-family: 'Jost', sans-serif;
+            h2{
+
+                text-transform: capitalize;
+            }
+            p{
+                margin-top: 5px;
+            }
+        }
+
+        .input{
+            margin: 20px 0;
+            form{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+                input{
+                    font-size: 16px;
+                    padding: 10px 15px;
+                    border: none;
+                    outline: none;
+                    border-radius: 0px;
+                }
+                button{
+                    font-size: 16px;
+                    width: 100%;
+                    background-color: rgb(210, 51, 30);
+                    color: #fff;
+                    margin-top: 10px;
+                    border-radius: 0px;
+                }
+            }
+        }
+        .socials{
+            .icon{
+                color: #718191;
+                font-size: 32px;
+                margin-right: 10px;
+            }
+        }
+    }
+}

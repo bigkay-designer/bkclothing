@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;400&display=swap");
+.newsletter {
+  background-color: #171613;
+}
+
+.newsletter .container {
+  padding: 10px 15px;
+}
+
+.newsletter .container .title {
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+}
+
+.newsletter .container .title h2 {
+  text-transform: capitalize;
+}
+
+.newsletter .container .title p {
+  margin-top: 5px;
+}
+
+.newsletter .container .input {
+  margin: 20px 0;
+}
+
+.newsletter .container .input form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.newsletter .container .input form input {
+  font-size: 16px;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  border-radius: 0px;
+}
+
+.newsletter .container .input form button {
+  font-size: 16px;
+  width: 100%;
+  background-color: #d2331e;
+  color: #fff;
+  margin-top: 10px;
+  border-radius: 0px;
+}
+
+.newsletter .container .socials .icon {
+  color: #718191;
+  font-size: 32px;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=NewsLetter.css.map */
