@@ -1,5 +1,6 @@
 import React from 'react'
 import MainProducts from './MainProducts'
+import Process from './Process'
 import Showcase from './ShowCase'
 import Suggested from './Suggested'
 import Testimonials from './Testimonials'
@@ -12,6 +13,7 @@ function Landing() {
             <Trending />
             <Testimonials />
             <Suggested />
+            <Process />
         </div>
     )
 }

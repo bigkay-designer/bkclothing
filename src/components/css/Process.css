@@ -1,0 +1,48 @@
+.process {
+  margin-top: 70px;
+  background-color: #f8f8f8;
+  -webkit-box-shadow: 0px 1px 4px grey;
+          box-shadow: 0px 1px 4px grey;
+}
+
+.process .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+}
+
+.process .container .content {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.process .container .content .icon {
+  margin-bottom: 10px;
+}
+
+.process .container .content .icon img {
+  max-width: 100%;
+  height: 60px;
+}
+
+.process .container .content .body h3 {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.process .container .content .body p {
+  margin-top: 10px;
+  color: #666666;
+}
+/*# sourceMappingURL=Process.css.map */

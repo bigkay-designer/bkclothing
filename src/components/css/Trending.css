@@ -4,7 +4,7 @@
 
 .trending .wrapper {
   position: relative;
-  max-width: 950px;
+  max-width: 100%;
   height: 520px;
   margin: 0 auto;
   -ms-scroll-snap-type: x mandatory;
