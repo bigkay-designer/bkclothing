@@ -20,11 +20,22 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .nav .container .wrapper .logo h3 {
   margin: 0 0 0 7px;
   padding: 0;
+}
+
+.nav .container .wrapper .logo svg {
+  font-size: 42px;
+  color: #000;
+  background-color: #d2331e;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .nav .container .wrapper .menu__icon {
