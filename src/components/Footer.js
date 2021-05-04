@@ -46,7 +46,7 @@ function Footer() {
                     </ul>
                 </section>
                 <section className="copyright">
-                    <p>Copyright ©2021 All rights reserved | made with love by <a href="https://bkdesignplus.com/">bkdesignplus</a></p>
+                    <p>Copyright ©2021 All rights reserved | made with love by <a href="https://bkdesignplus.com/" target="_blank" rel="noreferrer">bkdesignplus</a></p>
                 </section>
             </footer>
             

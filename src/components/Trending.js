@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import ScrollContainer from 'react-indiana-drag-scroll'
 import item1 from './images/trending1.jpg'
 import item2 from './images/trending2.jpg'
 import item3 from './images/trending3.jpg'
@@ -10,19 +11,20 @@ function Trending() {
     let count = 1
     const scrollRightHandler = (moveright) =>{
         setTimeout(()=>{
-            relElement.current.scrollLeft += moveright
+            relElement.current.container.current.scrollLeft += moveright
         }, 200)
     }
     const scrollLeftHandler = (moveleft) =>{
+        // console.log(relElement.current.container.current.children[0].children.length)
         count = count + 1
-        setItemsLength(relElement.current.children[0].children.length)
+        setItemsLength(relElement.current.container.current.children[0].children.length)
 
         if(count >= itemsLength){
             count = 0
-            return relElement.current.scrollLeft = 0
+            return relElement.current.container.current.scrollLeft = 0
         }else{
             setTimeout(()=>{
-                return relElement.current.scrollLeft += moveleft
+                return relElement.current.container.current.scrollLeft += moveleft
             }, 200)
         }
 
@@ -32,15 +34,11 @@ function Trending() {
             <div className="title">
                 <h2>Trending This Week</h2>
             </div>
-            <div className="arrows">
-                <div onClick={()=> scrollRightHandler(-372)} className="arrow2">
-                    <ArrowBackIos className="icon" />
-                </div>
-                <div onClick={()=> scrollLeftHandler(372)}  className="arrow1">
-                    <ArrowForwardIos className="icon" />
-                </div>
+            <div onClick={()=> scrollLeftHandler(372)}  className="arrow1">
+                <ArrowForwardIos className="icon" />
             </div>
-            <div className="wrapper" ref={relElement}>
+
+            <ScrollContainer className="wrapper" ref={relElement}>
                 <div className="container" >
                     <div className="item">
                         <div className="img">
@@ -88,6 +86,10 @@ function Trending() {
                         </div>
                     </div>
                 </div>
+            </ScrollContainer>
+
+            <div onClick={()=> scrollRightHandler(-372)} className="arrow2">
+                <ArrowBackIos className="icon" />
             </div>
         </div>
     )
