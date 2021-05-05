@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import men from './images/men.jpg'
 import women from './images/women.jpg'
 import kids from './images/kids.jpg'
@@ -8,15 +9,15 @@ function MainProducts() {
         <div className="main__products">
             <div className="product men">
                 <img src={men} alt=""/>
-                <a href="#">men</a>
+                <Link to='men'>men</Link>
             </div>
             <div className="product women">
                 <img src={women} alt=""/>
-                <a href="#">women</a>
+                <Link to='men'>women</Link>
             </div>
             <div className="product kids">
                 <img src={kids} alt=""/>
-                <a  href="#">kids</a>
+                <Link to='men'>kids</Link>
             </div>
         </div>
     )

@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;400&display=swap");
+.sort__filter {
+  margin: 10px;
+  position: relative;
+}
+
+.sort__filter h3 {
+  font-family: 'Jost', sans-serif;
+  text-transform: capitalize;
+}
+
+.sort__filter .sort__filter--btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border: 0.5px solid #1d1d1d;
+}
+
+.sort__filter .container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #FFF;
+  z-index: 2;
+}
+
+.sort__filter .container .sub__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.sort__filter .container .sub__title svg {
+  cursor: pointer;
+}
+
+.sort__filter .container .wrapper {
+  padding: 10px;
+  height: 590px;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 360px) {
+  .sort__filter .container .wrapper {
+    height: 420px;
+  }
+}
+
+.sort__filter .container .sort {
+  margin: 15px 0 30px;
+}
+
+.sort__filter .container .sort .select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  text-transform: capitalize;
+  background-color: #f0f0f0;
+  -webkit-box-shadow: 0px 2px 2px silver;
+          box-shadow: 0px 2px 2px silver;
+}
+
+.sort__filter .container .filter .filter__options .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 10px 0;
+  color: #292621;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.sort__filter .container .filter .filter__options .body {
+  padding: 10px;
+}
+
+.sort__filter .container .filter .filter__options .body p {
+  margin-top: 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.sort__filter .container .filter .filter__options .body .input {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sort__filter .container .filter .filter__options .body .input label {
+  margin-left: 15px;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.sort__filter .container .filter .filter__options .body .input input {
+  width: 25px;
+  height: 25px;
+}
+
+.sort__filter .container .done__btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sort__filter .container .done__btn button {
+  width: 100%;
+  border-radius: 0;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.sort__filter .container .done__btn .done {
+  background-color: lightsalmon;
+}
+
+.sort__filter .container .done__btn .clear__all {
+  -webkit-box-shadow: 0px 2px 3px #181717;
+          box-shadow: 0px 2px 3px #181717;
+}
+/*# sourceMappingURL=SortFilter.css.map */

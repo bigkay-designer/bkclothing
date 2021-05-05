@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined} from '@material-ui/icons'
 import './css/Nav.css'
 function Nav() {
@@ -12,7 +13,8 @@ function Nav() {
                     </div>
                     <div className="logo">
                         <Storefront />
-                        <h3>bkclothing</h3>
+
+                        <Link to="/"> <h3>bkclothing</h3> </Link>
                     </div>
                     <div className="cart__div">
                         <SearchOutlined className="icon search" />

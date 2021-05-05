@@ -16,6 +16,7 @@
 }
 
 .main__products a {
+  cursor: pointer;
   position: absolute;
   bottom: 0px;
   left: 50%;

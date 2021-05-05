@@ -1,11 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Products from '../Products'
 import item1 from '../images/trending1.jpg'
 import item2 from '../images/trending2.jpg'
 import item3 from '../images/trending3.jpg'
+import SortFilter from './SortFilter'
 function Mens() {
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <div className="men">
+            <SortFilter />
             <Products 
                 productName="Gucci Jacket"
                 productPrice="£98.00"

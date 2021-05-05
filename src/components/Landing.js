@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import MainProducts from './MainProducts'
 import Process from './Process'
 import Showcase from './ShowCase'
@@ -7,7 +7,7 @@ import Testimonials from './Testimonials'
 import Trending from './Trending'
 import './css/Landing.css'
 function Landing() {
-    
+
     return (
         <div className="landing">
             <Showcase />

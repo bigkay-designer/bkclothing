@@ -11,6 +11,11 @@
             .logo{
                 display: flex;
                 align-items: center;
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                    cursor: pointer;
+                }
                 h3{
                     margin: 0 0 0 7px;
                     padding: 0;
