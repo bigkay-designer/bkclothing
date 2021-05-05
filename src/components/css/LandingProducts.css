@@ -1,0 +1,66 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper .landing__product {
+  position: relative;
+  max-width: 100%;
+  height: 490px;
+  margin: 0 auto;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.wrapper .landing__product .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.wrapper .arrow1 {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.wrapper .arrow2 {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.wrapper .arrow1, .wrapper .arrow2 {
+  background-color: rgba(46, 46, 46, 0.6);
+  padding: 10px 15px;
+}
+
+.wrapper .arrow1 .icon, .wrapper .arrow2 .icon {
+  color: #fff;
+}
+
+@media screen and (max-width: 360px) {
+  .landingProducts .wrapper {
+    height: 260px;
+  }
+  .landingProducts .container .item {
+    min-width: 160px;
+    margin: 0;
+  }
+}
+/*# sourceMappingURL=LandingProducts.css.map */

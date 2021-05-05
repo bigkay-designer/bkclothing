@@ -102,7 +102,7 @@
 }
 
 .nav .container .flash__sale {
-  background-color: #020e16;
+  background-color: #171613;
   width: 100%;
   padding: 15px 7px;
 }
@@ -119,5 +119,6 @@
 .nav .container .flash__sale a {
   color: chocolate;
   cursor: pointer;
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=Nav.css.map */

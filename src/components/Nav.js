@@ -32,7 +32,7 @@ function Nav() {
                     </div>
                 </div>
                 <div className="flash__sale">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi, numquam. <a href="#">Shop Now</a> </p>
+                    <p> Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer <a href="#">Shop Now</a> </p>
                 </div>
             </div>
         </div>
