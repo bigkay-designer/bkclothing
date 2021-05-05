@@ -5,9 +5,9 @@ import Landing from '../components/Landing'
 import NewsLetter from '../components/NewsLetter';
 import Footer from '../components/Footer';
 // Products section
-
 import './App.css';
-// import Product from '../components/Products';
+import Men from '../components/pages/Mens';
+
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Product route */}
-          {/* <Route path="/product"> <Product /> </Route> */}
+          <Route path="/men"> <Men /> </Route>
           {/* Landing route */}
           <Route path="/" exact> <Landing /> </Route>
         </Switch>

@@ -28,4 +28,11 @@
   font-size: 18px;
   margin-top: 5px;
 }
+
+@media screen and (max-width: 360px) {
+  .item {
+    min-width: 160px;
+    margin: 0;
+  }
+}
 /*# sourceMappingURL=LandingProductItems.css.map */

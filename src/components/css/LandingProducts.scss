@@ -45,15 +45,9 @@
 }
 
 @media screen and (max-width:360px){
-    .landingProducts{
-        .wrapper{
+    .wrapper{
+        .landing__product{
             height: 260px;
-        }
-        .container{
-            .item{
-                min-width: 160px;
-                margin: 0;
-            }
         }
     }
 }
