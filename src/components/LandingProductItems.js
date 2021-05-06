@@ -3,7 +3,7 @@ import './css/LandingProductItems.css'
 function LandingProductContainer({productName, productPrice, image}) {
 
     return (
-        <div className="item">
+        <div className="landing__item">
             <div className="img">
                 <img src={image} alt=""/>
             </div>

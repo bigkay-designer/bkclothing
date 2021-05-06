@@ -1,0 +1,114 @@
+.product__detail {
+  margin: 10px 0 30px;
+  padding: 10px;
+}
+
+.product__detail .product__title h3 {
+  text-transform: capitalize;
+  font-size: 26px;
+  margin: 10px 0;
+}
+
+.product__detail .product__title a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+.product__detail .img {
+  margin-top: 30px;
+}
+
+.product__detail .img .default__img {
+  -webkit-box-shadow: 0px 1px 4px grey;
+          box-shadow: 0px 1px 4px grey;
+  padding: 10px 20px;
+}
+
+.product__detail .img .default__img img {
+  width: 100%;
+  height: 100%;
+}
+
+.product__detail .img .img__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 20px;
+  margin-top: 10px;
+}
+
+.product__detail .img .img__container .display__img {
+  -webkit-box-shadow: 0px 1px 4px grey;
+          box-shadow: 0px 1px 4px grey;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.product__detail .img .img__container .display__img img {
+  width: 100%;
+  height: 100%;
+}
+
+.product__detail .price {
+  margin: 20px 0;
+}
+
+.product__detail .price p {
+  letter-spacing: 1px;
+  color: #3b3b3b;
+}
+
+.product__detail .size__options {
+  margin-bottom: 20px;
+}
+
+.product__detail .size__options select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #f1f1f1;
+}
+
+.product__detail .fieldset {
+  border: none;
+  padding: 0;
+}
+
+.product__detail .fieldset .legend__hidden {
+  display: none;
+}
+
+.product__detail .fieldset .fieldset__group {
+  max-height: 2.75rem;
+  max-width: none;
+  width: calc(25% - 0.2rem);
+  float: left;
+  padding: 0;
+  margin: 0.5rem 0.5rem 0 0;
+}
+
+.product__detail .fieldset .fieldset__group #xs, .product__detail .fieldset .fieldset__group #xl, .product__detail .fieldset .fieldset__group #xxl {
+  display: none;
+}
+
+.product__detail .fieldset .fieldset__group label {
+  text-transform: uppercase;
+  background-color: #e7e7e7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+/*# sourceMappingURL=ProductDetail.css.map */

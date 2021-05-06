@@ -1,31 +1,50 @@
-.products {
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;400&display=swap");
+.products__section {
   margin: 30px 0;
 }
 
-.products .container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.products .container .item {
-  opacity: 1;
-}
-
-.products .container .item .img {
-  position: relative;
-  width: 85%;
+.products__section .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 20px;
+  width: 90%;
   margin: 0 auto;
 }
 
-.products .container .item .img img {
+.products__section .container .item {
+  -webkit-box-shadow: 0px 1px 3px #b8b7b7;
+          box-shadow: 0px 1px 3px #b8b7b7;
+}
+
+.products__section .container .item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.products__section .container .item .img {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  -webkit-box-shadow: 0px 1px 3px #dbdbdb;
+          box-shadow: 0px 1px 3px #dbdbdb;
+}
+
+.products__section .container .item .img img {
   cursor: pointer;
   width: 100%;
   height: 100%;
   margin: 0 auto;
 }
 
-.products .container .item .img .purchase__icon {
-  display: none;
+.products__section .container .item .img .purchase__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -35,40 +54,29 @@
   -webkit-box-shadow: 0px 2px 2px grey;
           box-shadow: 0px 2px 2px grey;
   background-color: #fff;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   padding: 10px 15px;
 }
 
-.products .container .item .img .purchase__icon svg {
+.products__section .container .item .img .purchase__icon svg {
   font-size: 26px;
   color: #171613;
   cursor: pointer;
 }
 
-.products .container .item .img:hover .purchase__icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.products .container .item .body {
+.products__section .container .item .body {
   margin-top: 20px;
-  text-align: center;
+  padding: 10px;
 }
 
-.products .container .item .body p {
+.products__section .container .item .body p {
+  font-family: 'Jost', sans-serif;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  margin: 5px auto 0;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 360px) {

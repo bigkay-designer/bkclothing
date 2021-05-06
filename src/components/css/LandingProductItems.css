@@ -1,4 +1,4 @@
-.item {
+.landing__item {
   scroll-snap-align: center;
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
@@ -8,23 +8,23 @@
   opacity: 1;
 }
 
-.item .img {
+.landing__item .img {
   width: 90%;
   margin: 0 auto;
 }
 
-.item .img img {
+.landing__item .img img {
   width: 100%;
   height: 100%;
   margin: 0 auto;
 }
 
-.item .body {
+.landing__item .body {
   margin-top: 20px;
   text-align: center;
 }
 
-.item .body p {
+.landing__item .body p {
   font-size: 18px;
   margin-top: 5px;
 }

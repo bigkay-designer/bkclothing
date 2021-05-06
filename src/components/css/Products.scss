@@ -1,14 +1,26 @@
-.products{
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;400&display=swap');
+
+.products__section{
     margin: 30px 0;
     .container{
-        width: 100%;
-        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-gap: 20px;
+        width: 90%;
+        margin: 0 auto;
         .item{
-            opacity: 1;
+            box-shadow: 0px 1px 3px rgb(184, 183, 183);
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
             .img{
                 position: relative;
-                width: 85%;
+                width: 100%;
                 margin: 0 auto;
+                padding: 10px;
+                box-shadow: 0px 1px 3px rgb(219, 219, 219);
                 img{
                     cursor: pointer;
                     width: 100%;
@@ -17,16 +29,12 @@
                 }
         
                 .purchase__icon{
-                    display: none;
+                    display: flex;
                     justify-content: space-between;
                     align-items: center;
                     box-shadow: 0px 2px 2px grey;
                     background-color: #fff;
-                    position: absolute;
-                    bottom: 20px;
-                    left: 50%;
-                    transform: translate(-50%);
-                    width: 50%;
+                    width: 100%;
                     margin: 0 auto;
                     padding:10px 15px;
                     svg{
@@ -35,20 +43,15 @@
                         cursor: pointer;
                     }
                 }
-                &:hover{
-                    .purchase__icon{
-                        display: flex;
-                    }
-                }
             }
             .body{
                 margin-top: 20px;
-                text-align: center;
+                padding: 10px;
                 p{
+                    font-family: 'Jost', sans-serif;
                     max-width: fit-content;
-                    margin: 5px auto 0;
                     cursor: pointer;
-                    font-size: 18px;
+                    font-size: 16px;
                 }
             }
         }

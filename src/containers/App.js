@@ -4,9 +4,10 @@ import Nav from '../components/Nav'
 import Landing from '../components/Landing'
 import NewsLetter from '../components/NewsLetter';
 import Footer from '../components/Footer';
-// Products section
 import './App.css';
+// Products section
 import Men from '../components/pages/Mens';
+import ProductDetail from '../components/pages/ProductDetail';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           {/* Product route */}
           <Route path="/men"> <Men /> </Route>
+          <Route path={'/productDetail'}> <ProductDetail /> </Route>
           {/* Landing route */}
           <Route path="/" exact> <Landing /> </Route>
         </Switch>

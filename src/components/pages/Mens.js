@@ -9,23 +9,28 @@ function Mens() {
         window.scrollTo(0, 0)
     }, [])
     return (
-        <div className="men">
+        <div className="men product__wrapper">
             <SortFilter />
-            <Products 
-                productName="Gucci Jacket"
-                productPrice="£98.00"
-                image={item1}
-            />
-            <Products 
-                productName="Hoodie"
-                productPrice="£98.00"
-                image={item2}
-            />
-            <Products 
-                productName="Glasses"
-                productPrice="£29.00"
-                image={item3}
-            />
+            <div className="products__section">
+                <div className="container">
+                    <Products 
+                        productName="Gucci Jacket"
+                        productPrice="£98.00"
+                        image={item1}
+                    />
+                    <Products 
+                        productName="Hoodie"
+                        productPrice="£98.00"
+                        image={item2}
+                    />
+                    <Products 
+                        productName="Glasses"
+                        productPrice="£29.00"
+                        image={item3}
+                    />
+
+                </div>
+            </div>
         </div>
     )
 }
