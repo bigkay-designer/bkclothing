@@ -10,11 +10,10 @@ function Products({image, productPrice, productName}) {
             <div className="img">
                 <Link to="/productDetail">
                     <img src={image} alt=""/>
-                    <div className="purchase__icon">
-                        <ShoppingCartOutlined />
-                        <FavoriteBorder />
-                    </div>
                 </Link>
+                <div className="purchase__icon">
+                    <FavoriteBorder className="hover__fill" />
+                </div>
             </div>
             <Link to="/productDetail">
                 <div className="body">

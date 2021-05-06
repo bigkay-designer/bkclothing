@@ -1,7 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import {Button} from '@material-ui/core'
 import '../css/ProductDetail.css'
 function ProductDetail() {
+    const [currentImgTap, setCurrentImgTap] = useState(0)
+    const productImg = [
+        {
+            id:'img1',
+            img:'https://images.pexels.com/photos/2473710/pexels-photo-2473710.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+        }, 
+        {
+            id:'img2',
+            img:"https://images.pexels.com/photos/3891071/pexels-photo-3891071.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        },
+        {
+            id:'img3',
+            img:'https://images.pexels.com/photos/7462545/pexels-photo-7462545.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+        }
+    ]
+    console.log(productImg[1].img)
+
+    const imgTapHandler = (index) =>{
+        setCurrentImgTap(index)
+    }
     return (
         <div className="product__detail">
             <div className="product__title">
@@ -10,19 +31,15 @@ function ProductDetail() {
             </div>  
             <div className="product__container">
                 <div className="img">
-                    <div className="default__img">
-                        <img src="https://images.pexels.com/photos/2473710/pexels-photo-2473710.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""/>
-                    </div>
+                        <div className="default__img">
+                            <img src={productImg[currentImgTap].img} alt=""/>
+                        </div>
                     <div className="img__container">
-                        <div className="display__img">
-                            <img src="https://images.pexels.com/photos/2473710/pexels-photo-2473710.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""/>
-                        </div>
-                        <div className="display__img">
-                            <img src="https://images.pexels.com/photos/2473710/pexels-photo-2473710.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""/>
-                        </div>
-                        <div className="display__img">
-                            <img src="https://images.pexels.com/photos/2473710/pexels-photo-2473710.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""/>
-                        </div>
+                        {productImg.map((img, index) =>(
+                            <div className="display__img" key={index}>
+                                <img onClick={() => imgTapHandler(index)} src={img.img} alt=""/>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className="price">
@@ -52,6 +69,9 @@ function ProductDetail() {
                         </div>
                     </fieldset>
                 </form>
+                <div className="add__to__cart">
+                    <Button>add to cart</Button>
+                </div>
             </div>
         </div>
     )

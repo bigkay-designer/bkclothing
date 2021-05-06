@@ -27,7 +27,7 @@
 
 .product__detail .img .default__img img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .product__detail .img .img__container {
@@ -53,6 +53,10 @@
   height: 100%;
 }
 
+.product__detail .img .img__container .display__img:hover {
+  outline: 2px solid lightskyblue;
+}
+
 .product__detail .price {
   margin: 20px 0;
 }
@@ -74,16 +78,16 @@
   background-color: #f1f1f1;
 }
 
-.product__detail .fieldset {
+.product__detail form .fieldset {
   border: none;
   padding: 0;
 }
 
-.product__detail .fieldset .legend__hidden {
+.product__detail form .fieldset .legend__hidden {
   display: none;
 }
 
-.product__detail .fieldset .fieldset__group {
+.product__detail form .fieldset .fieldset__group {
   max-height: 2.75rem;
   max-width: none;
   width: calc(25% - 0.2rem);
@@ -92,11 +96,11 @@
   margin: 0.5rem 0.5rem 0 0;
 }
 
-.product__detail .fieldset .fieldset__group #xs, .product__detail .fieldset .fieldset__group #xl, .product__detail .fieldset .fieldset__group #xxl {
+.product__detail form .fieldset .fieldset__group #xs, .product__detail form .fieldset .fieldset__group #xl, .product__detail form .fieldset .fieldset__group #xxl {
   display: none;
 }
 
-.product__detail .fieldset .fieldset__group label {
+.product__detail form .fieldset .fieldset__group label {
   text-transform: uppercase;
   background-color: #e7e7e7;
   display: -webkit-box;
@@ -110,5 +114,17 @@
           align-items: center;
   width: 100%;
   padding: 10px;
+}
+
+.product__detail .add__to__cart {
+  margin-top: 40px;
+}
+
+.product__detail .add__to__cart button {
+  width: 100%;
+  text-align: center;
+  background-color: #318501;
+  color: #fff;
+  border-radius: 0;
 }
 /*# sourceMappingURL=ProductDetail.css.map */

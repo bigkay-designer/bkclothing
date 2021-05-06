@@ -21,7 +21,7 @@
             padding: 10px 20px;
             img{
                 width: 100%;
-                height: 100%;
+                height: auto;
             }
         }
         .img__container{
@@ -37,6 +37,10 @@
                 img{
                     width: 100%;
                     height: 100%;
+                }
+
+                &:hover{
+                    outline: 2px solid lightskyblue;
                 }
             }
         }
@@ -59,31 +63,43 @@
             background-color: rgb(241, 241, 241);
         }
     }
-    .fieldset{
-        border: none;
-        padding: 0;
-        .legend__hidden{
-            display: none;
-        }
-        .fieldset__group{
-            max-height: 2.75rem;
-            max-width: none;
-            width: calc(25% - 0.2rem);
-            float: left;
+    form{
+        .fieldset{
+            border: none;
             padding: 0;
-            margin: 0.5rem 0.5rem 0 0;
-            #xs, #xl, #xxl{
+            .legend__hidden{
                 display: none;
             }
-            label{
-                text-transform: uppercase;
-                background-color: rgb(231, 231, 231);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                padding: 10px;
+            .fieldset__group{
+                max-height: 2.75rem;
+                max-width: none;
+                width: calc(25% - 0.2rem);
+                float: left;
+                padding: 0;
+                margin: 0.5rem 0.5rem 0 0;
+                #xs, #xl, #xxl{
+                    display: none;
+                }
+                label{
+                    text-transform: uppercase;
+                    background-color: rgb(231, 231, 231);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    padding: 10px;
+                }
             }
+        }
+    }
+    .add__to__cart{
+        margin-top: 40px;
+        button{
+            width: 100%;
+            text-align: center;
+            background-color: rgb(49, 133, 1);
+            color: #fff;
+            border-radius: 0;
         }
     }
 }

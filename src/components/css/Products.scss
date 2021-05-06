@@ -29,18 +29,25 @@
                 }
         
                 .purchase__icon{
+                    position: absolute;
+                    bottom: 20px;
+                    right: 15px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    box-shadow: 0px 2px 2px grey;
-                    background-color: #fff;
-                    width: 100%;
+                    max-width: fit-content;
                     margin: 0 auto;
-                    padding:10px 15px;
+                    padding:5px;
+                    border-radius: 50%;
+                    box-shadow: 0px 2px 2px grey;
+                    background-color: rgba(255, 255, 255, 0.7);
                     svg{
                         font-size: 26px;
                         color:#171613;
                         cursor: pointer;
+                        &:hover{
+                            color: red;
+                        }
                     }
                 }
             }
