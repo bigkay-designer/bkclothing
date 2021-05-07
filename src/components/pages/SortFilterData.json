@@ -1,0 +1,47 @@
+{
+    "select":{
+        "optionNames": ["initial Result","Alphabetical (A-Z)","new Arrivals","price (low to high)","price (high to low)","brand names (A-Z)"]
+    }, 
+    "gender": [
+        {
+            "title": "male",
+            "quantity": 2232
+        }, 
+        {
+            "title": "female",
+            "quantity": 1094
+        }
+    ],
+    "productType": [
+        {
+            "title": "shoes",
+            "quantity": 2432
+        }, 
+        {
+            "title": "clothing",
+            "quantity": 8238
+        },
+        {
+            "title": "Accessories",
+            "quantity": 3290
+        }
+    ],
+    "brand": [
+        {
+            "title": "adidas",
+            "quantity": 9488
+        }, 
+        {
+            "title": "jordan",
+            "quantity": 182
+        },
+        {
+            "title": "gucci",
+            "quantity": 30
+        },
+        {
+            "title": "nike",
+            "quantity": 3030
+        }
+    ]
+}

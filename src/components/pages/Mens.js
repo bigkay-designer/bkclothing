@@ -17,16 +17,28 @@ function Mens() {
                         productName="Gucci Jacket"
                         productPrice="£98.00"
                         image={item1}
+                        productGender="female"
+                        productType="clothing"
+                        productBrand="gucci"
+                        productDesc="jacket"
                     />
                     <Products 
                         productName="Hoodie"
                         productPrice="£98.00"
                         image={item2}
+                        productGender="male"
+                        productType="clothing"
+                        productBrand="adidas"
+                        productDesc="hoodie"
                     />
                     <Products 
                         productName="Glasses"
                         productPrice="£29.00"
                         image={item3}
+                        productGender="female"
+                        productType="clothing"
+                        productBrand="jordan"
+                        productDesc="t-shirt"
                     />
 
                 </div>

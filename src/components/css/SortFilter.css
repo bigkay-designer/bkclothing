@@ -57,6 +57,46 @@
   font-size: 32px;
 }
 
+.sort__filter .container .chosen__options {
+  margin: 10px 0;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sort__filter .container .chosen__options .body__content {
+  margin: 10px 10px 0px 0px;
+  border: 1px solid grey;
+  text-align: center;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.sort__filter .container .chosen__options .body__content svg {
+  font-size: 18px;
+}
+
+.sort__filter .container .chosen__options .body__content p {
+  margin-right: 7px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
 .sort__filter .container .wrapper {
   padding: 10px;
   height: 590px;
@@ -125,9 +165,30 @@
 }
 
 .sort__filter .container .filter .filter__options .body p {
-  margin-top: 10px;
   text-transform: capitalize;
   cursor: pointer;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin-right: 5px;
+}
+
+.sort__filter .container .filter .filter__options .body span {
+  color: #303030;
+  font-size: 14px;
+}
+
+.sort__filter .container .filter .filter__options .body .body__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
 }
 
 .sort__filter .container .filter .filter__options .body .input {
@@ -144,6 +205,11 @@
   margin-left: 15px;
   font-size: 16px;
   text-transform: capitalize;
+}
+
+.sort__filter .container .filter .filter__options .body .input span {
+  color: #303030;
+  font-size: 14px;
 }
 
 .sort__filter .container .filter .filter__options .body .input input {

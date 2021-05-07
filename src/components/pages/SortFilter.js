@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import {select, gender, productType, brand} from './SortFilterData.json'
 import {Button} from '@material-ui/core'
 import { Add, Close, Sort, Remove } from '@material-ui/icons'
 import '../css/SortFilter.css'
@@ -8,11 +9,37 @@ function SortFilter() {
     const [productTypeEle, setProductTyprEle] = useState(false)
     const [brandEle, setBrandEle] = useState(false)
 
+    /// filter states
+    const [chosenOption, setChosenOption] = useState([])
+    let unique = [...new Set(chosenOption)]
+    const inputChecked = useRef([])
+
+
     const openFilterHandler = ()=>{
         setTimeout(()=>{
             setOpenFilter(true)
         }, 200)
     }
+
+    const chosenOptionHandler = (e, index) => {
+        console.log(inputChecked.current.checked)       
+        if (e.target.nodeName === 'SPAN') {
+            return setChosenOption([...chosenOption, e.target.previousSibling.innerHTML])
+        } else if(e.target.nodeName == "P"){
+            return setChosenOption([...chosenOption, e.target.innerHTML])
+        }else if (e.target.nodeName === 'INPUT'){
+            return setChosenOption([...chosenOption, e.target.value])
+        }else{
+            return null
+        }
+    }
+
+    const removeChosenOptionHandler = (title) => {
+
+        let removeArr = unique.filter(elm => elm !== title)
+        setChosenOption(removeArr)
+    }
+
     return (
         <div className="sort__filter">
             <div onClick={openFilterHandler} className="sort__filter--btn">
@@ -25,17 +52,22 @@ function SortFilter() {
                     <h3>Filter & Sort</h3>
                     <Close className="close__icons" onClick={()=> setOpenFilter(false)} />
                 </div>
+                <div className="chosen__options">
+                    {unique.map((data, index)=>(
+                        <div onClick={() => removeChosenOptionHandler(data) } className="body__content" key={index}>
+                            <p>{data}</p>
+                            <Close />
+                        </div>
+                    ))}
+                </div>
                 <div className="wrapper">
                     <div className="sort">
                         <h3>sort by</h3>
                         <div className="options">
                             <select className="select" name="sort">
-                                <option value="initialResult">initial Result</option>
-                                <option value="Alphabetical">Alphabetical (A-Z) </option>
-                                <option value="newArrivals">new Arrivals</option>
-                                <option value="priceLow">price (low to high) </option>
-                                <option value="priceHigh">price (high to low) </option>
-                                <option value="brand">brand names (A-Z)</option>
+                                {select.optionNames.map((optionName, index)=>(
+                                    <option value={optionName} key={index}>{optionName}</option>
+                                ))}
                             </select>
                         </div>
                     </div>
@@ -48,8 +80,12 @@ function SortFilter() {
                                 <Remove className={`remove__icon ${genderEle && "show__remove__icon"}`} />
                             </div>
                             <div className={`body ${genderEle && "show__body"}`}>
-                                <p>men <span>(2000)</span> </p>
-                                <p>women <span>(1879)</span> </p>
+                                {gender.map((data, index)=>(
+                                    <div onClick={(e)=> chosenOptionHandler(e, index)} className="body__content" key={index}>
+                                        <p>{data.title}</p>
+                                        <span>({data.quantity})</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                         <div className="product__type filter__options">
@@ -60,9 +96,13 @@ function SortFilter() {
 
                             </div>
                             <div className={`body ${productTypeEle && "show__body"}`}>
-                                <p>shoes <span>(2980)</span> </p>
-                                <p>clothing <span>(3400)</span> </p>
-                                <p>Accessories <span>(1745)</span> </p>
+                                {productType.map((data, index)=> (
+                                    <div onClick={(e)=> chosenOptionHandler(e, index)}  className="body__content" key={index}>
+                                        <p>{data.title}</p>
+                                        <span>({data.quantity})</span>
+                                    </div>
+
+                                ))}
                             </div>
                         </div>
                         <div className="brand filter__options">
@@ -74,22 +114,13 @@ function SortFilter() {
                             </div>
                             <div className={`body ${brandEle && "show__body"}`}>
                                 <form>
-                                    <div className="input">
-                                        <input type="checkbox" name="adidas"/>
-                                        <label className="label" htmlFor="adidas">adidas (1293)</label>
-                                    </div>
-                                    <div className="input">
-                                        <input type="checkbox" name="jordan"/>
-                                        <label className="label" htmlFor="jordan">jordan (143)</label>
-                                    </div>
-                                    <div className="input">
-                                        <input type="checkbox" name="gucci"/>
-                                        <label className="label" htmlFor="gucci">gucci (1393)</label>
-                                    </div>
-                                    <div className="input">
-                                        <input type="checkbox" name="nike"/>
-                                        <label className="label" htmlFor="nike">nike (1293)</label>
-                                    </div>
+                                    {brand.map((data, index)=>(
+                                        <div className="input" key={index}>
+                                            <input onClick={(e)=> chosenOptionHandler(e, index)} type="checkbox" ref={el => inputChecked.current[index] = el} name={data.title} value={data.title}/>
+                                            <label className="label" htmlFor="adidas"> {data.title} </label>
+                                            <span> ({data.quantity})</span>
+                                        </div>
+                                    ))}
                                 </form>
                             </div>
                         </div>
