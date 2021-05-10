@@ -35,7 +35,8 @@
   width: 100%;
   height: 100vh;
   background-color: #FFF;
-  z-index: 2;
+  z-index: 300;
+  overflow-y: hidden;
 }
 
 .sort__filter .container .sub__title {
@@ -59,7 +60,6 @@
 
 .sort__filter .container .chosen__options {
   margin: 10px 0;
-  padding: 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,6 +141,10 @@
   color: #292621;
   text-transform: capitalize;
   text-align: center;
+}
+
+.sort__filter .container .filter .filter__options .title h3 {
+  font-size: 16px;
 }
 
 .sort__filter .container .filter .filter__options .title .remove__icon {

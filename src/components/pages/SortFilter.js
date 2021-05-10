@@ -13,29 +13,47 @@ function SortFilter() {
     const [chosenOption, setChosenOption] = useState([])
     let unique = [...new Set(chosenOption)]
     const inputChecked = useRef([])
+    inputChecked.current = brand.map(
+        (ref, index)=> inputChecked.current[index] = React.createRef()
+    )
 
 
     const openFilterHandler = ()=>{
         setTimeout(()=>{
             setOpenFilter(true)
+            document.body.style.overflowY = "hidden"
         }, 200)
     }
-
+    const closeFilterHandler = ()=>{
+        setTimeout(()=>{
+            setOpenFilter(false)
+            document.body.style.overflowY = "scroll"
+        }, 200)
+    }
     const chosenOptionHandler = (e, index) => {
-        console.log(inputChecked.current.checked)       
+        // console.log()       
         if (e.target.nodeName === 'SPAN') {
             return setChosenOption([...chosenOption, e.target.previousSibling.innerHTML])
         } else if(e.target.nodeName == "P"){
             return setChosenOption([...chosenOption, e.target.innerHTML])
-        }else if (e.target.nodeName === 'INPUT'){
-            return setChosenOption([...chosenOption, e.target.value])
-        }else{
+        }
+        else{
             return null
         }
     }
 
-    const removeChosenOptionHandler = (title) => {
-
+   const inputChosenOptionHandler = (e, index, title) => {
+        if (e.target.nodeName === 'INPUT' && inputChecked.current[index].current.checked === true){
+            return setChosenOption([...chosenOption, e.target.value])
+        }else if (e.target.nodeName === 'INPUT' && inputChecked.current[index].current.checked === false) {
+            let removeArr = unique.filter((elm) => elm !== title)
+            setChosenOption(removeArr)
+        }else{
+            return null
+        }
+    }
+    
+    const removeChosenOptionHandler = (title, index) => {
         let removeArr = unique.filter(elm => elm !== title)
         setChosenOption(removeArr)
     }
@@ -50,17 +68,17 @@ function SortFilter() {
             <div className={`container ${openFilter && "show__filter__container"}`}>
                 <div className="sub__title">
                     <h3>Filter & Sort</h3>
-                    <Close className="close__icons" onClick={()=> setOpenFilter(false)} />
-                </div>
-                <div className="chosen__options">
-                    {unique.map((data, index)=>(
-                        <div onClick={() => removeChosenOptionHandler(data) } className="body__content" key={index}>
-                            <p>{data}</p>
-                            <Close />
-                        </div>
-                    ))}
+                    <Close className="close__icons" onClick={closeFilterHandler} />
                 </div>
                 <div className="wrapper">
+                    <div className="chosen__options">
+                        {unique.map((data, index)=>(
+                            <div onClick={() => removeChosenOptionHandler(data, unique.length) } className="body__content" key={index}>
+                                <p>{data}</p>
+                                <Close />
+                            </div>
+                        ))}
+                    </div>
                     <div className="sort">
                         <h3>sort by</h3>
                         <div className="options">
@@ -116,7 +134,7 @@ function SortFilter() {
                                 <form>
                                     {brand.map((data, index)=>(
                                         <div className="input" key={index}>
-                                            <input onClick={(e)=> chosenOptionHandler(e, index)} type="checkbox" ref={el => inputChecked.current[index] = el} name={data.title} value={data.title}/>
+                                            <input onClick={(e)=> inputChosenOptionHandler(e, index, data.title)} type="checkbox" ref={inputChecked.current[index]} name={data.title} value={data.title}/>
                                             <label className="label" htmlFor="adidas"> {data.title} </label>
                                             <span> ({data.quantity})</span>
                                         </div>

@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined} from '@material-ui/icons'
+import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close} from '@material-ui/icons'
 import './css/Nav.css'
 function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
     return (
         <div className="nav">
             <div className="container">
+                <div onClick={()=> SetOpenMenu(false)} className={`${openMenu && "overlay"}`}></div>
                 <div className="wrapper">
                     <div className="menu__icon">
                         <Menu onClick={()=> SetOpenMenu(!openMenu)} className="icon" />
@@ -21,8 +22,11 @@ function Nav() {
                         <ShoppingBasketOutlined className="icon cart" />
                     </div>
                 </div>
-                <div className="menu">
-                    <div className={`menu__list ${openMenu && 'show__menu'}`}>
+                <div className={`menu ${openMenu && 'show__menu'}`}>
+                    <div className="icon__div">
+                        <Close onClick={()=> SetOpenMenu(false)} />
+                    </div>
+                    <div className={`menu__list`}>
                         <ul>
                             <li>Home</li>
                             <li>Men</li>
