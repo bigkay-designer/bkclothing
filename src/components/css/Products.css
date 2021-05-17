@@ -11,8 +11,17 @@
   -ms-grid-rows: auto;
       grid-template-rows: auto;
   grid-gap: 20px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+@media screen and (max-width: 360px) {
+  .products__section .container {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .products__section .container .item {
