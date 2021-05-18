@@ -1,17 +1,20 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useContext} from 'react'
 import {select, gender, productType, brand} from './SortFilterData.json'
 import {Button} from '@material-ui/core'
 import { Add, Close, Sort, Remove } from '@material-ui/icons'
 import '../css/SortFilter.css'
+import { FilterContext } from '../contextApi/filterContext'
 function SortFilter() {
     const [openFilter, setOpenFilter] = useState(false)
     const [genderEle, setGenderEle] = useState(false)
     const [productTypeEle, setProductTyprEle] = useState(false)
     const [brandEle, setBrandEle] = useState(false)
 
+    ////////
+    const {filter, dispatch} = useContext(FilterContext)
+    let unique = [...new Set(filter.map(item => item.title))]
+
     /// filter states
-    const [chosenOption, setChosenOption] = useState([])
-    let unique = [...new Set(chosenOption)]
     const inputChecked = useRef([])
     inputChecked.current = brand.map(
         (ref, index)=> inputChecked.current[index] = React.createRef()
@@ -30,12 +33,11 @@ function SortFilter() {
             document.body.style.overflowY = "scroll"
         }, 200)
     }
-    const chosenOptionHandler = (e, index) => {
-        // console.log()       
+    const chosenOptionHandler = (e) => {
         if (e.target.nodeName === 'SPAN') {
-            return setChosenOption([...chosenOption, e.target.previousSibling.innerHTML])
-        } else if(e.target.nodeName == "P"){
-            return setChosenOption([...chosenOption, e.target.innerHTML])
+            return dispatch({type: "CHOSEN_OPTION", filter:{title: e.target.previousSibling.innerHTML} })
+        } else if(e.target.nodeName === "P"){
+            return dispatch({type: "CHOSEN_OPTION", filter:{title: e.target.innerHTML} })
         }
         else{
             return null
@@ -43,21 +45,15 @@ function SortFilter() {
     }
 
    const inputChosenOptionHandler = (e, index, title) => {
+
         if (e.target.nodeName === 'INPUT' && inputChecked.current[index].current.checked === true){
-            return setChosenOption([...chosenOption, e.target.value])
+            return dispatch({type: "CHOSEN_OPTION_INPUT", filter:{title:e.target.value} })
         }else if (e.target.nodeName === 'INPUT' && inputChecked.current[index].current.checked === false) {
-            let removeArr = unique.filter((elm) => elm !== title)
-            setChosenOption(removeArr)
+            dispatch({type: 'REMOVE_CHOSEN_OPTION', title})
         }else{
             return null
         }
     }
-    
-    const removeChosenOptionHandler = (title, index) => {
-        let removeArr = unique.filter(elm => elm !== title)
-        setChosenOption(removeArr)
-    }
-
     return (
         <div className="sort__filter">
             <div onClick={openFilterHandler} className="sort__filter--btn">
@@ -73,7 +69,7 @@ function SortFilter() {
                 <div className="wrapper">
                     <div className="chosen__options">
                         {unique.map((data, index)=>(
-                            <div onClick={() => removeChosenOptionHandler(data, unique.length) } className="body__content" key={index}>
+                            <div onClick={() => dispatch({type: 'REMOVE_CHOSEN_OPTION', title:data}) } className="body__content" key={index}>
                                 <p>{data}</p>
                                 <Close />
                             </div>
@@ -99,7 +95,7 @@ function SortFilter() {
                             </div>
                             <div className={`body ${genderEle && "show__body"}`}>
                                 {gender.map((data, index)=>(
-                                    <div onClick={(e)=> chosenOptionHandler(e, index)} className="body__content" key={index}>
+                                    <div onClick={(e)=> chosenOptionHandler(e)} value="male" className="body__content" key={index}>
                                         <p>{data.title}</p>
                                         <span>({data.quantity})</span>
                                     </div>
@@ -115,7 +111,7 @@ function SortFilter() {
                             </div>
                             <div className={`body ${productTypeEle && "show__body"}`}>
                                 {productType.map((data, index)=> (
-                                    <div onClick={(e)=> chosenOptionHandler(e, index)}  className="body__content" key={index}>
+                                    <div onClick={(e)=> chosenOptionHandler(e)} className="body__content" key={index}>
                                         <p>{data.title}</p>
                                         <span>({data.quantity})</span>
                                     </div>

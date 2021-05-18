@@ -1,8 +1,7 @@
 import React, {useState, useRef} from 'react'
 import {ArrowBackIos, ArrowForwardIos, EmojiEmotions, Star} from '@material-ui/icons'
-
-import './css/Testimonials.css'
 import { Button } from '@material-ui/core'
+import '../css/Testimonials.css'
 
 function Testimonials (){
     const [itemsLength, setItemsLength] = useState()

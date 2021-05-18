@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/LandingProductItems.css'
+import '../css/LandingProductItems.css'
 function LandingProductContainer({productName, productPrice, image}) {
 
     return (

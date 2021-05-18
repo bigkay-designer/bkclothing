@@ -2,12 +2,14 @@ import React, {useRef} from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import {ArrowForwardIos, ArrowBackIos} from '@material-ui/icons'
 import LandingProductItems from './LandingProductItems'
-import item1 from './images/trending1.jpg'
-import item2 from './images/trending2.jpg'
-import item3 from './images/trending3.jpg'
-import './css/LandingProducts.css'
-function Suggested() {
+import item1 from '../images/trending1.jpg'
+import item2 from '../images/trending2.jpg'
+import item3 from '../images/trending3.jpg'
+import '../css/LandingProducts.css'
+function Trending({leftArrow, rightArrow, refEle}) {
+    
     const relElement = useRef(null)
+    console.log(relElement.current)
 
     const RightArrowHandler = (moveRight) =>{
         setTimeout(() => {
@@ -19,18 +21,19 @@ function Suggested() {
             return relElement.current.container.current.scrollLeft += moveLeft
         }, 200);
     }
+
     return (
         <div className="wrapper">
             <div onClick={()=> leftArrowHandler(372)}  className="arrow1">
                 <ArrowForwardIos className="icon" />
             </div>
         
-            <ScrollContainer className="suggested landing__product" ref={relElement}>
+            <ScrollContainer className="trending landing__product" ref={relElement}>
                 <div className="container">
                     <LandingProductItems 
                         productName="Gucci Jacket"
                         productPrice="£98.00"
-                        image={item1}
+                        image={item3}
                     />
                     <LandingProductItems 
                         productName="Hoodie"
@@ -40,7 +43,7 @@ function Suggested() {
                     <LandingProductItems 
                         productName="Glasses"
                         productPrice="£29.00"
-                        image={item3}
+                        image={item1}
                     />
                     <LandingProductItems 
                         productName="Glasses"
@@ -54,11 +57,11 @@ function Suggested() {
                     />
                 </div>
             </ScrollContainer>
-            <div onClick={(e)=> RightArrowHandler(-372)} className="arrow2">
+            <div onClick={()=> RightArrowHandler(-372)} className="arrow2">
                 <ArrowBackIos className="icon" />
             </div>
         </div>
     )
 }
 
-export default Suggested
+export default Trending

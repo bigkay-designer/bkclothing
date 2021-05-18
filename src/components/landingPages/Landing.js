@@ -5,7 +5,7 @@ import Showcase from './ShowCase'
 import Suggested from './Suggested'
 import Testimonials from './Testimonials'
 import Trending from './Trending'
-import './css/Landing.css'
+import '../css/Landing.css'
 function Landing() {
 
     return (

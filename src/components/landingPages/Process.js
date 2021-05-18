@@ -1,9 +1,9 @@
 import React from 'react'
-import shipped from './images/shipped.png'
-import creditCard from './images/credit-card.png'
-import moneyBack from './images/money-back.png'
-import service from './images/service.png'
-import './css/Process.css'
+import shipped from '../images/shipped.png'
+import creditCard from '../images/credit-card.png'
+import moneyBack from '../images/money-back.png'
+import service from '../images/service.png'
+import '../css/Process.css'
 function Process (){
     return (
         <div className="process">
