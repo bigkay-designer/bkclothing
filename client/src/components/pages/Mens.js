@@ -1,44 +1,38 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Products from '../Products'
+import axios from '../../containers/axios'
 import item1 from '../images/trending1.jpg'
 import item2 from '../images/trending2.jpg'
 import item3 from '../images/trending3.jpg'
 function Mens() {
+
+    const [products, setProducts] = useState([])
+
     useEffect(()=>{
         window.scrollTo(0, 0)
     }, [])
+
+    useEffect(()=> {
+        axios.get('/get')
+        .then(res => {
+            setProducts(res.data)
+        })
+    }, [])
     return (
-        <div className="men product__wrapper">
+        <div className="product__wrapper">
             <div className="products__section">
                 <div className="container">
-                    <Products 
-                        productName="Gucci Jacket"
-                        productPrice="£98.00"
-                        image={item1}
-                        productGender="female"
-                        productType="clothing"
-                        productBrand="gucci"
-                        productDesc="jacket"
-                    />
-                    <Products 
-                        productName="Hoodie"
-                        productPrice="£98.00"
-                        image={item2}
-                        productGender="male"
-                        productType="clothing"
-                        productBrand="adidas"
-                        productDesc="hoodie"
-                    />
-                    <Products 
-                        productName="Glasses"
-                        productPrice="£29.00"
-                        image={item3}
-                        productGender="female"
-                        productType="clothing"
-                        productBrand="jordan"
-                        productDesc="t-shirt"
-                    />
-
+                    {products.map(product => (
+                        <Products 
+                            productName={product.productName}
+                            productPrice={product.productPrice}
+                            image={product.productImage}
+                            productGender= {product.productGender}
+                            productType= {product.productType}
+                            productBrand= {product.productBrand}
+                            productDesc= {product.productDesc}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
