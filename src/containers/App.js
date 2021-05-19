@@ -19,12 +19,10 @@ function App() {
         <Nav />
         <Switch>
           {/* Product route */}
-          <Route path="/men"> 
             <FilterContextProvider>
-                <SortFilter />
-                <Men /> 
+              <SortFilter />
+              <Route path="/men"> <Men /> </Route>
             </FilterContextProvider>
-          </Route>
           <Route path={'/productDetail'}> <ProductDetail /> </Route>
           {/* Landing route */}
           <Route path="/" exact> <Landing /> </Route>
