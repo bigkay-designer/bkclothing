@@ -8,10 +8,16 @@
             font-size: 26px;
             margin:10px 0;
         }
-        a{
-            text-decoration: none;
-            text-transform: capitalize;
-            color: inherit;
+        p{
+            color: rgb(3, 3, 109);
+            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            svg{
+                margin-right: 3px;
+                font-size: 16px;
+            }
         }
     }
     .img{

@@ -1,13 +1,19 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import axios from '../../containers/axios'
+import { Link, useLocation, useHistory } from 'react-router-dom'
 import {Button} from '@material-ui/core'
 import '../css/ProductDetail.css'
+import { ArrowBack } from '@material-ui/icons'
 function ProductDetail() {
     const [currentImgTap, setCurrentImgTap] = useState(0)
+    const [productDetails, setProductDetails] = useState([])
+    const location = useLocation()
+    const locationHistory = useHistory()
+    
     const productImg = [
         {
             id:'img1',
-            img:'https://images.pexels.com/photos/2473710/pexels-photo-2473710.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+            img:productDetails.productImage
         }, 
         {
             id:'img2',
@@ -18,16 +24,24 @@ function ProductDetail() {
             img:'https://images.pexels.com/photos/7462545/pexels-photo-7462545.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
         }
     ]
-    console.log(productImg[1].img)
 
     const imgTapHandler = (index) =>{
         setCurrentImgTap(index)
     }
+
+    useEffect(()=> {
+        axios.get(location.pathname)
+        .then(res => {
+            setProductDetails(res.data)
+        })
+        .catch(err => console.log(err))
+    }, [])
+
     return (
         <div className="product__detail">
             <div className="product__title">
-                <h3>product name</h3>
-                <Link>category</Link>
+                <h3>{productDetails.productName}</h3>
+                <p onClick={()=> locationHistory.goBack()}> <ArrowBack /> <span>back</span></p>
             </div>  
             <div className="product__container">
                 <div className="img">
@@ -43,7 +57,7 @@ function ProductDetail() {
                     </div>
                 </div>
                 <div className="price">
-                    <p>£129.99 <span>VAT included</span></p>
+                    <p>£{productDetails.productPrice} <span>VAT included</span></p>
                 </div>
                 <div className="size__options">
                     <select name="size">

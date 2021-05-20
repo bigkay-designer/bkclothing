@@ -9,10 +9,21 @@
   margin: 10px 0;
 }
 
-.product__detail .product__title a {
-  text-decoration: none;
-  text-transform: capitalize;
-  color: inherit;
+.product__detail .product__title p {
+  color: #03036d;
+  text-decoration: underline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.product__detail .product__title p svg {
+  margin-right: 3px;
+  font-size: 16px;
 }
 
 .product__detail .img {
