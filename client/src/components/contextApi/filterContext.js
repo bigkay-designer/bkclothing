@@ -1,10 +1,10 @@
 import React, {useReducer, useEffect, createContext} from 'react'
-import { filterReducer } from '../reducers/filterReducer'
+import { filterReducer, initialState } from '../reducers/filterReducer'
 
 export const FilterContext = createContext()
 
 const FilterContextProvider = (props) => {
-    const [filter, dispatch] = useReducer(filterReducer, [])
+    const [filter, dispatch] = useReducer(filterReducer, initialState)
     return (
         <FilterContext.Provider value={{filter, dispatch}}>
             {props.children}

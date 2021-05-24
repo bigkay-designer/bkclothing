@@ -10,6 +10,7 @@ import ProductDetail from '../components/pages/ProductDetail';
 import SortFilter from '../components/pages/SortFilter';
 import FilterContextProvider from '../components/contextApi/filterContext';
 import ProductDisplay from '../components/pages/ProductDisplay';
+import CartContextProvider from '../components/contextApi/cartContext';
 
 const location = window.location.pathname
 function App() {
@@ -26,7 +27,9 @@ function App() {
           </FilterContextProvider>
         </Switch>
         <Switch>
-          <Route path="/get/product"><ProductDetail /></Route>
+          <CartContextProvider>
+            <Route path="/get/product"><ProductDetail /></Route>
+          </CartContextProvider>
           <Route path="/" exact component={Landing} />
         </Switch>
         <NewsLetter />

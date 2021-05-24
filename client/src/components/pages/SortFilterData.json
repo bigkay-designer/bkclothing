@@ -2,13 +2,13 @@
     "select":{
         "optionNames": ["initial Result","Alphabetical (A-Z)","new Arrivals","price (low to high)","price (high to low)","brand names (A-Z)"]
     }, 
-    "gender": [
+    "productName": [
         {
-            "title": "male",
+            "title": "skirt",
             "quantity": 2232
         }, 
         {
-            "title": "female",
+            "title": "jacket",
             "quantity": 1094
         }
     ],
@@ -26,7 +26,7 @@
             "quantity": 3290
         }
     ],
-    "brand": [
+    "productBrand": [
         {
             "title": "adidas",
             "quantity": 9488
@@ -40,7 +40,7 @@
             "quantity": 30
         },
         {
-            "title": "nike",
+            "title": "boohoo",
             "quantity": 3030
         }
     ]

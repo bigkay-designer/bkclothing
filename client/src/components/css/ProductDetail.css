@@ -22,8 +22,7 @@
 }
 
 .product__detail .product__title p svg {
-  margin-right: 3px;
-  font-size: 16px;
+  margin-right: -7px;
 }
 
 .product__detail .img {

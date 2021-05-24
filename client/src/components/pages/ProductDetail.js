@@ -3,7 +3,7 @@ import axios from '../../containers/axios'
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import {Button} from '@material-ui/core'
 import '../css/ProductDetail.css'
-import { ArrowBack } from '@material-ui/icons'
+import { ArrowBackIos } from '@material-ui/icons'
 function ProductDetail() {
     const [currentImgTap, setCurrentImgTap] = useState(0)
     const [productDetails, setProductDetails] = useState([])
@@ -41,7 +41,7 @@ function ProductDetail() {
         <div className="product__detail">
             <div className="product__title">
                 <h3>{productDetails.productName}</h3>
-                <p onClick={()=> locationHistory.goBack()}> <ArrowBack /> <span>back</span></p>
+                <p onClick={()=> locationHistory.goBack()}> <ArrowBackIos /> <span>back</span></p>
             </div>  
             <div className="product__container">
                 <div className="img">

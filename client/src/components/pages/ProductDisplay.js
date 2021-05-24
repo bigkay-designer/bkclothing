@@ -11,11 +11,39 @@ function Mens() {
     const [genderTitle, setGenderTitle] = useState('')
     const {filter} = useContext(FilterContext)
     const [products, setProducts] = useState([])
+    const [test, setTest] = useState([])
     const location = useLocation()
+
+    console.log(filter)
+
+    // When visit page go to the top
     useEffect(()=>{
         window.scrollTo(0, 0)
     }, [])
 
+    // Filer products
+    let filterTest = {
+        productBrand: ["boohoo"],
+        productName: [""],
+    }
+
+    useEffect(()=> {      
+        const multiFilter = (item, condition) => {
+            const filterKeys = Object.keys(condition);
+            return item.filter((eachObj) => {
+              return filterKeys.every(eachKey => {
+                if (!condition[eachKey].length) {
+                  return true; // passing an empty filter means that filter is ignored.
+                }
+                return (condition[eachKey].toString()).toLowerCase().includes((eachObj[eachKey].toString()).toLowerCase());
+              });
+            });
+          };
+        setProducts(multiFilter(products, filter))
+        // console.log(products)
+    }, [filter])
+
+    /// male and female products page
     useEffect(()=> {
         if(location.pathname === '/all/men'){
             axios.get(`/get/all/male`)
