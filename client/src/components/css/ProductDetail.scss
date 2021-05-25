@@ -58,17 +58,18 @@
         }
     }
 
-    .size__options{
-        margin-bottom: 20px;
-        select{
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            text-transform: uppercase;
-            background-color: rgb(241, 241, 241);
-        }
-    }
     form{
+        
+        .size__options{
+            margin-bottom: 20px;
+            select{
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                text-transform: uppercase;
+                background-color: rgb(241, 241, 241);
+            }
+        }
         .fieldset{
             border: none;
             padding: 0;
@@ -99,12 +100,19 @@
     }
     .add__to__cart{
         margin-top: 40px;
+        background-color: rgb(49, 133, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
         button{
             width: 100%;
             text-align: center;
-            background-color: rgb(49, 133, 1);
             color: #fff;
             border-radius: 0;
+        }
+        svg{
+            color: #e0e0e0;
+            margin-right: 7px;
         }
     }
 }

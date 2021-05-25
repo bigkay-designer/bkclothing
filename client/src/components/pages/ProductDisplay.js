@@ -14,8 +14,6 @@ function Mens() {
     const [test, setTest] = useState([])
     const location = useLocation()
 
-    console.log(filter)
-
     // When visit page go to the top
     useEffect(()=>{
         window.scrollTo(0, 0)

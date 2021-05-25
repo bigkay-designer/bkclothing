@@ -10,32 +10,31 @@ import ProductDetail from '../components/pages/ProductDetail';
 import SortFilter from '../components/pages/SortFilter';
 import FilterContextProvider from '../components/contextApi/filterContext';
 import ProductDisplay from '../components/pages/ProductDisplay';
-import CartContextProvider from '../components/contextApi/cartContext';
+import Checkout from '../components/pages/Checkout';
 
 const location = window.location.pathname
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Nav />
-        <Switch>
-          <FilterContextProvider>
-            <Route path={`/all/:gender`}>
-              <SortFilter />
-              <ProductDisplay />
-            </Route>
-          </FilterContextProvider>
-        </Switch>
-        <Switch>
-          <CartContextProvider>
-            <Route path="/get/product"><ProductDetail /></Route>
-          </CartContextProvider>
-          <Route path="/" exact component={Landing} />
-        </Switch>
-        <NewsLetter />
-        <Footer />
-      </Router>
-    </div>
+        <div className="App">
+          <Router>
+            <Nav />
+            <Switch>
+              <FilterContextProvider>
+                <Route path={`/all/:gender`}>
+                  <SortFilter />
+                  <ProductDisplay />
+                </Route>
+              </FilterContextProvider>
+            </Switch>
+            <Switch>
+              <Route path="/checkout"> <Checkout /></Route>
+              <Route path="/get/product"><ProductDetail /></Route>
+              <Route path="/" exact component={Landing} />
+            </Switch>
+            <NewsLetter />
+            <Footer />
+          </Router>
+        </div>
   );
 }
 

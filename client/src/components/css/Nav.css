@@ -70,8 +70,36 @@
   cursor: pointer;
 }
 
+.nav .container .wrapper .cart__div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 7px;
+}
+
 .nav .container .wrapper .cart__div .cart {
   margin-left: 10px;
+}
+
+.nav .container .wrapper .cart__div .cart__body__div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.nav .container .wrapper .cart__div .cart__body__div p {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  border-radius: 50%;
+  padding: 3px 7px;
+  background-color: red;
+  color: #e2e2e2;
+  font-weight: bold;
 }
 
 .nav .container .wrapper .cart__div .icon {

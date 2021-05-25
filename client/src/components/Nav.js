@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close} from '@material-ui/icons'
 import './css/Nav.css'
+import { useStateValue } from './contextApi/cartContext'
 function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
+    const [{cart}] = useStateValue()
     return (
         <div className="nav">
             <div className="container">
@@ -19,7 +21,12 @@ function Nav() {
                     </div>
                     <div className="cart__div">
                         <SearchOutlined className="icon search" />
-                        <ShoppingBasketOutlined className="icon cart" />
+                        <Link to="/checkout">
+                            <div className="cart__body__div">
+                                <ShoppingBasketOutlined className="icon cart" />
+                                <p> {cart.length} </p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className={`menu ${openMenu && 'show__menu'}`}>

@@ -3,13 +3,17 @@ import axios from '../../containers/axios'
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import {Button} from '@material-ui/core'
 import '../css/ProductDetail.css'
-import { ArrowBackIos } from '@material-ui/icons'
+import { AddShoppingCart, ArrowBackIos } from '@material-ui/icons'
+import { useStateValue } from '../contextApi/cartContext'
+
 function ProductDetail() {
     const [currentImgTap, setCurrentImgTap] = useState(0)
     const [productDetails, setProductDetails] = useState([])
     const location = useLocation()
     const locationHistory = useHistory()
-    
+    const [sizeValue, setSizeValue] = useState('')
+    const [{cart}, dispatch] = useStateValue()
+
     const productImg = [
         {
             id:'img1',
@@ -37,6 +41,25 @@ function ProductDetail() {
         .catch(err => console.log(err))
     }, [])
 
+    // add to basket context
+    console.log(cart)
+    const addToBasketHandler = (e) => {
+        e.preventDefault()
+        dispatch({
+            type:"ADD_TO_CART",
+            item:{
+                id:productDetails._id,
+                productName: productDetails.productName,
+                productType: productDetails.productType,
+                productBrand: productDetails.productBrand,
+                productDesc: productDetails.productDesc,
+                productPrice: productDetails.productPrice,
+                productImage: productDetails.productImage,
+                productSize: sizeValue
+            }
+        })
+    }
+
     return (
         <div className="product__detail">
             <div className="product__title">
@@ -59,33 +82,19 @@ function ProductDetail() {
                 <div className="price">
                     <p>£{productDetails.productPrice} <span>VAT included</span></p>
                 </div>
-                <div className="size__options">
-                    <select name="size">
-                        <option value="eu">eu</option>
-                        <option value="us">us</option>
-                        <option value="uk">uk</option>
-                    </select>
-                </div>
-                <form>
-                    <fieldset className="fieldset">
-                        <legend className="legend__hidden" >select a size</legend>
-                        <div className="fieldset__group">
-                            <label htmlFor="xs">xs</label>
-                            <input id="xs" type="radio" name="xs" required value="xs" />
-                        </div>
-                        <div className="fieldset__group">
-                            <label htmlFor="xl">xl</label>
-                            <input id="xl" type="radio" name="xl" required value="xl" />
-                        </div>
-                        <div className="fieldset__group">
-                            <label htmlFor="xxl">xxl</label>
-                            <input id="xxl" type="radio" name="xxl" required value="xxl" />
-                        </div>
-                    </fieldset>
+                <form onSubmit={addToBasketHandler}>
+                    <div className="size__options">
+                        <select name="size" id="" onChange={(e)=> setSizeValue(e.target.value)} required> 
+                            <option value="">select size</option>
+                            <option value="s">s</option>
+                            <option value="m">m</option>
+                            <option value="xl">xl</option>
+                        </select>
+                    </div>
+                    <div className="add__to__cart">
+                        <Button type="submit"><AddShoppingCart /> add to cart</Button>
+                    </div>
                 </form>
-                <div className="add__to__cart">
-                    <Button>add to cart</Button>
-                </div>
             </div>
         </div>
     )

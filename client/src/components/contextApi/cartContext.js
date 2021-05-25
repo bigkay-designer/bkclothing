@@ -1,15 +1,16 @@
-import React, {useReducer, useContext, createContext} from 'react'
-import {cartReducer, initialState} from '../reducers/cartReducer'
+import React, {useReducer, createContext, useContext} from 'react'
+
+//create the data layer (ContextAPi)
 export const CartContext = createContext()
 
-const CartContextProvider = (props) => {
-    const [cart, dispatch] = useReducer(cartReducer, initialState)
-
+//Wrap app and provide the data layer 
+export const CartContextProvider = ({cartReducer, cartInitialState, children}) => {
     return (
-        <CartContext.Provider value={cart, dispatch}>
-            {props.children}
+        <CartContext.Provider value={useReducer(cartReducer, cartInitialState)}>
+            {children}
         </CartContext.Provider>
     )
 }
 
-export default CartContextProvider
+//Pull information from data layer
+export const useStateValue = () => useContext(CartContext)

@@ -48,8 +48,25 @@
                 }
             }
             .cart__div{
+                display: flex;
+                align-items: center;
+                margin-right: 7px;
                 .cart{
                     margin-left: 10px;
+                }
+                .cart__body__div{
+                    display: flex;
+                    position: relative;
+                    p{
+                        position: absolute;
+                        top: -7px;
+                        right: -10px;
+                        border-radius: 50%;
+                        padding: 3px 7px;
+                        background-color: red;
+                        color: rgb(226, 226, 226);
+                        font-weight: bold;
+                    }
                 }
                 .icon{
                     font-size: 32px;
