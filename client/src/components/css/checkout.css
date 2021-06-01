@@ -1,9 +1,31 @@
+.checkout {
+  margin: 10px 0 30px;
+}
+
 .checkout .title {
   padding: 10px;
+  text-align: center;
 }
 
 .checkout .title h2 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 10px 0;
+}
+
+.checkout .title h4 {
+  color: #f75454;
+}
+
+.checkout .btn {
+  text-align: center;
+  width: 100%;
+  margin: 15px 0 30px;
+}
+
+.checkout .btn button {
+  width: 50%;
+  background-color: #171613;
+  color: #fff;
+  cursor: pointer;
 }
 /*# sourceMappingURL=checkout.css.map */

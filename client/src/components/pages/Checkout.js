@@ -3,7 +3,10 @@ import CurrencyFormat from 'react-currency-format'
 import { useStateValue } from '../contextApi/cartContext'
 import {getCartTotal} from '../reducers/cartReducer'
 import CheckoutItems from './CheckoutItems'
+
 import '../css/checkout.css'
+import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 function Checkout() {
     const [newCart, setNewCart] = useState([])
     const [{cart, cartTotal}, dispatch] = useStateValue()
@@ -35,7 +38,7 @@ function Checkout() {
     return (
         <div className="checkout">
             <div className="title">
-                <h2>my cart</h2>
+                <h2>shopping bag</h2>
                 <CurrencyFormat 
                     renderText={(value)=>(
                         <h4>Total: {value} </h4 >
@@ -47,6 +50,11 @@ function Checkout() {
                     prefix={"£"}
                 >
                 </CurrencyFormat>
+                <div className="btn">
+                    <Link to="/payment">
+                        <Button>checkout</Button>
+                    </Link>
+                </div>
             </div>
             <div className="cart__items">
                 {newCart.map((item, index) => (
@@ -63,6 +71,11 @@ function Checkout() {
                             updateProductHandler={updateProductHandler}
                         />
                 ))}
+            </div>
+            <div className="btn btn__bottom">
+                <Link to="/payment">
+                    <Button>checkout</Button>
+                </Link>
             </div>
         </div>
     )

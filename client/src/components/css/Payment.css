@@ -1,0 +1,22 @@
+.payment {
+  margin: 20px 0 40px;
+}
+
+.payment .cart__items .container {
+  width: 90%;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 2px 4px grey;
+          box-shadow: 0px 2px 4px grey;
+  padding: 20px 0;
+}
+
+.payment .cart__items .container .title {
+  padding: 0px 15px;
+}
+
+.payment .cart__items .container .title h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 10px 0;
+  text-transform: capitalize;
+}
+/*# sourceMappingURL=Payment.css.map */

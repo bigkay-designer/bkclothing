@@ -11,6 +11,7 @@ import SortFilter from '../components/pages/SortFilter';
 import FilterContextProvider from '../components/contextApi/filterContext';
 import ProductDisplay from '../components/pages/ProductDisplay';
 import Checkout from '../components/pages/Checkout';
+import Payment from '../components/pages/Payment';
 
 const location = window.location.pathname
 function App() {
@@ -27,6 +28,7 @@ function App() {
               </FilterContextProvider>
             </Switch>
             <Switch>
+              <Route path="/payment"> <Payment /></Route>
               <Route path="/checkout"> <Checkout /></Route>
               <Route path="/get/product"><ProductDetail /></Route>
               <Route path="/" exact component={Landing} />
