@@ -35,15 +35,16 @@ function ProductDetail() {
 
     useEffect(()=> {
         axios.get(location.pathname)
-        .then(res => {
+        .then((res) => {
             setProductDetails(res.data)
         })
         .catch(err => console.log(err))
     }, [])
 
+
     // add to basket context
-    console.log(cart)
-    const addToBasketHandler = (e) => {
+
+    const addToBasketHandler = (e,) => {
         e.preventDefault()
         dispatch({
             type:"ADD_TO_CART",
@@ -55,7 +56,8 @@ function ProductDetail() {
                 productDesc: productDetails.productDesc,
                 productPrice: productDetails.productPrice,
                 productImage: productDetails.productImage,
-                productSize: sizeValue
+                productSize: sizeValue,
+                productQuantity: 1
             }
         })
     }

@@ -6,8 +6,7 @@ import CheckoutItems from './CheckoutItems'
 import '../css/checkout.css'
 function Checkout() {
     const [newCart, setNewCart] = useState([])
-    const [{cart}, dispatch] = useStateValue()
-
+    const [{cart, cartTotal}, dispatch] = useStateValue()
     useEffect(() => {
         let filterOldCart = cart.filter((elm,index,arr)=> arr.findIndex(item => elm.id === item.id && elm.productSize === item.productSize) === index)
         setNewCart(filterOldCart)
@@ -17,7 +16,20 @@ function Checkout() {
         dispatch({
             type:"REMOVE_FROM_CART",
             id:id,
-            size:size
+            productSize:size
+        })
+    }
+
+    const updateProductHandler = (id, index, inputVal, sizeVal) => {
+        dispatch({
+            type: "UPDATE_CART",
+            item: {
+                id: id,
+                index: index,
+                productQuantity:parseFloat(inputVal),
+                productSize: sizeVal,
+                
+            }
         })
     }
     return (
@@ -37,14 +49,18 @@ function Checkout() {
                 </CurrencyFormat>
             </div>
             <div className="cart__items">
-                {newCart.map(item => (
+                {newCart.map((item, index) => (
                         <CheckoutItems
+                            key={index}
                             id={item.id}
+                            index={index}
                             productName={item.productName}
                             productPrice={item.productPrice}
                             image={item.productImage}
                             size={item.productSize}
+                            quantity={item.productQuantity}
                             removeFromCartHandler={removeFromCartHandler}
+                            updateProductHandler={updateProductHandler}
                         />
                 ))}
             </div>

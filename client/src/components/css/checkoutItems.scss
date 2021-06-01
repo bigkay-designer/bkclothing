@@ -10,6 +10,7 @@
         .img{
             background-color: rgb(245, 245, 245);
             border: 1px solid grey;
+            flex: 0.40;
             .img__container{
                 padding: 10px;
                 width: 160px;
@@ -23,6 +24,7 @@
             }
         }
         .body{
+            flex: 0.60;
             margin-left: 20px;
             a{
                 color: #000;
@@ -39,25 +41,110 @@
             }
             table{
                 margin-bottom: 1rem;
-                align-self: self-start;
+                border-collapse: separate;
+                border-spacing: 0 15px;
                 tr{
                     text-align: left;
                     font-family: Georgia, 'Times New Roman', Times, serif;
+                    padding: 10px 0;
                     th{
-                        padding-right: 10px;
-                        margin: 7px 0;
+                        padding: 0px 5px 0 0px;
                         font-weight: bold;
+                        text-transform: capitalize;
+                        font-weight: normal;
+                        font-style: italic;
+                    }
+                    td{
+                        font-style: italic;
+                        text-transform: uppercase;
                     }
                 }
             }
-            .remove__item{
+            .edit__div{
                 display: flex;
                 align-items: center;
-                color: rgb(0, 89, 255);
-                cursor: pointer;
-                max-width: fit-content;
+                p{
+                    display: flex;
+                    align-items: center;
+                    font-size: 12px;
+                    padding: 0 10px 0 0;
+                    color: rgb(48, 48, 48);
+                    text-transform: capitalize;
+                    font-weight: 400;
+                    cursor: pointer;
+                    span{
+                        padding-left: 3px;
+                    }
+                    svg{
+                        font-size: 16px;
+                    }
+                }
+                .remove__item{
+                    max-width: fit-content;
+                }
             }
         }
         
+    }
+    .display__form{
+        display: block !important;
+    }
+    .edit__form{
+        margin-top: 15px;
+        width: 90%;
+        margin: 15px auto;
+        display: none;
+        form{
+            border: 1px solid lightgray;
+            padding: 15px 10px;
+            .form__group{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width:100%;
+                padding: 0 10px;
+                margin: 0 10px;
+
+                .size__options, input{
+                    display: flex;
+                    flex-direction: column;
+                }
+                label{
+                    text-transform: uppercase;
+                    font-size: 14px;
+                }
+                input, select{
+                    padding: 10px;
+                    width: 120px;
+                    margin: 0 20px 0 0;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    outline: none;
+                }
+            }
+            .btn{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+                width: 100%;
+                button{
+                    width: 100%;
+                    margin-top: 10px;
+                    svg{
+                        margin-right: 10px;
+                    }
+                }
+                .save__btn{
+                    background-color: rgb(2, 93, 168);
+                    color: #fff;
+                }
+                .cancel__btn{
+                    border: 1px solid rgb(2, 93, 168);;
+                }
+            }
+        }
+
     }
 }

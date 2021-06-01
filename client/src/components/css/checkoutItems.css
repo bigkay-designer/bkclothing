@@ -17,6 +17,9 @@
 .checkout__items .item .img {
   background-color: whitesmoke;
   border: 1px solid grey;
+  -webkit-box-flex: 0.40;
+      -ms-flex: 0.40;
+          flex: 0.40;
 }
 
 .checkout__items .item .img .img__container {
@@ -33,6 +36,9 @@
 }
 
 .checkout__items .item .body {
+  -webkit-box-flex: 0.60;
+      -ms-flex: 0.60;
+          flex: 0.60;
   margin-left: 20px;
 }
 
@@ -50,33 +56,155 @@
 
 .checkout__items .item .body table {
   margin-bottom: 1rem;
-  -ms-flex-item-align: self-start;
-      -ms-grid-row-align: self-start;
-      align-self: self-start;
+  border-collapse: separate;
+  border-spacing: 0 15px;
 }
 
 .checkout__items .item .body table tr {
   text-align: left;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 10px 0;
 }
 
 .checkout__items .item .body table tr th {
-  padding-right: 10px;
-  margin: 7px 0;
+  padding: 0px 5px 0 0px;
   font-weight: bold;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-style: italic;
 }
 
-.checkout__items .item .body .remove__item {
+.checkout__items .item .body table tr td {
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.checkout__items .item .body .edit__div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #0059ff;
+}
+
+.checkout__items .item .body .edit__div p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  padding: 0 10px 0 0;
+  color: #303030;
+  text-transform: capitalize;
+  font-weight: 400;
   cursor: pointer;
+}
+
+.checkout__items .item .body .edit__div p span {
+  padding-left: 3px;
+}
+
+.checkout__items .item .body .edit__div p svg {
+  font-size: 16px;
+}
+
+.checkout__items .item .body .edit__div .remove__item {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
+}
+
+.checkout__items .display__form {
+  display: block !important;
+}
+
+.checkout__items .edit__form {
+  margin-top: 15px;
+  width: 90%;
+  margin: 15px auto;
+  display: none;
+}
+
+.checkout__items .edit__form form {
+  border: 1px solid lightgray;
+  padding: 15px 10px;
+}
+
+.checkout__items .edit__form form .form__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+.checkout__items .edit__form form .form__group .size__options, .checkout__items .edit__form form .form__group input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.checkout__items .edit__form form .form__group label {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.checkout__items .edit__form form .form__group input, .checkout__items .edit__form form .form__group select {
+  padding: 10px;
+  width: 120px;
+  margin: 0 20px 0 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.checkout__items .edit__form form .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.checkout__items .edit__form form .btn button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.checkout__items .edit__form form .btn button svg {
+  margin-right: 10px;
+}
+
+.checkout__items .edit__form form .btn .save__btn {
+  background-color: #025da8;
+  color: #fff;
+}
+
+.checkout__items .edit__form form .btn .cancel__btn {
+  border: 1px solid #025da8;
 }
 /*# sourceMappingURL=checkoutItems.css.map */

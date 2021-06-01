@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close} from '@material-ui/icons'
 import './css/Nav.css'
@@ -6,6 +6,7 @@ import { useStateValue } from './contextApi/cartContext'
 function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
     const [{cart}] = useStateValue()
+    
     return (
         <div className="nav">
             <div className="container">
