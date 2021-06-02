@@ -9,7 +9,6 @@ export const getCartTotal = (cart) => {
 }
 
 const cartReducer = (state, action) => {
-    console.log(action)
     switch(action.type){
         case "ADD_TO_CART":
             state.cart.map(item => {
@@ -22,7 +21,6 @@ const cartReducer = (state, action) => {
                 cart: [...state.cart, action.item],
             }
         case "UPDATE_CART": 
-        // const filterItem = state.cart.filter(item => item.id !== action.id && item.productSize !== action.size);
             return {
                 ...state,
                 cart: state.cart.map((item, index) => 

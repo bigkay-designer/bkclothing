@@ -17,7 +17,8 @@
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
-    "mongoose": "^5.12.10"
+    "mongoose": "^5.12.10",
+    "stripe": "^8.150.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

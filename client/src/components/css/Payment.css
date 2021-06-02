@@ -2,21 +2,90 @@
   margin: 20px 0 40px;
 }
 
+.payment .title {
+  padding: 0px 15px;
+}
+
+.payment .title h2 {
+  font-style: italic;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 10px 0;
+  text-transform: capitalize;
+}
+
+.payment .billing__details .container form {
+  width: 100%;
+  padding: 10px 15px;
+}
+
+.payment .billing__details .container form .input__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 20px 0;
+}
+
+.payment .billing__details .container form .input__group label {
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  color: #303030;
+}
+
+.payment .billing__details .container form .input__group input {
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.payment .billing__details .container form .address__group {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 0 10px;
+}
+
+.payment .billing__details .container form .address__group .input__group {
+  margin: 10px 0;
+}
+
+.payment .billing__details .container form .payment__method {
+  margin: 20px 0;
+}
+
+.payment .billing__details .container form .payment__method .container {
+  margin-top: 20px;
+}
+
+.payment .billing__details .container form .btn__form {
+  width: 100%;
+  margin: 30px 0 0;
+}
+
+.payment .billing__details .container form .btn__form button {
+  width: 100%;
+  text-align: center;
+  background-color: #01313a;
+  color: #fff;
+}
+
+.payment .cart__items {
+  margin: 40px 0;
+}
+
 .payment .cart__items .container {
   width: 90%;
   margin: 0 auto;
   -webkit-box-shadow: 0px 2px 4px grey;
           box-shadow: 0px 2px 4px grey;
-  padding: 20px 0;
-}
-
-.payment .cart__items .container .title {
-  padding: 0px 15px;
-}
-
-.payment .cart__items .container .title h2 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  margin: 10px 0;
-  text-transform: capitalize;
+  overflow-x: scroll;
+  height: 350px;
 }
 /*# sourceMappingURL=Payment.css.map */

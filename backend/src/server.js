@@ -4,6 +4,8 @@ import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import Stripe from 'stripe'
+const stripe = new Stripe(process.env.STRIPE_SECRET)
 // Import routes
 import products from '../routes/products'
 
@@ -31,6 +33,33 @@ app.use(cors())
 // Using Routes
 app.use('/api/products/', products)
 
+
+///STRIPE
+app.post('/stripe/charge', async (req, res) => {
+    let {amount, id} = req.body
+    console.log("Stripe.js | amount and id", amount, id )
+    try{
+        const payment = await stripe.paymentIntents.create({
+            amount: amount,
+            currency: "USD",
+            description: "bkclothing",
+            payment_method: id,
+            confirm: true
+        });
+        console.log("stripe.js | payment", payment)
+        res.json({
+            message: "Payment Success",
+            success: true
+        })
+
+    }catch(error){
+        console.log("stripe.js | error", error)
+        res.json({
+            message: 'payment failed',
+            success: false,
+        })
+    }
+})
 
 
 app.get('*', (req, res)=>{

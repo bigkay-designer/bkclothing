@@ -8,9 +8,11 @@ function Products({id, image, productPrice, productName}) {
     return (
         <div className="item">
             <div className="img">
-                <Link to={`/get/product/${productName}/${id}`}>
-                    <img src={image} alt=""/>
-                </Link>
+                <div className="img__container">
+                    <Link to={`/get/product/${productName}/${id}`}>
+                        <img src={image} alt=""/>
+                    </Link>
+                </div>
                 <div className="purchase__icon">
                     <FavoriteBorder className="hover__fill" />
                 </div>

@@ -1,19 +1,74 @@
 .payment{
     margin: 20px 0 40px;
+    .title{
+        padding: 0px 15px;
+        h2{
+            font-style: italic;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 10px 0;
+            text-transform: capitalize;
+        }
+    }
+
+    .billing__details{
+        .container{
+            form{
+                width: 100%;
+                padding: 10px 15px;
+                .input__group{
+                    display: flex;
+                    flex-direction: column;
+                    margin: 20px 0;
+                    label{
+                        text-transform: capitalize;
+                        margin-bottom: 5px;
+                        color: rgb(48, 48, 48);
+                    }
+                    input{
+                        font-size: 16px;
+                        padding: 5px;
+                        width: 100%;
+                        outline: none;
+                    }
+                }
+                .address__group{
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 0 10px;
+                    .input__group{
+                        margin: 10px 0;
+                    }
+                }
+                .payment__method{
+                    margin: 20px 0;
+                    .container{
+                        margin-top: 20px;
+                    }
+                }
+                .btn__form{
+                    width: 100%;
+                    margin: 30px 0 0;
+                    button{
+                        width: 100%;
+                        text-align: center;
+                        background-color: rgb(1, 49, 58);
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
     .cart__items{
+        margin: 40px 0;
         .container{
             width: 90%;
             margin: 0 auto;
             box-shadow: 0px 2px 4px grey;
-            padding: 20px 0;
-            .title{
-                padding: 0px 15px;
-                h2{
-                    font-family: Georgia, 'Times New Roman', Times, serif;
-                    margin: 10px 0;
-                    text-transform: capitalize;
-                }
-            }
+            overflow-x: scroll;
+            height: 350px;
         }
     }
 }

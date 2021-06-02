@@ -1,20 +1,47 @@
-
+.payment__items{
+    margin: 10px 0 !important;
+    .item{
+        .img{
+            border-radius: 12px !important;
+            border: none !important;
+            .img__container{
+                width: 80px !important;
+                padding: 10px 5px !important;
+            }
+        }  
+        .body{
+            table{
+                border-spacing: 0 7px !important;
+                tbody{
+                    @media screen and (min-width: 360px){
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    tr{
+                        padding: 0;
+                    }
+                }
+            }
+        }      
+    }
+}
 .checkout__items, .payment__items{
     margin: 30px 0;
     .item{
-        width: 90%;
+        width: 100%;
+        padding: 10px;
         margin: 0 auto;
         display: flex;
-        justify-content: flex-start;
+        align-items: center;
         min-height: 175px;
         .img{
             background-color: rgb(245, 245, 245);
-            border: 1px solid grey;
-            flex: 0.40;
+            flex: 0.30;
+            border-radius: 12px;
             .img__container{
                 padding: 10px;
-                width: 160px;
-                margin: auto;
+                width: 120px;
+                margin:0 auto;
                 height: 100%;
                 img{
                     width: 100%;
@@ -24,7 +51,7 @@
             }
         }
         .body{
-            flex: 0.60;
+            flex: 0.70;
             margin-left: 20px;
             a{
                 color: #000;
@@ -37,12 +64,12 @@
                     font-weight: normal;
                     padding: 0;
                     margin: 0;
+                    text-transform: capitalize;
                 }
             }
             table{
-                margin-bottom: 1rem;
                 border-collapse: separate;
-                border-spacing: 0 15px;
+                border-spacing: 0 10px;
                 tr{
                     text-align: left;
                     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -53,6 +80,8 @@
                         text-transform: capitalize;
                         font-weight: normal;
                         font-style: italic;
+                        color: rgb(41, 41, 41);
+
                     }
                     td{
                         font-style: italic;
@@ -63,6 +92,7 @@
             .edit__div{
                 display: flex;
                 align-items: center;
+                margin-top: 5px;
                 p{
                     display: flex;
                     align-items: center;

@@ -51,9 +51,13 @@ function Checkout() {
                 >
                 </CurrencyFormat>
                 <div className="btn">
-                    <Link to="/payment">
-                        <Button>checkout</Button>
-                    </Link>
+                    {
+                        cart.length >= 1 ? 
+                        <Link to="/payment">
+                            <Button>checkout</Button>
+                        </Link>
+                        :null
+                    }
                 </div>
             </div>
             <div className="cart__items">
@@ -73,9 +77,13 @@ function Checkout() {
                 ))}
             </div>
             <div className="btn btn__bottom">
-                <Link to="/payment">
-                    <Button>checkout</Button>
-                </Link>
+                {
+                    cart.length >= 1 ? 
+                    <Link to="/payment">
+                        <Button>checkout</Button>
+                    </Link>
+                    :null
+                }
             </div>
         </div>
     )

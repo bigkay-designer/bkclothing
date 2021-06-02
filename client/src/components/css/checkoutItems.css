@@ -1,31 +1,63 @@
+.payment__items {
+  margin: 10px 0 !important;
+}
+
+.payment__items .item .img {
+  border-radius: 12px !important;
+  border: none !important;
+}
+
+.payment__items .item .img .img__container {
+  width: 80px !important;
+  padding: 10px 5px !important;
+}
+
+.payment__items .item .body table {
+  border-spacing: 0 7px !important;
+}
+
+@media screen and (min-width: 360px) {
+  .payment__items .item .body table tbody {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.payment__items .item .body table tbody tr {
+  padding: 0;
+}
+
 .checkout__items, .payment__items {
   margin: 30px 0;
 }
 
 .checkout__items .item, .payment__items .item {
-  width: 90%;
+  width: 100%;
+  padding: 10px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   min-height: 175px;
 }
 
 .checkout__items .item .img, .payment__items .item .img {
   background-color: whitesmoke;
-  border: 1px solid grey;
-  -webkit-box-flex: 0.40;
-      -ms-flex: 0.40;
-          flex: 0.40;
+  -webkit-box-flex: 0.30;
+      -ms-flex: 0.30;
+          flex: 0.30;
+  border-radius: 12px;
 }
 
 .checkout__items .item .img .img__container, .payment__items .item .img .img__container {
   padding: 10px;
-  width: 160px;
-  margin: auto;
+  width: 120px;
+  margin: 0 auto;
   height: 100%;
 }
 
@@ -36,9 +68,9 @@
 }
 
 .checkout__items .item .body, .payment__items .item .body {
-  -webkit-box-flex: 0.60;
-      -ms-flex: 0.60;
-          flex: 0.60;
+  -webkit-box-flex: 0.70;
+      -ms-flex: 0.70;
+          flex: 0.70;
   margin-left: 20px;
 }
 
@@ -52,12 +84,12 @@
   font-weight: normal;
   padding: 0;
   margin: 0;
+  text-transform: capitalize;
 }
 
 .checkout__items .item .body table, .payment__items .item .body table {
-  margin-bottom: 1rem;
   border-collapse: separate;
-  border-spacing: 0 15px;
+  border-spacing: 0 10px;
 }
 
 .checkout__items .item .body table tr, .payment__items .item .body table tr {
@@ -72,6 +104,7 @@
   text-transform: capitalize;
   font-weight: normal;
   font-style: italic;
+  color: #292929;
 }
 
 .checkout__items .item .body table tr td, .payment__items .item .body table tr td {
@@ -86,6 +119,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 5px;
 }
 
 .checkout__items .item .body .edit__div p, .payment__items .item .body .edit__div p {
