@@ -1,0 +1,24 @@
+.not__found {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.not__found .container {
+  text-align: center;
+}
+
+.not__found .container h1 {
+  font-size: 46px;
+}
+
+.not__found .container h3 {
+  color: #646464;
+  text-transform: capitalize;
+}
+
+.not__found .container .btn button {
+  background-color: #171613;
+  color: #fff;
+  margin: 20px 0;
+}
+/*# sourceMappingURL=notFound.css.map */

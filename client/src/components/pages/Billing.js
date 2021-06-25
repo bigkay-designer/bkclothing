@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from '../../containers/axios'
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js'
+import StripeCheckout from 'react-stripe-checkout'
 import { Button } from '@material-ui/core';
 
 function Billing() {

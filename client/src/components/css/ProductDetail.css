@@ -128,16 +128,26 @@
 
 .product__detail .add__to__cart {
   margin-top: 40px;
-  background-color: #318501;
+}
+
+.product__detail .add__to__cart .add__more__div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.product__detail .add__to__cart .add__more__div .to__checkout--btn {
+  margin-top: 20px;
+  background-color: #171613;
+  color: #fff;
+}
+
+.product__detail .add__to__cart .add__to__cart--btn {
+  background-color: #318501;
 }
 
 .product__detail .add__to__cart button {

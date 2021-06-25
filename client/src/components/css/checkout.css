@@ -5,11 +5,19 @@
 .checkout .title {
   padding: 10px;
   text-align: center;
+  max-width: 85%;
+  margin: 0 auto;
 }
 
 .checkout .title h2 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 10px 0;
+}
+
+.checkout .title .empty__bag__btn {
+  margin: 10px 0;
+  background-color: #171613;
+  color: #fff;
 }
 
 .checkout .title h4 {

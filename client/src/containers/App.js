@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route, useLocation} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
 import Nav from '../components/Nav'
@@ -14,44 +14,47 @@ import FilterContextProvider from '../components/contextApi/filterContext';
 import ProductDisplay from '../components/pages/ProductDisplay';
 import Checkout from '../components/pages/Checkout';
 import Payment from '../components/pages/Payment';
-import { useStateValue } from '../components/contextApi/cartContext'
+import Success from '../components/pages/checkout/Success'
+import Canceled from '../components/pages/checkout/Canceled'
+import NotFound from '../components/NotFound'
 
-const location = window.location.pathname
 function App() {
-  const promise = loadStripe("pk_test_51ITBiPDkKKCnsU3mzowRSuptSxuYu1YiPtFZfC0octwgDMKJj9uYHHxlwJFlCPSUBIATHHQjtc3MmuJGOkDQTEtp00X30SP1ZT");
+  const stripePromise = loadStripe("pk_test_51ITBiPDkKKCnsU3mzowRSuptSxuYu1YiPtFZfC0octwgDMKJj9uYHHxlwJFlCPSUBIATHHQjtc3MmuJGOkDQTEtp00X30SP1ZT");
 
-  const [{cart}] = useStateValue()
   return (
         <div className="App">
           <Router>
-            <Nav />
-            <Switch>
-              <FilterContextProvider>
+            <div className="app__div">
+              <Nav />
+              <Switch>
+                <Route exact path="/"><Landing /></Route>
                 <Route path={`/all/:gender`}>
-                  <SortFilter />
-                  <ProductDisplay />
+                  <FilterContextProvider>
+                    <SortFilter />
+                    <ProductDisplay />
+                  </FilterContextProvider>
                 </Route>
-              </FilterContextProvider>
-            </Switch>
-            <Switch>
-              {
-                cart.length >= 1 ?
-                <Route path="/payment"> 
-                  <Elements stripe={promise}>
-                    <Payment />
+                <Route path="/get/product"><ProductDetail /></Route>
+                  {/* stripe element router */}
+                <Route path="/checkout"> 
+                  <Elements stripe={stripePromise}>
+                    <Checkout />
                   </Elements>
                 </Route>
-                : null
-              }
-              <Route path="/checkout"> <Checkout /></Route>
-              <Route path="/get/product"><ProductDetail /></Route>
-              <Route path="/" exact component={Landing} />
-            </Switch>
-            <NewsLetter />
-            <Footer />
+                <Route path="/canceled"><Canceled /></Route>
+                <Route path="/success"><Success /></Route>
+                <Route path=""><NotFound /></Route>
+              </Switch>
+              
+              {/*  */}
+              <NewsLetter />
+              <Footer />
+            </div>
           </Router>
         </div>
   );
 }
 
 export default App;
+
+

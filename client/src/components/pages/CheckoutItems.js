@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AddShoppingCart, Cancel, Delete, Edit, FavoriteBorder, Save } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 import '../css/checkoutItems.css'
 import { Button } from '@material-ui/core'
-import { useStateValue } from '../contextApi/cartContext'
-function CheckItems({id,index, productName, productPrice, image, size, quantity,updateProductHandler, removeFromCartHandler}) {
+function CheckItems({id,index,productName,
+    productType,
+    productBrand,
+    productDesc,
+    productPrice,
+    productImage,
+    productQuantity,
+    productSize, updateProductHandler, removeProduct}) {
     const [sizeValue, setSizeValue] = useState('')
     const [inputVal, setInputVal] = useState(1)
     const [formDisplay, setFormDisplay] = useState(false)
@@ -14,13 +20,23 @@ function CheckItems({id,index, productName, productPrice, image, size, quantity,
         updateProductHandler(id,index, inputVal, sizeValue)
         setFormDisplay(false)
     }
+    const product = {
+        id,
+        productName,
+        productType,
+        productBrand,
+        productDesc,
+        productPrice,
+        productImage,
+        productSize
+    }
     return (
         <div className="checkout__items">
             <div className="item">
                 <div className="img">
                     <div className="img__container">
                         <Link to={`/get/product/${productName}/${id}`}>
-                            <img src={image} alt=""/>
+                            <img src={productImage} alt=""/>
                         </Link>
                     </div>
                 </div>
@@ -33,11 +49,11 @@ function CheckItems({id,index, productName, productPrice, image, size, quantity,
                         <tbody>
                             <tr>
                                 <th>uk size:</th>
-                                <td>{size}</td>
+                                <td>{productSize}</td>
                             </tr>
                             <tr>
                                 <th>quantity:</th>
-                                <td>{quantity}</td>
+                                <td>{productQuantity}</td>
                             </tr>
                             <tr>
                                 <th>price:</th>
@@ -46,7 +62,7 @@ function CheckItems({id,index, productName, productPrice, image, size, quantity,
                         </tbody>
                     </table>
                     <div className="edit__div">
-                        <div onClick={()=> removeFromCartHandler(id, size)} className="remove__item">
+                        <div onClick={() => removeProduct(product)} className="remove__item">
                             <p><Delete /> <span>remove</span> </p>
                         </div>
                         <div onClick={()=> setFormDisplay(true)} className="edit">

@@ -1,0 +1,30 @@
+.success{
+    width: 95%;
+    margin: 20px auto;
+    .container{
+        text-align: center;
+        padding: 10px;
+        .success__icon{
+            svg{
+                font-size: 46px;
+                color: green;
+            }
+        }
+        h1{
+            text-transform: capitalize;
+        }
+        p{
+            margin-top: 10px;
+            line-height: 1.2em;
+        }
+        .btn{
+            margin: 20px 0;
+            button{
+                background-color: #131714;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+
+    }
+}

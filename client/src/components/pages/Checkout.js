@@ -1,77 +1,129 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { CartContext } from '../contextApi/cartContext'
+import {useStripe} from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
-import { useStateValue } from '../contextApi/cartContext'
-import {getCartTotal} from '../reducers/cartReducer'
 import CheckoutItems from './CheckoutItems'
+import axios from 'axios'
+import { Link, useHistory } from 'react-router-dom'
+import { Button } from '@material-ui/core'
+import {fetchFromApi} from '../helpers'
 
 import '../css/checkout.css'
-import { Button } from '@material-ui/core'
-import { Link } from 'react-router-dom'
 function Checkout() {
+    // History Router
+    let history = useHistory()
+    //Cart reducer
     const [newCart, setNewCart] = useState([])
-    const [{cart, cartTotal}, dispatch] = useStateValue()
+    const [localCart, setLocalCart] = useState([])
+    const {cart, total, removeProduct} = useContext(CartContext)
+
+    // Stripe
+    const stripe = useStripe()
+
+    // Get data from local storage
+
+
+    // Discard repeated same products
     useEffect(() => {
         let filterOldCart = cart.filter((elm,index,arr)=> arr.findIndex(item => elm.id === item.id && elm.productSize === item.productSize) === index)
         setNewCart(filterOldCart)
-    }, [cart])
+    }, [localCart])
 
-    const removeFromCartHandler = (id, size) => {
-        dispatch({
-            type:"REMOVE_FROM_CART",
-            id:id,
-            productSize:size
-        })
+    // Remove from cart Handler
+    const removeFromCartHandler = (product) => {
     }
 
+    // Update product Handler
     const updateProductHandler = (id, index, inputVal, sizeVal) => {
-        dispatch({
-            type: "UPDATE_CART",
-            item: {
-                id: id,
-                index: index,
-                productQuantity:parseFloat(inputVal),
-                productSize: sizeVal,
+        // dispatch({
+        //     type: "UPDATE_CART",
+        //     item: {
+        //         id: id,
+        //         index: index,
+        //         productQuantity:parseFloat(inputVal),
+        //         productSize: sizeVal,
                 
+        //     }
+        // })
+    }
+    //// Stripe submit handler
+
+    const stripeHandleClick = async (e) => {
+        e.preventDefault()
+
+        // Setting up line_items for stripe
+        const line_items = newCart.map(item => {
+            return {
+                quantity: item.productQuantity,
+                price_data: {
+                    currency: "usd",
+                    unit_amount: item.productPrice * 100,
+                    product_data: {
+                        name: item.productName, 
+                        images: [item.productImage], 
+                    }
+                }
             }
         })
+
+        // fetching from api
+        const response = await fetchFromApi('stripe/charge', {
+            body: {line_items, }
+        })
+
+        console.log(response)
+
+        let {sessionId} = response
+
+        const {error} = await stripe.redirectToCheckout({
+            sessionId
+        })
+        if(error) {
+            console.log(error)
+        }
     }
+
     return (
         <div className="checkout">
             <div className="title">
-                <h2>shopping bag</h2>
-                <CurrencyFormat 
-                    renderText={(value)=>(
-                        <h4>Total: {value} </h4 >
-                    )}
-                    decimalScale={2}
-                    value={getCartTotal(cart)}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    prefix={"£"}
-                >
-                </CurrencyFormat>
-                <div className="btn">
-                    {
-                        cart.length >= 1 ? 
-                        <Link to="/payment">
-                            <Button>checkout</Button>
-                        </Link>
-                        :null
-                    }
-                </div>
+                {
+                    cart.length ? 
+                    <div>
+                        <h2>shopping bag</h2>
+                        <CurrencyFormat 
+                            renderText={(value)=>(
+                                <h4>Total: {value} </h4 >
+                            )}
+                            decimalScale={2}
+                            value={total}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            prefix={"£"}
+                        >
+                        </CurrencyFormat>
+                    </div>
+                    : 
+                    <div>
+                        <h2>Your Shopping Bag is Empty</h2>
+                        <Button className="empty__bag__btn" onClick={()=> history.push('/')}>Continue shopping</Button>
+                    </div>
+                }
             </div>
             <div className="cart__items">
-                {newCart.map((item, index) => (
+                {cart.map((item, index) => (
                         <CheckoutItems
                             key={index}
                             id={item.id}
                             index={index}
-                            productName={item.productName}
-                            productPrice={item.productPrice}
-                            image={item.productImage}
-                            size={item.productSize}
-                            quantity={item.productQuantity}
-                            removeFromCartHandler={removeFromCartHandler}
+                            productName= {item.productName}
+                            productType= {item.productType}
+                            productBrand= {item.productBrand}
+                            productDesc= {item.productDesc}
+                            productPrice= {item.productPrice}
+                            productImage= {item.productImage}
+                            productSize= {item.productSize}
+                            productQuantity={item.productQuantity}
+                            removeProduct={removeProduct}
                             updateProductHandler={updateProductHandler}
                         />
                 ))}
@@ -79,9 +131,7 @@ function Checkout() {
             <div className="btn btn__bottom">
                 {
                     cart.length >= 1 ? 
-                    <Link to="/payment">
-                        <Button>checkout</Button>
-                    </Link>
+                    <Button type="button" role="link" onClick={stripeHandleClick} >checkout</Button>
                     :null
                 }
             </div>

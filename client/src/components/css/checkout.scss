@@ -3,10 +3,18 @@
     .title{
         padding: 10px;
         text-align: center;
+        max-width: 85%;
+        margin: 0 auto;
         h2{
             font-family: Georgia, 'Times New Roman', Times, serif;
             margin: 10px 0;
         }
+        .empty__bag__btn{
+            margin: 10px 0;
+            background-color: #171613;
+            color: #fff;
+        }
+
         h4{
             color: rgb(247, 84, 84);
         }

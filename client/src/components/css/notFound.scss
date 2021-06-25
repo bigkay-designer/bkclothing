@@ -1,0 +1,21 @@
+.not__found{
+    width: 90%;
+    margin: 20px auto;
+    .container{
+        text-align: center;
+        h1{
+            font-size: 46px;
+        }
+        h3{
+            color: rgb(100, 100, 100);
+            text-transform: capitalize;
+        }
+        .btn{
+            button{
+                background-color: #171613;
+                color: #fff;
+                margin: 20px 0;
+            }
+        }
+    }
+}

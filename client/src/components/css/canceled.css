@@ -1,0 +1,29 @@
+.canceled {
+  width: 95%;
+  margin: 20px auto;
+}
+
+.canceled .container {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.canceled .container .canceled__icon svg {
+  color: #fd1313;
+  font-size: 46px;
+}
+
+.canceled .container h2 {
+  text-transform: capitalize;
+}
+
+.canceled .btn {
+  margin: 20px 0;
+}
+
+.canceled .btn button {
+  background-color: #131714;
+  color: #fff;
+  cursor: pointer;
+}
+/*# sourceMappingURL=canceled.css.map */

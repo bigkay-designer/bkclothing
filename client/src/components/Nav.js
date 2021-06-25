@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close} from '@material-ui/icons'
+import {CartContext} from './contextApi/cartContext'
 import './css/Nav.css'
-import { useStateValue } from './contextApi/cartContext'
 function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
-    const [{cart}] = useStateValue()
-    
+    const {itemCount} = useContext(CartContext)
+    console.log(itemCount)
     return (
         <div className="nav">
             <div className="container">
@@ -25,7 +25,9 @@ function Nav() {
                         <Link to="/checkout">
                             <div className="cart__body__div">
                                 <ShoppingBasketOutlined className="icon cart" />
-                                <p> {cart.length} </p>
+                                {
+                                    itemCount > 0 ? <p>{itemCount}</p> : null
+                                }
                             </div>
                         </Link>
                     </div>

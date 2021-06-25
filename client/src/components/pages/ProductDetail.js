@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import {CartContext} from '../contextApi/cartContext'
 import axios from '../../containers/axios'
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import {Button} from '@material-ui/core'
 import '../css/ProductDetail.css'
 import { AddShoppingCart, ArrowBackIos } from '@material-ui/icons'
-import { useStateValue } from '../contextApi/cartContext'
+import {isInCart} from '../helpers'
 
 function ProductDetail() {
     const [currentImgTap, setCurrentImgTap] = useState(0)
@@ -12,7 +13,8 @@ function ProductDetail() {
     const location = useLocation()
     const locationHistory = useHistory()
     const [sizeValue, setSizeValue] = useState('')
-    const [{cart}, dispatch] = useStateValue()
+    ///
+    const {addProduct, cart} = useContext(CartContext)
 
     const productImg = [
         {
@@ -43,25 +45,21 @@ function ProductDetail() {
 
 
     // add to basket context
-
+    const product = {
+        id:productDetails._id,
+        productName: productDetails.productName,
+        productType: productDetails.productType,
+        productBrand: productDetails.productBrand,
+        productDesc: productDetails.productDesc,
+        productPrice: productDetails.productPrice,
+        productImage: productDetails.productImage,
+        productSize: sizeValue,
+    }
     const addToBasketHandler = (e,) => {
         e.preventDefault()
-        dispatch({
-            type:"ADD_TO_CART",
-            item:{
-                id:productDetails._id,
-                productName: productDetails.productName,
-                productType: productDetails.productType,
-                productBrand: productDetails.productBrand,
-                productDesc: productDetails.productDesc,
-                productPrice: productDetails.productPrice,
-                productImage: productDetails.productImage,
-                productSize: sizeValue,
-                productQuantity: 1
-            }
-        })
+        addProduct(product)
+        console.log('cart >', cart)
     }
-
     return (
         <div className="product__detail">
             <div className="product__title">
@@ -94,7 +92,17 @@ function ProductDetail() {
                         </select>
                     </div>
                     <div className="add__to__cart">
-                        <Button type="submit"><AddShoppingCart /> add to cart</Button>
+                        {
+                            !isInCart(product, cart) &&
+                            <Button className="add__to__cart--btn" type="submit"><AddShoppingCart /> add to cart</Button>
+                        }
+                        {
+                            isInCart(product, cart) &&
+                            <div className="add__more__div">
+                                <Button className="add__to__cart--btn" type="submit"><AddShoppingCart /> add more</Button>
+                                <Button className="to__checkout--btn" onClick={()=> locationHistory.push('/checkout')} ><AddShoppingCart /> process to checkout</Button>
+                            </div>
+                        }
                     </div>
                 </form>
             </div>

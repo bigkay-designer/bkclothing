@@ -1,54 +1,44 @@
-export const cartInitialState = {
-    cart: [],
+const storeCart = (cart) => {
+    const newCart = cart.length > 0 ? cart : []
+    localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-export const getCartTotal = (cart) => {
-    return cart?.reduce((prev, item)=>{
-        return prev + (item.productPrice * item.productQuantity)
-    }, 0)
+export const sumItems = cart => {
+    storeCart(cart)
+    return {
+        itemCount: cart.reduce((total, prod) => total + prod.productQuantity ,0),
+        total: cart.reduce((total, prod)=> total + (prod.productPrice * prod.productQuantity) , 0)
+    }
 }
 
 const cartReducer = (state, action) => {
+    console.log(action)
     switch(action.type){
         case "ADD_TO_CART":
-            state.cart.map(item => {
-                if(item.id === action.item.id && item.productSize === action.item.productSize){
-                    return item.productQuantity += action.item.productQuantity
-                }
+        if(!state.cart.find(item => item.id === action.payload.id && item.productSize === action.payload.productSize )){
+            state.cart.push({
+                ...action.payload,
+                productQuantity: 1,
             })
             return {
                 ...state,
-                cart: [...state.cart, action.item],
+                cart: [...state.cart],
+                ...sumItems(state.cart)
             }
-        case "UPDATE_CART": 
-            return {
-                ...state,
-                cart: state.cart.map((item, index) => 
-                    item.id === action.item.id && index == action.item.index
-                    ?{
-                        ...item, 
-                        productQuantity: action.item.productQuantity, 
-                        productSize: action.item.productSize
-                        
-                    }
-                    :item
-                ),
-            }
-        case "REMOVE_FROM_CART": 
-            const filterItem = state.cart.filter(item => item.id !== action.id && item.productSize !== action.size);
-            let newBasket = [...state.cart]
+        }
 
-            if(filterItem >= 0){
-                newBasket.splice(filterItem, 1)
-            }else{
-                console.log(`Can't remove product(id: ${action.id} as its not in cart)`)
-            }
-            return {
-                ...state,
-                cart: newBasket
-            }
-        default: 
-            return state    
+        case "REMOVE_FROM_CART": 
+        let test =  state.cart.find(item => item.id === action.payload.id && item.productSize === action.payload.productSize )
+        const newCart = state.cart.filter(item => item.id !== test.id && item.productSize !== test.productSize)
+        console.log(newCart)
+        return {
+            ...state, 
+            cart: [...newCart],
+            ...sumItems(newCart)
+        }
+
+        default:
+            return state
     }
 }
 

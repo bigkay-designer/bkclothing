@@ -100,10 +100,18 @@
     }
     .add__to__cart{
         margin-top: 40px;
-        background-color: rgb(49, 133, 1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        .add__more__div{
+            display: flex;
+            flex-direction: column;
+            .to__checkout--btn{
+                margin-top: 20px;
+                background-color: #171613;
+                color: #fff;
+            }
+        }
+        .add__to__cart--btn{
+            background-color: rgb(49, 133, 1);
+        }
         button{
             width: 100%;
             text-align: center;
