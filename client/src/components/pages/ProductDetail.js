@@ -14,7 +14,7 @@ function ProductDetail() {
     const locationHistory = useHistory()
     const [sizeValue, setSizeValue] = useState('')
     ///
-    const {addProduct, cart} = useContext(CartContext)
+    const {addProduct,increaseQuan, cart} = useContext(CartContext)
 
     const productImg = [
         {
@@ -57,7 +57,11 @@ function ProductDetail() {
     }
     const addToBasketHandler = (e,) => {
         e.preventDefault()
-        addProduct(product)
+        if(!isInCart(product, cart)){
+            return addProduct(product)
+        }else if (isInCart(product, cart)){
+            increaseQuan(product)
+        }
         console.log('cart >', cart)
     }
     return (

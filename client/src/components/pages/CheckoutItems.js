@@ -10,25 +10,27 @@ function CheckItems({id,index,productName,
     productPrice,
     productImage,
     productQuantity,
-    productSize, updateProductHandler, removeProduct}) {
+    productSize, updateProduct, removeProduct}) {
     const [sizeValue, setSizeValue] = useState('')
     const [inputVal, setInputVal] = useState(1)
     const [formDisplay, setFormDisplay] = useState(false)
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault()
-        updateProductHandler(id,index, inputVal, sizeValue)
-        setFormDisplay(false)
-    }
     const product = {
         id,
+        index,
         productName,
         productType,
         productBrand,
         productDesc,
         productPrice,
         productImage,
-        productSize
+        productSize: sizeValue || productSize,
+        productQuantity: parseInt(inputVal) || productQuantity
+    }
+    const onSubmitHandler = (e) => {
+        e.preventDefault()
+        updateProduct(product)
+        setFormDisplay(false)
     }
     return (
         <div className="checkout__items">

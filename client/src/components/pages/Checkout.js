@@ -13,46 +13,18 @@ function Checkout() {
     // History Router
     let history = useHistory()
     //Cart reducer
-    const [newCart, setNewCart] = useState([])
-    const [localCart, setLocalCart] = useState([])
-    const {cart, total, removeProduct} = useContext(CartContext)
+    const {cart, total, removeProduct, updateProduct, clearCart} = useContext(CartContext)
 
     // Stripe
     const stripe = useStripe()
 
-    // Get data from local storage
-
-
-    // Discard repeated same products
-    useEffect(() => {
-        let filterOldCart = cart.filter((elm,index,arr)=> arr.findIndex(item => elm.id === item.id && elm.productSize === item.productSize) === index)
-        setNewCart(filterOldCart)
-    }, [localCart])
-
-    // Remove from cart Handler
-    const removeFromCartHandler = (product) => {
-    }
-
-    // Update product Handler
-    const updateProductHandler = (id, index, inputVal, sizeVal) => {
-        // dispatch({
-        //     type: "UPDATE_CART",
-        //     item: {
-        //         id: id,
-        //         index: index,
-        //         productQuantity:parseFloat(inputVal),
-        //         productSize: sizeVal,
-                
-        //     }
-        // })
-    }
     //// Stripe submit handler
 
     const stripeHandleClick = async (e) => {
         e.preventDefault()
 
         // Setting up line_items for stripe
-        const line_items = newCart.map(item => {
+        const line_items = cart.map(item => {
             return {
                 quantity: item.productQuantity,
                 price_data: {
@@ -69,9 +41,7 @@ function Checkout() {
         // fetching from api
         const response = await fetchFromApi('stripe/charge', {
             body: {line_items, }
-        })
-
-        console.log(response)
+        })  
 
         let {sessionId} = response
 
@@ -124,14 +94,17 @@ function Checkout() {
                             productSize= {item.productSize}
                             productQuantity={item.productQuantity}
                             removeProduct={removeProduct}
-                            updateProductHandler={updateProductHandler}
+                            updateProduct={updateProduct}
                         />
                 ))}
             </div>
             <div className="btn btn__bottom">
                 {
                     cart.length >= 1 ? 
-                    <Button type="button" role="link" onClick={stripeHandleClick} >checkout</Button>
+                    <>
+                        <Button className="checkout__btn" type="button" role="link" onClick={stripeHandleClick} >checkout</Button>
+                        <Button type="button" role="link" onClick={()=> clearCart()} >clear</Button>
+                    </>
                     :null
                 }
             </div>

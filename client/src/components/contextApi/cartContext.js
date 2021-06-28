@@ -14,12 +14,18 @@ const CartContextProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(cartReducer, cartInitialState);
     const addProduct = (product) => dispatch({type:"ADD_TO_CART", payload: product});
+    const increaseQuan = (product) => dispatch({type: 'INCREASE', payload: product});
+    const updateProduct = (product) => dispatch({type: 'UPDATE', payload: product})
     const removeProduct  = (product) => dispatch({type: "REMOVE_FROM_CART", payload: product}); 
+    const clearCart = () => dispatch({type: 'CLEAR'})
 
     const contextValues = {
         ...state,
         addProduct,
-        removeProduct
+        increaseQuan,
+        updateProduct,
+        removeProduct,
+        clearCart
     }
     
     return(
