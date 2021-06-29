@@ -40,11 +40,11 @@ function Checkout() {
 
         // fetching from api
         const response = await fetchFromApi('stripe/charge', {
-            body: {line_items, }
+            body: {line_items, cart, total}
         })  
 
         let {sessionId} = response
-
+        console.log(response)
         const {error} = await stripe.redirectToCheckout({
             sessionId
         })

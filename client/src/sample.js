@@ -107,3 +107,36 @@ export default cartReducer
 // export const useStateValue = () => useContext(CartContext)
 
 // Diffrent type
+
+
+
+
+// ================
+try{
+    session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: 'payment',
+        line_items,
+        customer_email,
+        success_url: `${YOUR_DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${YOUR_DOMAIN}/canceled`,
+        shipping_address_collection: {allowed_countries: ['GB', 'US']}
+
+    })
+    if(session.payment_status !== "unpaid"){
+        const newProduct = new orders({cart: cart, paymentId: session.id})
+        newProduct.save()
+        .then(resData => {
+            console.log('db: ', resData)
+            console.log("session: ", session)
+            res.status(200).json({db: resData, sessionId: session.id})
+        })
+        .catch(err => res.status(500).json({error: err.message}))
+    }
+    res.status(200).json({sessionId: session.id})
+
+}catch (error){
+    console.log(error)
+    res.status(400).json({error: "error occured"})
+}
+})
