@@ -12,7 +12,6 @@ export const sumItems = cart => {
 }
 
 const cartReducer = (state, action) => {
-    console.log(action)
     switch(action.type){
         case "ADD_TO_CART":
             if(!state.cart.find(item => item.id === action.payload.id && item.productSize === action.payload.productSize )){

@@ -1,34 +1,70 @@
-.success {
-  width: 95%;
-  margin: 20px auto;
-}
-
 .success .container {
   text-align: center;
+  width: 95%;
+  margin: 20px auto;
   padding: 10px;
 }
 
-.success .container .success__icon svg {
+.success .container .success__content .success__icon svg {
   font-size: 46px;
   color: green;
 }
 
-.success .container h1 {
+.success .container .success__content h1 {
   text-transform: capitalize;
 }
 
-.success .container p {
+.success .container .success__content p {
   margin-top: 10px;
   line-height: 1.2em;
 }
 
-.success .container .btn {
+.success .container .success__content .btn {
   margin: 20px 0;
 }
 
-.success .container .btn button {
+.success .container .success__content .btn button {
   background-color: #131714;
   color: #fff;
   cursor: pointer;
+}
+
+.success .container .order {
+  margin: 80px 0 30px;
+}
+
+.success .container .order .order__title h1 {
+  margin: 20px 0;
+  text-align: left;
+  border-bottom: 1px solid rgba(151, 150, 150, 0.6);
+  text-transform: capitalize;
+}
+
+.success .container .order .order__title .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.success .container .order .order__title .content h3 {
+  text-align: left;
+  text-transform: capitalize;
+  padding-bottom: 15px;
+  font-weight: 500;
+  color: #0a0909;
+}
+
+.success .container .order .order__title .content p {
+  font-size: 14px;
+}
+
+.success .container .order .order__title .content .total {
+  margin-right: 20px;
 }
 /*# sourceMappingURL=success.css.map */
