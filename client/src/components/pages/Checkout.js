@@ -38,6 +38,8 @@ function Checkout() {
             }
         })
 
+
+        /// Fetching from Api
         await fetchFromApi('stripe/charge', {
             body: {line_items, cart,total}
         })
@@ -45,6 +47,7 @@ function Checkout() {
             const {sessionId} = res;
             const {error} = stripe.redirectToCheckout({sessionId})
 
+            sessionStorage.setItem('stripe_session_id', sessionId)
             if(error){
                 console.log(error)
             }
@@ -53,19 +56,6 @@ function Checkout() {
             console.log(error)
         }) 
 
-        // fetching from api
-        // const response = await fetchFromApi('stripe/charge', {
-        //     body: {line_items, cart, total}
-        // })  
-
-        // let {sessionId} = response
-        // console.log(response)
-        // const {error} = await stripe.redirectToCheckout({
-        //     sessionId
-        // })
-        // if(error) {
-        //     console.log(error)
-        // }
     }
 
     return (
