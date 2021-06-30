@@ -1,3 +1,5 @@
+
+
 export const isInCart = (product, cart) => {
     return cart.find(item => item.id === product.id && item.productSize === product.productSize);
 }

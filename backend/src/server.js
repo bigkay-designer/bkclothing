@@ -3,6 +3,7 @@ dotenv.config()
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import webhook from '../routes/webhook'
 // Import routes
 import products from '../routes/products'
 import stripeRoute from '../routes/StripeRoute'
@@ -25,7 +26,9 @@ const db = mongoose.connection
 db.once("open", () => console.log("Connected to bkclothing DB"))
 
 // app config
-app.use(express.json())
+app.use(express.json({
+    verify: (req, res, buffer)=> req['rawBody'] = buffer,
+}));
 app.use(express.urlencoded({extended: true}))
 app.use(cors({origin: true}))
 
@@ -33,6 +36,9 @@ app.use(cors({origin: true}))
 app.use('/api/products/', products)
 app.use('/', stripeRoute)
 app.use('/api/', orders)
+app.use('/', webhook)
+
+// Webhook
 
 app.get('*', (req, res)=>{
     res.status(404).send('you visited the wrong page')

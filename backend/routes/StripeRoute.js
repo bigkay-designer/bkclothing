@@ -13,32 +13,20 @@ router.route('/stripe/charge')
     if(!line_items){
         return res.status(400).json({error: "missing required session"})
     }
+    let session;
     try{
-        stripe.checkout.sessions.create({
+        session= await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             mode: 'payment',
             line_items,
             customer_email,
-            success_url: `${YOUR_DOMAIN}/success?{CHECKOUT_SESSION_ID}`,
+            success_url: `${YOUR_DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${YOUR_DOMAIN}/canceled`,
             shipping_address_collection: {allowed_countries: ['GB', 'US']}
 
-        }, (err, charge) => {
-            if(err) res.status(400).json({error: "error occured"})
-            
-            const order = new Orders ({
-                cart: cart,
-                total: total,
-                paymentId: charge.id,
-                orderId: charge.payment_intent
-            })
+        });
 
-            order.save((err, resData)=> {
-                if(err) res.status(400).json({error: "error occured"})
-                res.status(200).json({orderHistory: resData, sessionId: resData.paymentId, orderId:charge.payment_intent})
-            })
-        })
-
+        res.status(200).json({sessionId: session.id})
 
     }catch (error){
         console.log(error)

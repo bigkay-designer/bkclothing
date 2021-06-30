@@ -19,15 +19,15 @@ function Success() {
 
     const sessionId = history.location.search.slice(1)
 
-    useEffect(()=> {
-        axios.get(`http://localhost:5000/api/get/orders/${sessionId}`)
-        .then(res => {
-            const responseData = res.data.orderHistory[0]
-            setOrderCart(responseData.cart)
-            setOrderId(responseData.orderId)
-            setTotal(responseData.total)
-        })
-    }, [])
+    // useEffect(()=> {
+    //     axios.get(`http://localhost:5000/api/get/orders/${sessionId}`)
+    //     .then(res => {
+    //         const responseData = res.data.orderHistory[0]
+    //         setOrderCart(responseData.cart)
+    //         setOrderId(responseData.orderId)
+    //         setTotal(responseData.total)
+    //     })
+    // }, [])
     return (
         <div className="success">
             <div className="container">
