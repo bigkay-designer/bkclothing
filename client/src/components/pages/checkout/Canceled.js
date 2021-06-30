@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import '../../css/canceled.css'
 import { Cancel } from '@material-ui/icons'
 function Canceled() {
     let history = useHistory()
+
+    useEffect(()=> {
+        sessionStorage.removeItem('stripe_session_id')
+    }, [])
     return (
         <div className="canceled">
             <div className="container">

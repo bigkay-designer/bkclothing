@@ -38,6 +38,7 @@ function Success() {
                 body: {cart}
             })
             .then((res)=> {
+                sessionStorage.setItem('sucess', 'paid')
                 clearCart()
             })
             .catch(error => {
@@ -46,8 +47,6 @@ function Success() {
         }
     }, [])
 
-    let test = sessionStorage.getItem('stripe_session_id')
-    console.log(test)
     return (
         <div className="success">
             <div className="container">
