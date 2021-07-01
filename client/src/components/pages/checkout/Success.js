@@ -23,8 +23,9 @@ function Success() {
     useEffect(async ()=> {
         await axios.get(`http://localhost:5000/api/get/orders/${sessionIdUri}`)
         .then(res => {
-            let resData = res.data.orderHistory[0]
-            setOrderCart(resData.cart[0])
+            let resData = res.data[0]
+            console.log(resData)
+            setOrderCart(resData.cart[0] || [])
             setOrderId(resData.paymentIntent)
             setTotal(resData.amountTotal / 100)
             setAddress(resData.shippingInfo.address)
@@ -38,7 +39,7 @@ function Success() {
                 body: {cart}
             })
             .then((res)=> {
-                sessionStorage.setItem('sucess', 'paid')
+                sessionStorage.setItem('success', 'paid')
                 clearCart()
             })
             .catch(error => {

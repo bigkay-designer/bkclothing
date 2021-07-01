@@ -40,6 +40,7 @@ router.route('/webhook')
 
             order.save((err, resData)=> {
                 if(err) res.status(400).json({error: "error occured"})
+                console.log('saved to db')
                 res.status(200).json(resData)
             })
       }

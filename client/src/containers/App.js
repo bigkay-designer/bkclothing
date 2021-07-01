@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
@@ -8,6 +8,7 @@ import NewsLetter from '../components/NewsLetter';
 import Footer from '../components/Footer';
 import './App.css';
 // Products section
+import {CartContext} from '../components/contextApi/cartContext'
 import ProductDetail from '../components/pages/ProductDetail';
 import SortFilter from '../components/pages/SortFilter';
 import FilterContextProvider from '../components/contextApi/filterContext';
@@ -20,18 +21,24 @@ import NotFound from '../components/NotFound'
 
 function App() {
   const stripePromise = loadStripe("pk_test_51ITBiPDkKKCnsU3mzowRSuptSxuYu1YiPtFZfC0octwgDMKJj9uYHHxlwJFlCPSUBIATHHQjtc3MmuJGOkDQTEtp00X30SP1ZT");
-
+  const {cart} = useContext(CartContext)
   // Stripe session id from sessionStorage
   const [activeSession, setActiveSession] = useState(false)
-  const [canceledPayment, setCancelPayment] = useState(false)
+  const [canceledPayment, setCancelPayment] = useState(true)
   useEffect(()=> {
     if(sessionStorage.getItem('stripe_session_id')){
       setActiveSession(true)
     }
-    if(!sessionStorage.getItem('sucess')){
-      setCancelPayment(true)
+    if(sessionStorage.getItem('success')){
+      setCancelPayment(false)
     }
   }, [activeSession])
+
+  useEffect(()=> {
+    if(sessionStorage.getItem('success') && cart.length > 0 ){
+        sessionStorage.clear()
+    }
+}, [cart.length])
 
   return (
         <div className="App">

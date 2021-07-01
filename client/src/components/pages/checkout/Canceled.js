@@ -7,7 +7,9 @@ function Canceled() {
     let history = useHistory()
 
     useEffect(()=> {
-        sessionStorage.removeItem('stripe_session_id')
+        if(!sessionStorage.getItem('success')){
+            sessionStorage.removeItem('stripe_session_id')
+        }
     }, [])
     return (
         <div className="canceled">

@@ -6,7 +6,7 @@ router.route('/get/orders/:id')
 .get(async (req, res)=> {
     try{
         const orderHistory = await Orders.find({sessionId: req.params.id})
-        res.status(200).json({orderHistory})
+        res.status(200).json(orderHistory)
     }catch(err){
         res.status(400).json({error: err.message})
     }

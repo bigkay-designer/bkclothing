@@ -6,7 +6,6 @@ import Orders from '../models/orders'
 const stripe = new Stripe(process.env.STRIPE_SECRET)
 const router = express.Router()
 
-
 router.route('/stripe/charge')
 .post(async (req, res)=>{
     const YOUR_DOMAIN = 'http://localhost:3000';
