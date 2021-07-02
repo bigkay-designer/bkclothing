@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
+import axios from 'axios'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
@@ -25,14 +26,17 @@ function App() {
   // Stripe session id from sessionStorage
   const [activeSession, setActiveSession] = useState(false)
   const [canceledPayment, setCancelPayment] = useState(true)
-  useEffect(()=> {
+
+  useEffect( ()=> {
+
     if(sessionStorage.getItem('stripe_session_id')){
       setActiveSession(true)
     }
+
     if(sessionStorage.getItem('success')){
       setCancelPayment(false)
     }
-  }, [activeSession])
+  }, [])
 
   useEffect(()=> {
     if(sessionStorage.getItem('success') && cart.length > 0 ){

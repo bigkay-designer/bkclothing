@@ -2,7 +2,7 @@ import React, {useEffect, useContext, useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import '../../css/success.css'
-import { CheckCircle, Reddit } from '@material-ui/icons'
+import { CheckCircle } from '@material-ui/icons'
 import { CartContext } from '../../contextApi/cartContext'
 import axios from 'axios';
 import Order from './Order'
@@ -19,34 +19,58 @@ function Success() {
     const [total, setTotal] = useState(null)
     // Clear cart useEffect
     const sessionIdUri = sessionStorage.getItem('stripe_session_id')
+    
 
-    useEffect(async ()=> {
-        await axios.get(`http://localhost:5000/api/get/orders/${sessionIdUri}`)
-        .then(res => {
-            let resData = res.data[0]
-            console.log(resData)
-            setOrderCart(resData.cart[0] || [])
-            setOrderId(resData.paymentIntent)
-            setTotal(resData.amountTotal / 100)
-            setAddress(resData.shippingInfo.address)
-            setCustomerName(resData.shippingInfo.name)
-        })
-        .catch(error => console.log(error))
-    }, [])
-    useEffect(async ()=> {
-        if(cart.length > 0){
+    // Get Data
+    const getData = async () => {
+        const response = await axios.get(`http://localhost:5000/api/get/orders/${sessionIdUri}`)
+        const resData = response.data[0]
+        console.log(resData)
+        if(resData.cart){
+            setOrderCart(resData?.cart[0])
+        }
+        setOrderId(resData.paymentIntent)
+        setTotal(resData.amountTotal / 100)
+        setAddress(resData.shippingInfo.address)
+        setCustomerName(resData.shippingInfo.name)
+    }
+
+    // Cart update function
+
+    const updateCart = () => {
+
+        const fetchData = async () => {
             await fetchFromApiPut(`api/order/post/${sessionIdUri}`, {
                 body: {cart}
             })
             .then((res)=> {
                 sessionStorage.setItem('success', 'paid')
+                getData()
                 clearCart()
             })
             .catch(error => {
-                console.log(error)
+                console.log(`error from updateCart ${error}`)
             })
         }
-    }, [])
+        fetchData()
+    }
+
+
+    // updating cart
+    useEffect(async ()=> {
+        const fetchData = async () => {
+            await axios.get(`http://localhost:5000/api/get/orders/${sessionIdUri}`)
+            .then(res => {
+            const resData = res.data[0]
+                if(resData.paymentStatus === 'paid' && !resData.cart ){
+                    updateCart()
+                }
+            })
+            .catch(error => console.log(`error from getData ${error}`))
+        }
+
+        fetchData()
+    }, [sessionIdUri, updateCart])
 
     return (
         <div className="success">

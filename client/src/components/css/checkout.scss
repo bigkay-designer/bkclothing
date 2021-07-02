@@ -1,5 +1,7 @@
 .checkout{
+    width: 100%;
     margin: 10px 0 30px;
+    overflow: hidden;
     .title{
         padding: 10px;
         text-align: center;
@@ -19,21 +21,33 @@
             color: rgb(247, 84, 84);
         }
     }
-    .btn{
+    .form__div{
         text-align: center;
         width: 100%;
         margin: 15px 0 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        button{
-            width: 50%;
-            cursor: pointer;
-            margin: 5px;
-        }
-        .checkout__btn{
-            background-color: #171613;
-            color: #fff;
+        form{
+            width: 100%;
+            input{
+                width: 70%;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 7px;
+            }
+            .btn__div{
+                button{
+                    width: 70%;
+                    cursor: pointer;
+                    margin: 5px;
+                }
+                .checkout__btn{
+                    background-color: #171613;
+                    color: #fff;
+                }
+    
+            }
         }
     }
 }

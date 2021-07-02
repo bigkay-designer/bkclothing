@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { CartContext } from '../contextApi/cartContext'
 import {useStripe} from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
 import CheckoutItems from './CheckoutItems'
-import axios from 'axios'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import {fetchFromApi} from '../helpers'
 
@@ -14,7 +13,7 @@ function Checkout() {
     let history = useHistory()
     //Cart reducer
     const {cart, total, removeProduct, updateProduct, clearCart} = useContext(CartContext)
-
+    const [email, setEmail] = useState('')
     // Stripe
     const stripe = useStripe()
 
@@ -41,7 +40,7 @@ function Checkout() {
 
         /// Fetching from Api
         await fetchFromApi('stripe/charge', {
-            body: {line_items, cart,total}
+            body: {line_items, customer_email: email, cart}
         })
         .then((res)=> {
             const {sessionId} = res;
@@ -103,12 +102,18 @@ function Checkout() {
                         />
                 ))}
             </div>
-            <div className="btn btn__bottom">
+            <div className="form__div">
                 {
                     cart.length >= 1 ? 
                     <>
-                        <Button className="checkout__btn" type="button" role="link" onClick={stripeHandleClick} >checkout</Button>
-                        <Button type="button" role="link" onClick={()=> clearCart()} >clear</Button>
+                        <form onSubmit={stripeHandleClick}>
+                            <input onChange={(e)=> setEmail(e.target.value)} type="email" placeholder="Email Address" value={email} required />
+                            <div className="btn__div">
+                                <Button className="checkout__btn" type="submit" role="link" >checkout</Button>
+                                <Button type="button" role="link" onClick={()=> clearCart()} >clear</Button>
+                            </div>
+                        </form>
+                    
                     </>
                     :null
                 }

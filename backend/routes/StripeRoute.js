@@ -2,7 +2,6 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
 import Stripe from 'stripe'
-import Orders from '../models/orders'
 const stripe = new Stripe(process.env.STRIPE_SECRET)
 const router = express.Router()
 
@@ -10,8 +9,8 @@ router.route('/stripe/charge')
 .post(async (req, res)=>{
     const YOUR_DOMAIN = 'http://localhost:3000';
 
-    const {line_items,customer_email, total, cart} = req.body
-    if(!line_items){
+    const {line_items,customer_email, cart} = req.body
+    if(!line_items && !customer_email){
         return res.status(400).json({error: "missing required session"})
     }
     let session;
@@ -23,10 +22,11 @@ router.route('/stripe/charge')
             customer_email,
             success_url: `${YOUR_DOMAIN}/success?{CHECKOUT_SESSION_ID}`,
             cancel_url: `${YOUR_DOMAIN}/canceled`,
-            shipping_address_collection: {allowed_countries: ['GB', 'US']}
-
+            shipping_address_collection: {allowed_countries: ['GB', 'US']},
+            metadata: {
+                customer_email
+            }
         });
-
         res.status(200).json({sessionId: session.id})
 
     }catch (error){

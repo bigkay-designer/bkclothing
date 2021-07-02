@@ -1,5 +1,5 @@
 import React, {useState, useRef, useContext} from 'react'
-import {select, productName, productType, productBrand} from './SortFilterData.json'
+import {select, productBrand} from './SortFilterData.json'
 import {Button} from '@material-ui/core'
 import { Add, Close, Sort, Remove } from '@material-ui/icons'
 import '../css/SortFilter.css'
@@ -10,7 +10,7 @@ function SortFilter() {
         state: false,
         title: "productName"
     })
-    const [productTypeEle, setProductTyprEle] = useState(false)
+    // const [productTypeEle, setProductTyprEle] = useState(false)
     const [brandEle, setBrandEle] = useState(false)
     ////////
     const {filter, dispatch} = useContext(FilterContext)

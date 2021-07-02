@@ -7,8 +7,6 @@ const router = express.Router()
 const stripe = new Stripe(process.env.STRIPE_SECRET)
 
 
-
-
 router.route('/webhook')
 .post(async(req, res) => {
     const sig = req.headers['stripe-signature'];
@@ -23,26 +21,20 @@ router.route('/webhook')
       
       if(event.type === 'checkout.session.completed'){
         const session = event.data.object
-
-        const retrieveSession = await stripe.checkout.sessions.retrieve(
-            session.id,{
-                expand: ['line_items']
-            }
-        )
-            const order = new Orders({
-                cart: {},
-                productData: retrieveSession.line_items,
-                sessionId: retrieveSession.id,
-                paymentIntent: retrieveSession.payment_intent,
-                shippingInfo: retrieveSession.shipping,
-                amountTotal: retrieveSession.amount_total
-            })
-
-            order.save((err, resData)=> {
-                if(err) res.status(400).json({error: "error occured"})
-                console.log('saved to db')
-                res.status(200).json(resData)
-            })
+        console.log('created session')
+        const order = new Orders({
+            cart: {},
+            sessionId: session.id,
+            paymentIntent: session.payment_intent,
+            shippingInfo: session.shipping,
+            amountTotal: session.amount_total,
+            paymentStatus: session.payment_status
+        })
+        order.save((err, resData)=> {
+            if(err) res.status(400).json({error: `error occured ${err.message}`})
+            console.log('saved to db')
+            res.status(200).json(resData)
+        })
       }
 })
 

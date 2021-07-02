@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { AddShoppingCart, Cancel, Delete, Edit, FavoriteBorder, Save } from '@material-ui/icons'
+import React, {useState } from 'react'
+import {Delete, Edit } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
 import '../css/checkoutItems.css'
 import { Button } from '@material-ui/core'

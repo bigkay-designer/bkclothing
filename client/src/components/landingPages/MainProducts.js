@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import men from '../images/men.jpg'
 import women from '../images/women.jpg'
-import kids from '../images/kids.jpg'
+// import kids from '../images/kids.jpg'
 import '../css/MainProducts.css'
 function MainProducts() {
     return (

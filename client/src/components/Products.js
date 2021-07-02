@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import { FavoriteBorder, Search, ShoppingCartOutlined } from '@material-ui/icons'
+import { FavoriteBorder, } from '@material-ui/icons'
 import './css/Products.css'
 
 function Products({id, image, productPrice, productName}) {

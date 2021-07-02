@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React from 'react'
 import MainProducts from './MainProducts'
 import Process from './Process'
 import Showcase from './ShowCase'

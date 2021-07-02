@@ -2,28 +2,21 @@ import React, {useEffect, useState, useContext} from 'react'
 import {useLocation} from 'react-router-dom'
 import Products from '../Products'
 import axios from '../../containers/axios'
-import item1 from '../images/trending1.jpg'
-import item2 from '../images/trending2.jpg'
-import item3 from '../images/trending3.jpg'
+// import item1 from '../images/trending1.jpg'
+// import item2 from '../images/trending2.jpg'
+// import item3 from '../images/trending3.jpg'
 import { FilterContext } from '../contextApi/filterContext'
 
 function Mens() {
-    const [genderTitle, setGenderTitle] = useState('')
+    // const [genderTitle, setGenderTitle] = useState('')
     const {filter} = useContext(FilterContext)
     const [products, setProducts] = useState([])
-    const [test, setTest] = useState([])
     const location = useLocation()
 
     // When visit page go to the top
     useEffect(()=>{
         window.scrollTo(0, 0)
     }, [])
-
-    // Filer products
-    let filterTest = {
-        productBrand: ["boohoo"],
-        productName: [""],
-    }
 
     useEffect(()=> {      
         const multiFilter = (item, condition) => {
@@ -38,7 +31,6 @@ function Mens() {
             });
           };
         setProducts(multiFilter(products, filter))
-        // console.log(products)
     }, [filter])
 
     /// male and female products page

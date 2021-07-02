@@ -48,7 +48,7 @@ function Nav() {
                     </div>
                 </div>
                 <div className="flash__sale">
-                    <p> Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer <a href="#">Shop Now</a> </p>
+                    <p> Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer <Link to="/">Shop Now</Link> </p>
                 </div>
             </div>
         </div>
