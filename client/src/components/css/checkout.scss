@@ -18,7 +18,11 @@
         }
 
         h4{
-            color: rgb(247, 84, 84);
+            color: rgb(54, 0, 0);
+        }
+
+        .btn__div{
+            margin-top: 10px;
         }
     }
     .form__div{
@@ -36,18 +40,18 @@
                 font-size: 16px;
                 border-radius: 7px;
             }
-            .btn__div{
-                button{
-                    width: 70%;
-                    cursor: pointer;
-                    margin: 5px;
-                }
-                .checkout__btn{
-                    background-color: #171613;
-                    color: #fff;
-                }
-    
-            }
         }
+    }
+    .btn__div{
+        button{
+            width: 70%;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .checkout__btn{
+            background-color: #171613;
+            color: #fff;
+        }
+
     }
 }

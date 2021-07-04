@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react'
+import React, {useEffect, useState, useContext, useCallback} from 'react'
 import {useLocation} from 'react-router-dom'
 import Products from '../Products'
 import axios from '../../containers/axios'
@@ -18,37 +18,43 @@ function Mens() {
         window.scrollTo(0, 0)
     }, [])
 
+    const multiFilter = (item, condition) => {
+        const filterKeys = Object.keys(condition);
+        return item.filter((eachObj) => {
+          return filterKeys.every(eachKey => {
+            if (!condition[eachKey].length) {
+              return true; // passing an empty filter means that filter is ignored.
+            }
+            return (condition[eachKey].toString()).toLowerCase().includes((eachObj[eachKey].toString()).toLowerCase());
+          });
+        });
+      };
     useEffect(()=> {      
-        const multiFilter = (item, condition) => {
-            const filterKeys = Object.keys(condition);
-            return item.filter((eachObj) => {
-              return filterKeys.every(eachKey => {
-                if (!condition[eachKey].length) {
-                  return true; // passing an empty filter means that filter is ignored.
-                }
-                return (condition[eachKey].toString()).toLowerCase().includes((eachObj[eachKey].toString()).toLowerCase());
-              });
-            });
-          };
-        setProducts(multiFilter(products, filter))
-    }, [filter])
+
+        setProducts(prod => multiFilter(prod, filter))
+
+    }, [filter,])
 
     /// male and female products page
-    useEffect(()=> {
+    const fetchData = useCallback (async ()=> {
         if(location.pathname === '/all/men'){
-            axios.get(`/get/all/male`)
+            await axios.get(`/get/all/male`)
             .then(res => {
                 setProducts(res.data)
             })
         }else if(location.pathname === '/all/women'){
-            axios.get(`/get/all/female`)
+            await axios.get(`/get/all/female`)
             .then(res => {
                 setProducts(res.data)
             })
         }else{
             return null
         }
-    }, [])
+    }, [location.pathname,])
+
+    useEffect(()=> {
+        fetchData()
+    }, [fetchData])
     
 
     return (

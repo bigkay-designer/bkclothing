@@ -6,7 +6,6 @@ import './css/Nav.css'
 function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
     const {itemCount} = useContext(CartContext)
-    console.log(itemCount)
     return (
         <div className="nav">
             <div className="container">

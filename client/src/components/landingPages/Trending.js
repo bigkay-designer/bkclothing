@@ -9,7 +9,6 @@ import '../css/LandingProducts.css'
 function Trending({leftArrow, rightArrow, refEle}) {
     
     const relElement = useRef(null)
-    console.log(relElement.current)
 
     const RightArrowHandler = (moveRight) =>{
         setTimeout(() => {

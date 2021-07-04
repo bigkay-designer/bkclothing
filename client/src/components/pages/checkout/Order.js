@@ -1,8 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { AddShoppingCart, Cancel, Delete, Edit, FavoriteBorder, Save } from '@material-ui/icons'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import '../../css/checkoutItems.css'
-import { Button } from '@material-ui/core'
 
 function Order({id,index,productName,
     productType,
@@ -17,9 +14,7 @@ function Order({id,index,productName,
             <div className="item">
                 <div className="img">
                     <div className="img__container">
-                        <Link to={`/get/product/${productName}/${id}`}>
-                            <img src={productImage} alt=""/>
-                        </Link>
+                        <img src={productImage} alt=""/>
                     </div>
                 </div>
                 <div className="body">

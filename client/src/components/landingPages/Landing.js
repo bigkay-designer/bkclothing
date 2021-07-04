@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import MainProducts from './MainProducts'
 import Process from './Process'
 import Showcase from './ShowCase'
@@ -7,7 +7,9 @@ import Testimonials from './Testimonials'
 import Trending from './Trending'
 import '../css/Landing.css'
 function Landing() {
-
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <div className="landing">
             <Showcase />

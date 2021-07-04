@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect, useContext, useCallback} from 'react'
 import {CartContext} from '../contextApi/cartContext'
 import axios from '../../containers/axios'
 import {useLocation, useHistory } from 'react-router-dom'
@@ -35,13 +35,18 @@ function ProductDetail() {
         setCurrentImgTap(index)
     }
 
-    useEffect(()=> {
-        axios.get(location.pathname)
+    // getData 
+    const fetchData = useCallback(async ()=> {
+        await axios.get(location.pathname)
         .then((res) => {
             setProductDetails(res.data)
         })
         .catch(err => console.log(err))
-    }, [])
+    }, [location.pathname])
+
+    useEffect(()=> {
+        fetchData()
+    }, [fetchData])
 
 
     // add to basket context

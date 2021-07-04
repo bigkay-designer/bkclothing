@@ -23,7 +23,11 @@
 }
 
 .checkout .title h4 {
-  color: #f75454;
+  color: #360000;
+}
+
+.checkout .title .btn__div {
+  margin-top: 10px;
 }
 
 .checkout .form__div {
@@ -53,13 +57,13 @@
   border-radius: 7px;
 }
 
-.checkout .form__div form .btn__div button {
+.checkout .btn__div button {
   width: 70%;
   cursor: pointer;
   margin: 5px;
 }
 
-.checkout .form__div form .btn__div .checkout__btn {
+.checkout .btn__div .checkout__btn {
   background-color: #171613;
   color: #fff;
 }

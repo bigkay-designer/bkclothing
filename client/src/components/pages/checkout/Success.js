@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react'
+import React, {useEffect, useContext, useState, useCallback} from 'react'
 import {useHistory} from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import '../../css/success.css'
@@ -16,61 +16,67 @@ function Success() {
     //order sesction
     const [orderCart, setOrderCart] = useState([])
     const [orderId, setOrderId] = useState(null)
+    // const [sessionId, setSessionId] = useState('')
     const [total, setTotal] = useState(null)
     // Clear cart useEffect
     const sessionIdUri = sessionStorage.getItem('stripe_session_id')
-    
-
-    // Get Data
-    const getData = async () => {
-        const response = await axios.get(`http://localhost:5000/api/get/orders/${sessionIdUri}`)
-        const resData = response.data[0]
-        console.log(resData)
-        if(resData.cart){
-            setOrderCart(resData?.cart[0])
-        }
-        setOrderId(resData.paymentIntent)
-        setTotal(resData.amountTotal / 100)
-        setAddress(resData.shippingInfo.address)
-        setCustomerName(resData.shippingInfo.name)
-    }
 
     // Cart update function
 
-    const updateCart = () => {
-
+    const updateCart = useCallback (() => {
         const fetchData = async () => {
             await fetchFromApiPut(`api/order/post/${sessionIdUri}`, {
                 body: {cart}
             })
             .then((res)=> {
                 sessionStorage.setItem('success', 'paid')
-                getData()
                 clearCart()
             })
             .catch(error => {
                 console.log(`error from updateCart ${error}`)
             })
         }
-        fetchData()
-    }
+       return  fetchData()
+    }, [cart, sessionIdUri, clearCart])
 
 
-    // updating cart
-    useEffect(async ()=> {
+    // get then update cart function
+    const getData = useCallback(()=> {
         const fetchData = async () => {
             await axios.get(`http://localhost:5000/api/get/orders/${sessionIdUri}`)
             .then(res => {
-            const resData = res.data[0]
-                if(resData.paymentStatus === 'paid' && !resData.cart ){
-                    updateCart()
+                const resData = res.data[0];
+                if(!resData) {
+                    sessionStorage.removeItem('stripe_session_id')
+                    sessionStorage.removeItem('success')
+                    history.push('')
+                };
+
+                if(resData){
+
+                    if(resData.paymentStatus === 'paid' && !resData.cart && resData ){
+                        updateCart()
+                    }
+                    if(resData?.cart){
+                        setOrderCart(resData?.cart[0])
+                    }
+                    setOrderId(resData.paymentIntent)
+                    setTotal(resData.amountTotal / 100)
+                    setAddress(resData.shippingInfo.address)
+                    // setSessionId(resData.sessionId)
+                    setCustomerName(resData.shippingInfo.name)
                 }
             })
             .catch(error => console.log(`error from getData ${error}`))
         }
-
         fetchData()
-    }, [sessionIdUri, updateCart])
+    }, [sessionIdUri, updateCart, history])
+
+
+    /// useEffect for database update function
+    useEffect(()=> {
+        getData()
+    }, [getData])
 
     return (
         <div className="success">

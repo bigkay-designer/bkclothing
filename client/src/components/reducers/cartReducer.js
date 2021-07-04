@@ -25,6 +25,7 @@ const cartReducer = (state, action) => {
                 ...sumItems(state.cart)
             }
         }
+        break;
 
         case "INCREASE": 
             const itemIndex = state.cart.findIndex(item => item.id === action.payload.id && item.productSize === action.payload.productSize)
@@ -37,7 +38,7 @@ const cartReducer = (state, action) => {
             }
 
         case "UPDATE": 
-            const updateItemIndex = state.cart.findIndex((item, index) => item.id === action.payload.id && index == action.payload.index )
+            const updateItemIndex = state.cart.findIndex((item, index) => item.id === action.payload.id && index === action.payload.index )
             state.cart[updateItemIndex].productQuantity = action.payload.productQuantity
             state.cart[updateItemIndex].productSize = action.payload.productSize
 
@@ -49,7 +50,7 @@ const cartReducer = (state, action) => {
             }
 
         case "REMOVE_FROM_CART": 
-            const index = state.cart.findIndex((item, index) => item.id === action.payload.id && index == action.payload.index )
+            const index = state.cart.findIndex((item, index) => item.id === action.payload.id && index === action.payload.index )
             let newCart = [...state.cart]
 
             if(index >= 0){

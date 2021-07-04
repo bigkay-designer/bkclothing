@@ -75,6 +75,9 @@ function Checkout() {
                             prefix={"£"}
                         >
                         </CurrencyFormat>
+                        <div className="btn__div">
+                            <Button className="checkout__btn" type="submit" role="link" >checkout</Button>
+                        </div>
                     </div>
                     : 
                     <div>

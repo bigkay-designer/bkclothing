@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useContext} from 'react'
-import axios from 'axios'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
@@ -15,7 +14,6 @@ import SortFilter from '../components/pages/SortFilter';
 import FilterContextProvider from '../components/contextApi/filterContext';
 import ProductDisplay from '../components/pages/ProductDisplay';
 import Checkout from '../components/pages/Checkout';
-import Payment from '../components/pages/Payment';
 import Success from '../components/pages/checkout/Success'
 import Canceled from '../components/pages/checkout/Canceled'
 import NotFound from '../components/NotFound'
@@ -28,14 +26,10 @@ function App() {
   const [canceledPayment, setCancelPayment] = useState(true)
 
   useEffect( ()=> {
-
-    if(sessionStorage.getItem('stripe_session_id')){
-      setActiveSession(true)
-    }
-
-    if(sessionStorage.getItem('success')){
-      setCancelPayment(false)
-    }
+    const stripeSession = sessionStorage.getItem('stripe_session_id')
+    const successTrans = sessionStorage.getItem('success')
+    if(stripeSession) setActiveSession(true)
+    if(successTrans) setCancelPayment(false)
   }, [])
 
   useEffect(()=> {
