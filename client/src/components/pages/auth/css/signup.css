@@ -1,0 +1,132 @@
+.signup {
+  width: 100%;
+  overflow: hidden;
+}
+
+.signup .container {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: #171613;
+}
+
+.signup .container .header {
+  margin: 20px 0 10px;
+  text-align: center;
+}
+
+.signup .container .header h2 {
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #1b1b1b;
+}
+
+.signup .container .signup__form {
+  width: 90%;
+  margin: 0px auto;
+}
+
+.signup .container .signup__form .title {
+  font-size: 14px;
+}
+
+.signup .container .signup__form form {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.signup .container .signup__form form .form__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 20px 0 10px;
+}
+
+.signup .container .signup__form form .form__group label {
+  text-transform: capitalize;
+  margin: 7px 0;
+  font-weight: 500;
+}
+
+.signup .container .signup__form form .form__group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d1d1;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.signup .container .border {
+  margin: 20px 0;
+  border-top: 1px solid #b1b1b1;
+}
+
+.signup .container .newsLetter_sec {
+  margin: 20px 0 10px;
+}
+
+.signup .container .newsLetter_sec .title {
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+
+.signup .container .newsLetter_sec .group__newsletter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0 10px;
+}
+
+.signup .container .newsLetter_sec .group__newsletter label {
+  padding-left: 10px;
+}
+
+.signup .container .newsLetter_sec .group__newsletter input {
+  width: 24px;
+  height: 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+}
+
+.signup .container .newsLetter_sec .disclaimer {
+  margin: 20px 0 10px;
+}
+
+.signup .container .newsLetter_sec .disclaimer p {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.signup .container .newsLetter_sec .terms {
+  margin: 20px 0 10px;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.signup .container .submit__btn {
+  width: 100%;
+  text-align: center;
+  background-color: #171613;
+  cursor: pointer;
+  margin: 20px 0 10px;
+}
+
+.signup .container .submit__btn button {
+  color: #fff;
+}
+/*# sourceMappingURL=signup.css.map */

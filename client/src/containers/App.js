@@ -17,6 +17,8 @@ import Checkout from '../components/pages/Checkout';
 import Success from '../components/pages/checkout/Success'
 import Canceled from '../components/pages/checkout/Canceled'
 import NotFound from '../components/NotFound'
+import Signup from '../components/pages/auth/Signup'
+import Login from '../components/pages/auth/Login'
 
 function App() {
   const stripePromise = loadStripe("pk_test_51ITBiPDkKKCnsU3mzowRSuptSxuYu1YiPtFZfC0octwgDMKJj9uYHHxlwJFlCPSUBIATHHQjtc3MmuJGOkDQTEtp00X30SP1ZT");
@@ -64,6 +66,9 @@ function App() {
                 {
                   activeSession && <Route path="/success"><Success /></Route>
                 }
+                
+                <Route path="/login"><Login /></Route>
+                <Route path="/signup"><Signup /></Route>
                 <Route path=""><NotFound /></Route>
               </Switch>
               

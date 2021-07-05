@@ -8,6 +8,7 @@ import webhook from '../routes/webhook'
 import products from '../routes/products'
 import stripeRoute from '../routes/StripeRoute'
 import orders from '../routes/orders'
+import user from '../routes/user'
 
 // port number and app function
 const app = express()
@@ -36,6 +37,7 @@ app.use(cors({origin: true}))
 app.use('/api/products/', products)
 app.use('/', stripeRoute)
 app.use('/api/', orders)
+app.use('/api', user)
 app.use('/', webhook)
 
 // Webhook

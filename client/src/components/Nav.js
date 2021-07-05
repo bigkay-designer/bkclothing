@@ -1,11 +1,23 @@
-import React, {useState, useContext} from 'react'
-import {Link} from 'react-router-dom'
-import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close} from '@material-ui/icons'
+import React, {useState,useEffect, useContext} from 'react'
+import {Link, useHistory} from 'react-router-dom'
+import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, PersonAddOutlined, PersonOutlined,} from '@material-ui/icons'
 import {CartContext} from './contextApi/cartContext'
 import './css/Nav.css'
+import { Button } from '@material-ui/core'
 function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
     const {itemCount} = useContext(CartContext)
+    const history = useHistory()
+
+    const goToLogin = () => {
+        SetOpenMenu(false)
+        return history.push('/login')
+    }
+    const goToSignup = () => {
+        SetOpenMenu(false)
+        return history.push('/signup')
+    }
+
     return (
         <div className="nav">
             <div className="container">
@@ -44,6 +56,16 @@ function Nav() {
                             <li>Blog</li>
                             <li>Contact Us</li>
                         </ul>
+                    </div>
+                    <div className="auth__pages">
+                        <div onClick={goToLogin} className="btn">
+                            <PersonOutlined />
+                            <Button>login</Button>
+                        </div>
+                        <div onClick={goToSignup} className="btn">
+                            <PersonAddOutlined />
+                            <Button>signup</Button>
+                        </div>
                     </div>
                 </div>
                 <div className="flash__sale">

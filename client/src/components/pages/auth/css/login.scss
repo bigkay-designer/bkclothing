@@ -1,0 +1,107 @@
+.login{
+    .container{
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+        color: #171613;
+        .header{
+            margin: 20px 0 10px;
+            text-align: center;
+            h2{
+                text-transform: capitalize;
+                font-weight: 500;
+                color: rgb(27, 27, 27);
+            }
+        }
+
+        .login__form{
+            width: 90%;
+            margin: 0px auto;
+            form{
+                margin: 20px 0;
+                width: 100%;
+                .form__group{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin: 20px 0 10px;
+                    .wrapper{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        a{
+                            color: #333333;
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+                    }
+                    label{
+                        text-transform: capitalize;
+                        margin: 7px 0;
+                        font-weight: 500;
+                    }
+                    input{
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid rgb(209, 209, 209);
+                        background-color: #fff;
+                        cursor: pointer;
+                    }
+                }
+
+                .submit__btn{
+                    width: 100%;
+                    text-align: center;
+                    background-color: #171613;
+                    cursor: pointer;
+                    margin: 20px 0 10px;
+                    button{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .create__new__Account__form{
+            background-color: rgb(240, 240, 240);
+            margin-top: 70px;
+            color: #252525;
+            .wrapper{
+                width: 85%;
+                margin:  0 auto;
+                padding: 20px 0;
+                .title{
+                    h2{
+                        margin: 0px 0 10px;
+                        font-weight: 500;
+                    }
+                }
+                .submit__btn{
+                    width: 100%;
+                    text-align: center;
+                    background-color: #171613;
+                    cursor: pointer;
+                    margin: 20px 0 10px;
+                    button{
+                        color: #fff;
+                    }
+                }
+                .value__for__signup{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 100%;
+                    margin: 20px 0;
+                    .group{
+                        margin: 10px 0;
+                        display: flex;
+                        align-items: center;
+                    }
+                    span{
+                        text-transform: capitalize;
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

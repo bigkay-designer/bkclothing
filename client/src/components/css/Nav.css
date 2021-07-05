@@ -160,6 +160,42 @@
   margin: 20px 0 0;
 }
 
+.nav .container .menu .auth__pages {
+  margin: 20px 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .container .menu .auth__pages .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f4f4f4;
+  padding: 0 10px;
+  color: #1d1d1df4;
+  cursor: pointer;
+}
+
+.nav .container .menu .auth__pages .btn button {
+  color: inherit;
+  width: 100%;
+  padding: 10px;
+}
+
+.nav .container .menu .auth__pages .btn svg {
+  color: #272727;
+}
+
 .nav .container .flash__sale {
   background-color: #171613;
   width: 100%;

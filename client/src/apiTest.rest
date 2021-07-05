@@ -1,0 +1,10 @@
+GET http://localhost:5000/api/user
+Authorization: : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU0MjQ3NTh9.JHc7hPOykt1FYrbibY0jC9E9c7m9bZOqaahiRN0DUvs
+###
+
+POST http://localhost:5000/api/login
+Content-Type: : application/json
+
+{
+    "username": "kay"
+}

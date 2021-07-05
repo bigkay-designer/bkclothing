@@ -1,0 +1,98 @@
+.signup{
+    width: 100%;
+    overflow: hidden;
+    .container{
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+        color: #171613;
+
+        .header{
+            margin: 20px 0 10px;
+            text-align: center;
+            h2{
+                text-transform: capitalize;
+                font-weight: 500;
+                color: rgb(27, 27, 27);
+            }
+        }
+        .signup__form{
+            width: 90%;
+            margin: 0px auto;
+            .title{
+                font-size: 14px;
+            }
+
+            form{
+                margin: 20px 0;
+                width: 100%;
+                .form__group{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin: 20px 0 10px;
+                    label{
+                        text-transform: capitalize;
+                        margin: 7px 0;
+                        font-weight: 500;
+                    }
+                    input{
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid rgb(209, 209, 209);
+                        background-color: #fff;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .border{
+            margin: 20px 0;
+            border-top: 1px solid rgb(177, 177, 177);
+        }
+        .newsLetter_sec{
+            margin: 20px 0 10px;
+            .title{
+                margin: 0 0 20px;
+                font-size: 14px;
+            }
+            .group__newsletter{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin: 20px 0 10px;
+                label{
+                    padding-left: 10px;
+                }
+                input{
+                    width: 24px;
+                    height: 24px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
+            }
+            .disclaimer{
+                margin: 20px 0 10px;
+                p{
+                    font-size: 14px;
+                    line-height: 1.5em;
+                }
+            }
+            .terms{
+                margin: 20px 0 10px;
+                font-size: 14px;
+                line-height: 1.5em;
+            }
+
+        }
+        .submit__btn{
+            width: 100%;
+            text-align: center;
+            background-color: #171613;
+            cursor: pointer;
+            margin: 20px 0 10px;
+            button{
+                color: #fff;
+            }
+        }
+    }
+}

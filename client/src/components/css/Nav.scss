@@ -113,6 +113,28 @@
                     }
                 }
             }
+            .auth__pages{
+                margin: 20px 0 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .btn{
+                    display: flex;
+                    align-items: center;
+                    background-color: #f4f4f4;
+                    padding: 0 10px;
+                    color: #1d1d1df4;
+                    cursor: pointer;
+                    button{
+                        color: inherit;
+                        width: 100%;
+                        padding: 10px;
+                    }
+                    svg{
+                        color: #272727;
+                    }
+                }
+            }
         }
         .flash__sale{
             background-color: #171613;
