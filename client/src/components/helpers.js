@@ -12,6 +12,7 @@ export const sessionIdStripe = (id) =>  {
 
 const API = 'http://localhost:5000'
 
+// success page
 export async function fetchFromApi (endpoint, opts) {
     const {method, body} = {method: 'POST', body: null, ...opts}
 
@@ -47,3 +48,4 @@ export async function fetchFromApiPut (endpoint, opts) {
         throw new Error(res.statusText)
     }
 }
+

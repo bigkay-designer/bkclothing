@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import { Link} from '@material-ui/core'
 import { CheckCircle } from '@material-ui/icons'
@@ -9,6 +10,27 @@ function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const history = useHistory()
+
+    // Form submit function
+    const formSubmitHandler = (e) => {
+        e.preventDefault()
+        const newUser = {
+            email, 
+            password
+        }
+
+        axios.post('http://localhost:5000/api/login', newUser)
+        .then(res => {
+            console.log(res)
+            localStorage.setItem("auth-token", res.data.token)
+            setEmail('')
+            setPassword('')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        setPassword('')
+    }
 
     // Go to top useEffect
     useEffect(()=> {
@@ -21,7 +43,7 @@ function Login() {
                     <h2>login</h2>
                 </header>
                 <section className="login__form">
-                    <form >
+                    <form onSubmit={formSubmitHandler}>
                          <div className="form__group">
                             <label htmlFor="email">email</label>
                             <input onChange={(e => setEmail(e.target.value))} type="email" name="email" value={email} required  />
@@ -31,7 +53,7 @@ function Login() {
                                 <label htmlFor="password">passowrd</label>
                                 <Link to=''>Forgot password</Link>
                             </div>
-                            <input onChange={(e => setPassword(e.target.value))} type="text" name="password" value={password} required  />
+                            <input onChange={(e => setPassword(e.target.value))} type="password" name="password" value={password} required  />
                         </div>
                         <div className="submit__btn">
                             <Button type="submit">log in</Button>

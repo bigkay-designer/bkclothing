@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios';
 import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
@@ -11,6 +12,34 @@ function Signup() {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [birthday, setBirthday] = useState('')
+
+    const formSubmitHandler = (e) => {
+        e.preventDefault()
+        const newUser = {
+            firstName,
+            lastName,
+            birthday,
+            email,
+            password,
+            confirmPassword
+        }
+        
+        axios.post('http://localhost:5000/api/signup', newUser)
+        .then((res)=>{
+            console.log(res)
+            setFirstName('')
+            setLastName('')
+            setBirthday('')
+            setEmail('')
+            setPassword('')
+            setConfirmPassword('')
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        setPassword('')
+        setConfirmPassword('')
+    }
 
     // Go to top useEffect
     useEffect(()=> {
@@ -26,7 +55,7 @@ function Signup() {
                     <div className="title">
                         <p>Don't have an account? No worries, creating one is quick and easy to do!</p>
                     </div>
-                    <form >
+                    <form onSubmit={formSubmitHandler}>
                         <div className="form__group">
                             <label htmlFor="firstName">first name</label>
                             <input onChange={(e => setFirstName(e.target.value))} type="text" name="firstName" value={firstName} required  />
@@ -54,7 +83,7 @@ function Signup() {
                         {/* newsLetter */}
                         <div className="border"></div>
                         <section className="newsLetter_sec">
-                            <div className="title">
+                            {/* <div className="title">
                                 <span>I'd like to receive exclusive discounts and news from Burton by:</span>
                             </div>
                             <div className="group__newsletter">
@@ -68,7 +97,7 @@ function Signup() {
                             <div className="group__newsletter">
                                 <input type="checkbox" name="email" required />
                                 <label htmlFor="email">SMS</label>
-                            </div>
+                            </div> */}
                             <div className="disclaimer">
                                 <p>*By checking the SMS box, you are agreeing to receive texts from or on behalf of Burton, our family of companies, or one of its third-party associates, to any telephone number you provide. These texts could be sent using an automated telephone system. Agreement is not a requirement of purchase and you are free to opt-out at any time.</p>
                             </div>
