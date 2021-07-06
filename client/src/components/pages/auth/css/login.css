@@ -74,6 +74,16 @@
   cursor: pointer;
 }
 
+.login .container .login__form form .error__alert {
+  background-color: #fce5e5;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.login .container .login__form form .error__alert p {
+  color: red;
+}
+
 .login .container .login__form form .submit__btn {
   width: 100%;
   text-align: center;

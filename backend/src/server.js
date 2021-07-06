@@ -34,10 +34,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors({origin: true}))
 
 // Using Routes
-app.use('/api/products/', products)
+app.use('/api/', products)
 app.use('/', stripeRoute)
 app.use('/api/', orders)
-app.use('/api', user)
+app.use('/api/', user)
 app.use('/', webhook)
 
 // Webhook

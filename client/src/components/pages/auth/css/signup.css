@@ -28,8 +28,36 @@
   font-size: 14px;
 }
 
+.signup .container .signup__form .success_message {
+  margin-top: 20px;
+  background-color: #d1ffd1;
+}
+
+.signup .container .signup__form .success_message p {
+  text-align: center;
+  color: #000;
+  font-size: 16px;
+  padding: 10px 15px;
+  text-transform: capitalize;
+}
+
+.signup .container .signup__form .success_message button {
+  width: 100%;
+  text-align: center;
+  background-color: #bce0fd;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
 .signup .container .signup__form form {
   margin: 20px 0;
+  width: 100%;
+}
+
+.signup .container .signup__form form .error__alert {
+  color: red;
+  background-color: #fce5e5;
+  padding: 5px 10px;
   width: 100%;
 }
 
@@ -62,6 +90,11 @@
   border: 1px solid #d1d1d1;
   background-color: #fff;
   cursor: pointer;
+}
+
+.signup .container .signup__form form .form__group .password__p {
+  padding: 10px 0;
+  font-size: 14px;
 }
 
 .signup .container .border {

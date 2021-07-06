@@ -21,9 +21,33 @@
                 font-size: 14px;
             }
 
+            .success_message{
+                margin-top: 20px;
+                p{
+                    text-align: center;
+                    color: #000;
+                    font-size: 16px;
+                    padding: 10px 15px;
+                    text-transform: capitalize;
+                }
+                button{
+                    width: 100%;
+                    text-align: center;
+                    background-color: rgb(188, 224, 253);
+                    margin-top: 5px;
+                    cursor: pointer;
+                }
+                background-color: rgb(209, 255, 209);
+            }
             form{
                 margin: 20px 0;
                 width: 100%;
+                .error__alert{
+                    color: rgb(255, 0, 0);
+                    background-color: rgb(252, 229, 229);
+                    padding: 5px 10px;
+                    width: 100%;
+                }
                 .form__group{
                     display: flex;
                     flex-direction: column;
@@ -41,6 +65,10 @@
                         border: 1px solid rgb(209, 209, 209);
                         background-color: #fff;
                         cursor: pointer;
+                    }
+                    .password__p{
+                        padding: 10px 0;
+                        font-size: 14px;
                     }
                 }
             }

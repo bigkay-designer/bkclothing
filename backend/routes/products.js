@@ -2,6 +2,7 @@ import express from 'express'
 import products from '../models/products'
 const router = express.Router()
 
+// gender based router
 router.route('/get/all/:gender').get( async(req, res) => {
     try{
         const currentProducts = await products.find({productGender: req.params.gender}).sort({_id: -1})
@@ -11,6 +12,7 @@ router.route('/get/all/:gender').get( async(req, res) => {
     }
 })
 
+// more product details router
 router.route('/get/product/:name/:id').get( async (req, res) => {
   try{
     const getProductById = await products.findOne({productName: req.params.name, _id: req.params.id})
@@ -20,6 +22,7 @@ router.route('/get/product/:name/:id').get( async (req, res) => {
   }
 })
 
+// post product router
 router.route('/post').post((req, res)=> {
   const {
     productName, productType, 

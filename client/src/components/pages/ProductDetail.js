@@ -34,7 +34,7 @@ function ProductDetail() {
     const imgTapHandler = (index) =>{
         setCurrentImgTap(index)
     }
-
+console.log(location.pathname)
     // getData 
     const fetchData = useCallback(async ()=> {
         await axios.get(location.pathname)

@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
+import axios from './axios'
 import Nav from '../components/Nav'
 import Landing from '../components/landingPages/Landing'
 import NewsLetter from '../components/NewsLetter';
@@ -19,9 +20,11 @@ import Canceled from '../components/pages/checkout/Canceled'
 import NotFound from '../components/NotFound'
 import Signup from '../components/pages/auth/Signup'
 import Login from '../components/pages/auth/Login'
+import MyAccount from '../components/pages/auth/MyAccount'
 
 function App() {
   const stripePromise = loadStripe("pk_test_51ITBiPDkKKCnsU3mzowRSuptSxuYu1YiPtFZfC0octwgDMKJj9uYHHxlwJFlCPSUBIATHHQjtc3MmuJGOkDQTEtp00X30SP1ZT");
+  const [user, setUser] = useState([])
   const {cart} = useContext(CartContext)
   // Stripe session id from sessionStorage
   const [activeSession, setActiveSession] = useState(false)
@@ -39,6 +42,19 @@ function App() {
         sessionStorage.clear()
     }
 }, [cart.length])
+
+
+  /// get user 
+  const fetchData = async () => {
+    await axios.get('/user', {headers:{"authorization": localStorage.getItem('authorization')}}) 
+    .then(res => {
+      setUser(res.data)
+    })
+    .catch(error => console.log(error.response.data))
+  }
+  useEffect(()=> {
+    fetchData()
+  }, [])
 
   return (
         <div className="App">
@@ -66,7 +82,9 @@ function App() {
                 {
                   activeSession && <Route path="/success"><Success /></Route>
                 }
-                
+                {
+                  user.id && <Route path="/myAccount"><MyAccount /></Route>
+                }
                 <Route path="/login"><Login /></Route>
                 <Route path="/signup"><Signup /></Route>
                 <Route path=""><NotFound /></Route>

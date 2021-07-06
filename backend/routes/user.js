@@ -28,6 +28,23 @@ router.route('/signup')
     }
 })
 
+/// look up email
+
+router.route('/user/email/:email')
+.get(async(req, res)=> {
+    try{ 
+        const existUser = await User.findOne({email: req.params.email})
+        if(existUser) return res.status(400).json({msg: 'An account with this email already exists.'});
+        res.status(200).json({msg: "new user"})
+
+    }catch(error){
+        res.status(500)
+
+    }
+
+
+})
+
 
 // Login
 router.route('/login')
@@ -37,11 +54,11 @@ router.route('/login')
         const {email, password} = req.body
         //validate
         const user = await User.findOne({email: email});
-        if(!user) return res.status(401).json({msg: 'NO account with this email has been registered.'});
+        if(!user) return res.status(400).json({msg: 'No account with this email has been registered.'});
         const isMatch = await bcrypt.compare(password, user.password);
         if(!isMatch) return res.status(400).json({msg: 'You have entered the wrong password'});
-        const token = jwt.sign({id: user._id, name: user.firstName, email: user.email}, process.env.ACCESS_TOKEN_SECRET);
-        res.header("auth-token").send({token, user: {id: user._id, name: user.firstName, email: user.email}})
+        const token = jwt.sign({_id: user._id, name: user.firstName, email: user.email}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "1hr"});
+        res.json({token, user: {id: user._id, name: user.firstName, email: user.email}})
 
     }catch(error){
         res.status(500).json({error: `error from login: ${error.message}`})
@@ -49,17 +66,22 @@ router.route('/login')
 })
 
 
+// logout
+router.route('/logout')
+.delete((req, res)=> {
+    console.log(res.header)
+})
 
 router.route('/user')
 .get(auth, async (req, res) => {
     try{
-        const findUser = await User.findById(req.user)
-        const useData = {
+        const findUser = await User.findById(req.user._id)
+        const userData = {
             id: findUser._id,
             name: findUser.firstName,
             email: findUser.email
         }
-        res.status(200).json(useData)
+        res.status(200).json(userData)
 
     }catch(error){
         res.status(500).json({error: `error from currentuser: ${error.message}`})

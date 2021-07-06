@@ -49,6 +49,15 @@
                     }
                 }
 
+                .error__alert{
+                    background-color: rgb(252, 229, 229);
+                    padding: 5px 10px;
+                    width: 100%;
+                    p{
+                        color: rgb(255, 0, 0);
+                    }
+                }
+
                 .submit__btn{
                     width: 100%;
                     text-align: center;
