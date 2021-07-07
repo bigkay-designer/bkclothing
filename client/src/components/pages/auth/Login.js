@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import { AuthContext } from '../../contextApi/authContext'
 import axios from '../../../containers/axios'
-import {useHistory} from 'react-router-dom'
+import {useHistory, Redirect} from 'react-router-dom'
 import { Link} from '@material-ui/core'
 import { CheckCircle } from '@material-ui/icons'
 import {Button} from '@material-ui/core'
@@ -11,8 +12,9 @@ function Login() {
     const [password, setPassword] = useState('')
     const [passwordError, setPasswordError] = useState('')
     const [emailError, setEmailError] = useState('')
+    let history = useHistory()
 
-    const history = useHistory()
+    const {addUser} = useContext(AuthContext)
 
     // Form submit function
     const formSubmitHandler = async (e) => {
@@ -24,13 +26,13 @@ function Login() {
 
        await  axios.post('/login', newUser)
         .then(res => {
-            // console.log(res)
             localStorage.setItem("authorization", `Bearer ${res.data.token}`)
             setEmail('')
             setPassword('')
             setEmailError('')
             setPasswordError('')
-            history.push('/myAccount')
+            addUser(res.data.user)
+            return window.location.replace('myAccount');
         })
         .catch(error => {
             let errorMsg = error.response.data.msg 

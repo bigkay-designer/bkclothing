@@ -20,7 +20,11 @@ function Nav() {
                     setUser(res.data)
                     
                 })
-                .catch(error => console.log(error.message))
+                .catch(error => {
+                    if(error.response.data.msg === 'token is invalid'){
+                        localStorage.removeItem('authorization')
+                    }
+                })
             }
             fetchData()
         }

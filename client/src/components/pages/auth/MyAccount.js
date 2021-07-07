@@ -1,30 +1,39 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
+import {Redirect} from 'react-router-dom'
 import axios from '../../../containers/axios'
+import { AuthContext } from '../../contextApi/authContext'
 
 function MyAccount() {
-    const [user, setUser] = useState([])
+    const [error, setError] = useState(false)
+    const {user} = useContext(AuthContext)
+    const [userData, setUserData] = useState([])
     /// get user 
     const fetchData = async () => {
-        await axios.get('/user', {headers:{"authorization": localStorage.getItem('authorization')}}) 
+        await axios.get('/user', {headers:{"authorization": user}}) 
         .then(res => {
-        setUser(res.data)
+            setUserData(res.data)
         })
-        .catch(error => console.log(error.response.data))
+        .catch(error => {
+            error.response.data.msg === 'token is invalid' || 'Acess Denied' 
+            && setError(true)
+        })
     }
     useEffect(()=> {
         fetchData()
     }, [])
-
     // reload page
     useEffect(()=> {
-        // window.location.reload();
         window.scrollTo(0, 0)
     }, [])
 
     return (
         <div className="my__account">
+            {
+                error &&
+                <Redirect to="/login" />
+            }
             <div className="container">
-                <p>{user.name}</p>
+                <p>{userData.name}</p>
             </div>
         </div>
     )

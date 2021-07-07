@@ -1,12 +1,11 @@
 GET http://localhost:5000/api/user
-Authorization: : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjU0MjQ3NTh9.JHc7hPOykt1FYrbibY0jC9E9c7m9bZOqaahiRN0DUvs
+Authorization: : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGU0NmI2ZWZiMTA5MDFhYmMwN2JjYWQiLCJuYW1lIjoia2hhbGlkIiwiZW1haWwiOiJpYnJhaGlta2hhbGlkNDc4QGdtYWlsLmNvbSIsImlhdCI6MTYyNTYzMDA3MSwiZXhwIjoxNjI1NjMzNjcxfQ.HWPC1MYrxUJD-Kk3LDQw6xwUYPwrW9RpUfFC7aQEODA
 ###
 
 POST http://localhost:5000/api/login
-Content-Type: : application/json
+content-type: application/json
 
 {
     "email": "ibrahimkhalid478@gmail.com",
     "password": "khalid"
 }
-
