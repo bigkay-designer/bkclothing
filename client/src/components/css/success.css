@@ -40,7 +40,6 @@
 .success .container .address .address__title h2 {
   margin: 20px 0;
   text-transform: capitalize;
-  border-bottom: 1px solid rgba(151, 150, 150, 0.6);
 }
 
 .success .container .address .content ul {
@@ -64,7 +63,6 @@
 
 .success .container .order .order__title h2 {
   margin: 20px 0;
-  border-bottom: 1px solid rgba(151, 150, 150, 0.6);
   text-transform: capitalize;
 }
 
@@ -78,6 +76,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 10px;
 }
 
 .success .container .order .order__title .content h3 {

@@ -1,0 +1,72 @@
+.my__account {
+  width: 100%;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 30px 0;
+}
+
+.my__account .container {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: #171613;
+}
+
+.my__account .container .title {
+  background-color: #faf2e4;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.my__account .container .title h3 {
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #343434;
+}
+
+.my__account .container .header {
+  text-align: center;
+}
+
+.my__account .container .header h2 {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.my__account .container .header .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #313131;
+  font-size: 14px;
+}
+
+.my__account .container .header .group span {
+  padding-left: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.my__account .container .account__details {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.my__account .container .account__details ul {
+  padding: 0;
+  text-align: center;
+}
+
+.my__account .container .account__details ul li {
+  list-style: none;
+  margin: 10px 0;
+  text-transform: capitalize;
+  color: #313131;
+  font-size: 14px;
+}
+/*# sourceMappingURL=myAccount.css.map */

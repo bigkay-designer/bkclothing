@@ -37,7 +37,6 @@
                 h2{
                     margin: 20px 0;
                     text-transform: capitalize;
-                    border-bottom: 1px solid rgba($color: #979696, $alpha: 0.6);
                 }
             }
             .content{
@@ -61,13 +60,13 @@
             .order__title{
                 h2{
                     margin: 20px 0;
-                    border-bottom: 1px solid rgba($color: #979696, $alpha: 0.6);
                     text-transform: capitalize;
                 }
                 .content{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    margin-top: 10px;
                     h3{
                         text-align: left;
                         text-transform: capitalize;

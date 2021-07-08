@@ -1,18 +1,15 @@
 import React, {useReducer, createContext} from 'react'
 import authReducer from '../reducers/authReducer'
 
-
 export const AuthContext = createContext()
 
-const userFromStorage = localStorage.getItem('authorization') || []
-
 const authInitialState = {
-    user: userFromStorage
+    user: []
 }
 
 
 function AuthContextProvider({children}) {
-
+   
     const [state, dispatch] = useReducer(authReducer, authInitialState);
     const addUser = (user => dispatch({type: 'ADD_USER', payload: user}))
     

@@ -1,14 +1,24 @@
 .product__detail{
-    margin: 10px 0 30px ;
+    margin: 0px 0 30px ;
     padding: 10px;
 
     .product__title{
-        h3{
+        .group{
+            text-align: center;
             text-transform: capitalize;
-            font-size: 26px;
-            margin:10px 0;
+            color: #313131;
+            margin-top: 10px;
+            p{
+                text-transform: capitalize;
+                font-size: 26px;
+                font-weight: 500;
+            }
+            h3{
+                font-weight: 500;
+            }
+            
         }
-        p{
+        .back__arrow{
             color: rgb(3, 3, 109);
             text-decoration: underline;
             display: flex;
@@ -20,13 +30,16 @@
         }
     }
     .img{
-        margin-top: 30px;
+        margin-top: 10px;
+        position: relative;
+        width: 100%;
+        padding: 0 10px;
         .default__img{
-            box-shadow: 0px 1px 4px grey;
-            padding: 10px 20px;
             img{
+                cursor: pointer;
                 width: 100%;
-                height: auto;
+                height: 100%;
+                margin: 0 auto;
             }
         }
         .img__container{

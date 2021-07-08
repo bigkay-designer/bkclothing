@@ -7,6 +7,7 @@ import { CartContext } from '../../contextApi/cartContext'
 import axios from 'axios';
 import Order from './Order'
 import { fetchFromApiPut } from '../../helpers'
+import LoginOrder from './LoginOrder'
 function Success() {
     let history = useHistory()
     const {clearCart, cart} = useContext(CartContext)
@@ -80,6 +81,7 @@ function Success() {
 
     return (
         <div className="success">
+            <LoginOrder />
             <div className="container">
                 <div className="success__content">
                     <div className="success__icon">
@@ -97,6 +99,7 @@ function Success() {
                     <div className="address__title">
                         <h2>shipping address</h2>
                     </div>
+                    <hr />
                     <div className="content">
                         <ul>
                             <li>{customerName}</li>
@@ -112,6 +115,7 @@ function Success() {
                 <div className="order">
                     <div className="order__title">
                         <h2>order</h2>
+                        <hr />
                         <div className="content">
                             <div className="orderId">
                                 <h3>order number</h3>

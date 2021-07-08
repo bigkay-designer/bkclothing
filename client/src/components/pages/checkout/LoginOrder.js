@@ -5,7 +5,7 @@ import { Link} from '@material-ui/core'
 import { CheckCircle } from '@material-ui/icons'
 import {Button} from '@material-ui/core'
 
-import './css/login.css'
+import '../auth/css/login.css'
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -84,17 +84,6 @@ function Login() {
                         </div>
                         <div className="submit__btn">
                             <Button onClick={()=> history.push('/signup')} type="submit">create account</Button>
-                        </div>
-                        <div className="value__for__signup">
-                            <div className="group">
-                                <CheckCircle className="icon" /> <span>speedy checkout</span>
-                            </div>
-                            <div className="group">
-                                <CheckCircle className="icon" /> <span>quick order tracking</span>
-                            </div>
-                            <div className="group">
-                                <CheckCircle className="icon" /> <span>access to offers and special events</span>
-                            </div>
                         </div>
                     </div>
                 </section>

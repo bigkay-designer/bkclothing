@@ -1,0 +1,54 @@
+.my__account{
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 30px 0;
+    .container{
+        font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+        color: #171613;
+        .title{ 
+            background-color: rgb(250, 242, 228);
+            text-align: center;
+            padding: 4px 0;
+            h3{
+                text-transform: capitalize;
+                font-weight: 500;
+                color: #343434;
+            }
+        }
+        .header{
+            text-align: center;
+            h2{
+                text-transform: capitalize;
+                font-weight: 500;
+            }
+            .group{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #313131;
+                font-size: 14px;
+                span{
+                    padding-left: 10px;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+        .account__details{
+            margin: 20px 0;
+            width: 100%;
+            ul{
+                padding: 0;
+                text-align: center;
+                li{
+                    list-style: none;
+                    margin: 10px 0;
+                    text-transform: capitalize;
+                    color: #313131;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

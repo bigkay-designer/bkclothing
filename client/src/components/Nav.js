@@ -5,6 +5,7 @@ import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, PersonA
 import {CartContext} from './contextApi/cartContext'
 import './css/Nav.css'
 import { Button } from '@material-ui/core'
+import { goToHome, goToSignup, goToLogin, goToMen, goToWomen, logoutHandler, goToMyAccount } from './pageLinks'
 function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
     const {itemCount} = useContext(CartContext)
@@ -32,27 +33,7 @@ function Nav() {
     useEffect(()=> {
         getLoggedInUser()
     }, [])
-    /// login and signup redirect routes
-    const goToLogin = () => {
-        SetOpenMenu(false)
-        return history.push('/login')
-    }
-    const goToSignup = () => {
-        SetOpenMenu(false)
-        return history.push('/signup')
-    }
-    /// logout Func
-    const logoutHandler = () => {
-        localStorage.removeItem('authorization')
-        SetOpenMenu(false)
-        history.push('/')
-    }
 
-    // my account route
-    const goToMyAccount = () => {
-        SetOpenMenu(false)
-        return history.push('/myAccount')
-    }
     return (
         <div className="nav">
             <div className="container">
@@ -84,11 +65,10 @@ function Nav() {
                     </div>
                     <div className={`menu__list`}>
                         <ul>
-                            <li>Home</li>
-                            <li>Men</li>
-                            <li>Women</li>
+                            <li onClick={()=> goToHome(history, SetOpenMenu(false))}>Home</li>
+                            <li onClick={()=> goToMen(history, SetOpenMenu(false))}>Men</li>
+                            <li onClick={()=> goToWomen(history, SetOpenMenu(false))}>Women</li>
                             <li>Kids</li>
-                            <li>Blog</li>
                             <li>Contact Us</li>
                         </ul>
                     </div>
@@ -98,17 +78,17 @@ function Nav() {
                             <div className="user">
                                 <div className="wrapper">
                                     <div className="group">
-                                        <h4 onClick={goToMyAccount}>hello {user.name}</h4>
+                                        <h4 onClick={()=> goToMyAccount(history, SetOpenMenu(false))}>hello {user.name}</h4>
                                     </div>
-                                    <Button onClick={logoutHandler}>logout</Button>
+                                    <Button onClick={()=> logoutHandler(history, SetOpenMenu(false))}>logout</Button>
                                 </div>
                                 <div className="my__account">
                                     <PersonOutlined />
-                                    <Button onClick={goToMyAccount}>my account</Button>
+                                    <Button onClick={()=> goToMyAccount(history, SetOpenMenu(false))}>my account</Button>
                                 </div>
                             </div>
                             :
-                            <div onClick={goToLogin} className="btn">
+                            <div onClick={()=> goToLogin(history, SetOpenMenu(false))} className="btn">
                                 <PersonOutlined />
                                 <Button>login</Button>
                             </div>
@@ -116,7 +96,7 @@ function Nav() {
                         }
                         {
                             !localStorage.getItem('authorization') && 
-                            <div onClick={goToSignup} className="btn">
+                            <div onClick={()=> goToSignup(history, SetOpenMenu(false))} className="btn">
                                 <PersonAddOutlined />
                                 <Button>signup</Button>
                             </div>

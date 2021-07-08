@@ -34,7 +34,6 @@ function ProductDetail() {
     const imgTapHandler = (index) =>{
         setCurrentImgTap(index)
     }
-console.log(location.pathname)
     // getData 
     const fetchData = useCallback(async ()=> {
         await axios.get(location.pathname)
@@ -72,8 +71,11 @@ console.log(location.pathname)
     return (
         <div className="product__detail">
             <div className="product__title">
-                <h3>{productDetails.productName}</h3>
-                <p onClick={()=> locationHistory.goBack()}> <ArrowBackIos /> <span>back</span></p>
+                <div className="back__arrow" onClick={()=> locationHistory.goBack()}> <ArrowBackIos /> <span>back</span></div>
+                <div className="group">
+                    <h3>{productDetails.productDesc}</h3>
+                    <p>{productDetails.productName}</p>
+                </div>
             </div>  
             <div className="product__container">
                 <div className="img">

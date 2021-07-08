@@ -2,7 +2,6 @@ import React, {useState, useEffect, useContext} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
-import axios from './axios'
 import Nav from '../components/Nav'
 import Landing from '../components/landingPages/Landing'
 import NewsLetter from '../components/NewsLetter';
@@ -40,7 +39,8 @@ function App() {
     if(sessionStorage.getItem('success') && cart.length > 0 ){
         sessionStorage.clear()
     }
-}, [cart.length])
+  }, [cart.length])
+
 
   return (
         <div className="App">
