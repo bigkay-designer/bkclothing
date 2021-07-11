@@ -69,4 +69,15 @@
   color: #313131;
   font-size: 14px;
 }
+
+.my__account .container .order__history .content {
+  padding: 0 10px;
+}
+
+.my__account .container .order__history .content .empty_order {
+  margin-top: 10px;
+  font-weight: 400;
+  text-align: center;
+  color: #5e5e5e;
+}
 /*# sourceMappingURL=myAccount.css.map */

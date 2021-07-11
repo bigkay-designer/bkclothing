@@ -28,7 +28,8 @@ router.route('/webhook')
             paymentIntent: session.payment_intent,
             shippingInfo: session.shipping,
             amountTotal: session.amount_total,
-            paymentStatus: session.payment_status
+            paymentStatus: session.payment_status,
+            author: {}
         })
         order.save((err, resData)=> {
             if(err) res.status(400).json({error: `error occured ${err.message}`})

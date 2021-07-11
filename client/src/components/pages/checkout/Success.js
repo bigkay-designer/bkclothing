@@ -4,13 +4,14 @@ import { Button } from '@material-ui/core'
 import '../../css/success.css'
 import { CheckCircle } from '@material-ui/icons'
 import { CartContext } from '../../contextApi/cartContext'
-import axios from 'axios';
+import axios from '../../../containers/axios';
 import Order from './Order'
 import { fetchFromApiPut } from '../../helpers'
 import LoginOrder from './LoginOrder'
 function Success() {
     let history = useHistory()
     const {clearCart, cart} = useContext(CartContext)
+    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : []
     //address section
     const [address, setAddress] = useState([])
     const [customerName, setCustomerName] = useState('')
@@ -20,14 +21,14 @@ function Success() {
     // const [sessionId, setSessionId] = useState('')
     const [total, setTotal] = useState(null)
     // Clear cart useEffect
-    const sessionIdUri = sessionStorage.getItem('stripe_session_id')
+    const sessionIdUri = sessionStorage.getItem('stripe_session_id')    
+
 
     // Cart update function
-
     const updateCart = useCallback (() => {
         const fetchData = async () => {
             await fetchFromApiPut(`api/order/post/${sessionIdUri}`, {
-                body: {cart}
+                body: {cart, author: user}
             })
             .then((res)=> {
                 sessionStorage.setItem('success', 'paid')
@@ -37,14 +38,14 @@ function Success() {
                 console.log(`error from updateCart ${error}`)
             })
         }
-       return  fetchData()
+        return  fetchData()
     }, [cart, sessionIdUri, clearCart])
 
 
     // get then update cart function
     const getData = useCallback(()=> {
         const fetchData = async () => {
-            await axios.get(`http://localhost:5000/api/get/orders/${sessionIdUri}`)
+            await axios.get(`/get/orders/${sessionIdUri}`,)
             .then(res => {
                 const resData = res.data[0];
                 if(!resData) {
@@ -55,7 +56,7 @@ function Success() {
 
                 if(resData){
 
-                    if(resData.paymentStatus === 'paid' && !resData.cart && resData ){
+                    if(resData.paymentStatus === 'paid' && !resData.cart && resData){
                         updateCart()
                     }
                     if(resData?.cart){
@@ -81,7 +82,9 @@ function Success() {
 
     return (
         <div className="success">
-            <LoginOrder />
+            {
+                !user && <LoginOrder />
+            }
             <div className="container">
                 <div className="success__content">
                     <div className="success__icon">
@@ -90,9 +93,14 @@ function Success() {
                     <h1>Thank you for your order <span>{customerName.split(' ')[0]}</span> </h1>
                     <p>we are currently processing your order and will send you a confirmation email shortly!!</p>
                     <div className="btn">
-                        <Button onClick={()=> history.push('/')}>
-                        Continue shopping
-                        </Button>
+                        {
+                            !user? 
+                                <Button onClick={()=> history.push('/')}>
+                                Continue shopping
+                                </Button>
+                            : 
+                                <Button onClick={()=> history.push('/myAccount')} >my account</Button>
+                        }
                     </div>
                 </div>
                 <div className="address">

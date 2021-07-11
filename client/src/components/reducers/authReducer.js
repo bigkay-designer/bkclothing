@@ -1,5 +1,10 @@
-
+const storeUser = (user) => {
+    const newUser = !user ? user : []
+    localStorage.setItem('user', JSON.stringify(newUser))
+}
 const authReducer = (state, action) => {
+    console.log(action)
+    console.log(state)
     switch(action.type){
         
         case "ADD_USER": 
@@ -7,10 +12,11 @@ const authReducer = (state, action) => {
                 state.user.push({
                     ...action.payload,
                 })
+                localStorage.setItem('user', JSON.stringify(state.user))
             }
             return {
                 ...state,
-                user: [...state.user]
+                user: [...state.user],
             }
 
         default:

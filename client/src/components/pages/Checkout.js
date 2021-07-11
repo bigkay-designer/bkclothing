@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import axios from '../../containers/axios'
 import { CartContext } from '../contextApi/cartContext'
 import {useStripe} from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
@@ -16,6 +17,7 @@ function Checkout() {
     const [email, setEmail] = useState('')
     // Stripe
     const stripe = useStripe()
+
 
     //// Stripe submit handler
 
@@ -36,7 +38,6 @@ function Checkout() {
                 }
             }
         })
-
 
         /// Fetching from Api
         await fetchFromApi('stripe/charge', {

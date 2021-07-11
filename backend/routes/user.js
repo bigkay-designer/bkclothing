@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs'
 import auth from '../middleware/auth'
 import User from '../models/user'
 import user from '../models/user'
+import Orders from '../models/orders'
 const router = express.Router()
 
 
@@ -89,6 +90,16 @@ router.route('/user')
 })
 
 
+// profile
+router.route('/user/profile')
+.get(auth, async(req, res)=>{
+    try{
+        const getOrder = await Orders.find({"author.id": req.user._id})
+        res.status(200).json(getOrder)
 
+    }catch(error){
+        res.status(500).json({error: `Error: ${error.message}`})
+    }
+})
 
 export default router

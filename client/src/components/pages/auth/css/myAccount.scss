@@ -50,5 +50,17 @@
                 }
             }
         }
+
+        .order__history{
+            .content{
+                padding: 0 10px;
+                .empty_order{
+                    margin-top: 10px;
+                    font-weight: 400;
+                    text-align: center;
+                    color: #5e5e5e;
+                }
+            }
+        }
     }
 }

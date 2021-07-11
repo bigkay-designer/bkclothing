@@ -66,7 +66,6 @@ function ProductDetail() {
         }else if (isInCart(product, cart)){
             increaseQuan(product)
         }
-        console.log('cart >', cart)
     }
     return (
         <div className="product__detail">

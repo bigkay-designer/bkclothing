@@ -140,3 +140,58 @@ try{
     res.status(400).json({error: "error occured"})
 }
 })
+
+
+
+
+// ================== success
+    
+    // Cart update function
+    const updateCart = useCallback (() => {
+        const fetchData = async () => {
+            await fetchFromApiPut(`api/order/post/${sessionIdUri}`, {
+                body: {cart}
+            })
+            .then((res)=> {
+                sessionStorage.setItem('success', 'paid')
+                clearCart()
+            })
+            .catch(error => {
+                console.log(`error from updateCart ${error}`)
+            })
+        }
+        return  fetchData()
+}, [cart, sessionIdUri, clearCart])
+
+
+// get then update cart function
+const getData = useCallback(()=> {
+    const fetchData = async () => {
+        await axios.get(`/get/orders/${sessionIdUri}`,)
+        .then(res => {
+            const resData = res.data[0];
+            if(!resData) {
+                sessionStorage.removeItem('stripe_session_id')
+                sessionStorage.removeItem('success')
+                history.push('')
+            };
+
+            if(resData){
+
+                if(resData.paymentStatus === 'paid' && !resData.cart && resData){
+                    updateCart()
+                }
+                if(resData?.cart){
+                    setOrderCart(resData?.cart[0])
+                }
+                setOrderId(resData.paymentIntent)
+                setTotal(resData.amountTotal / 100)
+                setAddress(resData.shippingInfo.address)
+                // setSessionId(resData.sessionId)
+                setCustomerName(resData.shippingInfo.name)
+            }
+        })
+        .catch(error => console.log(`error from getData ${error}`))
+    }
+    fetchData()
+}, [sessionIdUri, updateCart, history])

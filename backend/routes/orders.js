@@ -2,8 +2,11 @@ import express from 'express'
 import Orders from '../models/orders'
 const router = express.Router()
 
+import auth from '../middleware/auth'
+
 router.route('/get/orders/:id')
 .get(async (req, res)=> {
+    
     try{
         const orderHistory = await Orders.find({sessionId: req.params.id})
         res.status(200).json(orderHistory)
@@ -13,15 +16,19 @@ router.route('/get/orders/:id')
 })
 
 
+
 router.route('/order/post/:id')
 .put(async (req, res)=> {
-    const {cart} = req.body
+    const {cart, author} = req.body
+    console.log(req.body)
+
     try{
 
-         Orders.findOneAndUpdate({sessionId: req.params.id}, {
+        await Orders.findOneAndUpdate({sessionId: req.params.id}, {
              $addToSet:{
-                 cart: cart
-             }
+                 cart: cart,
+                 author: author
+             } 
          })
         .then((resData)=>{
             res.status(200).json(resData)
@@ -33,5 +40,6 @@ router.route('/order/post/:id')
     }
 
 })
+
 
 export default router

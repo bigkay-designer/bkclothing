@@ -41,7 +41,6 @@ function App() {
     }
   }, [cart.length])
 
-
   return (
         <div className="App">
           <Router>

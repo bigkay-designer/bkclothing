@@ -9,7 +9,7 @@ router.route('/stripe/charge')
 .post(async (req, res)=>{
     const YOUR_DOMAIN = 'http://localhost:3000';
 
-    const {line_items,customer_email, cart} = req.body
+    const {line_items,customer_email, cart,} = req.body
     if(!line_items && !customer_email){
         return res.status(400).json({error: "missing required session"})
     }

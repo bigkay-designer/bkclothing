@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from '../../../containers/axios'
-import {useHistory} from 'react-router-dom'
+import {useHistory, Redirect} from 'react-router-dom'
 import { Link} from '@material-ui/core'
 import { CheckCircle } from '@material-ui/icons'
 import {Button} from '@material-ui/core'
-
 import './css/login.css'
+
+
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -24,6 +25,7 @@ function Login() {
        await  axios.post('/login', newUser)
         .then(res => {
             localStorage.setItem("authorization", `Bearer ${res.data.token}`)
+            localStorage.setItem('user', JSON.stringify(res.data.user))
             setEmail('')
             setPassword('')
             setEmailError('')
@@ -47,6 +49,7 @@ function Login() {
     }, [])
     return (
         <div className="login">
+            {/* {user && <Redirect to='/myAccount' />} */}
             <div className="container">
                 <header className="header">
                     <h2>login</h2>
