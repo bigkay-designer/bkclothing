@@ -1,10 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
-function OrderHistory({data}) {
-    
-        useEffect(()=> {
-            console.log(data)
-        }, [])
+function OrderHistory() {
     return (
         <div className="order__history__comp">
             <div className="container">

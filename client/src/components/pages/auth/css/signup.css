@@ -151,6 +151,12 @@
   line-height: 1.5em;
 }
 
+.signup .container .newsLetter_sec .terms input {
+  margin-top: 10px;
+  width: 24px;
+  height: 24px;
+}
+
 .signup .container .submit__btn {
   width: 100%;
   text-align: center;

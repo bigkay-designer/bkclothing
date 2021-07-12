@@ -11,7 +11,7 @@
   height: 100vh;
   background-color: #0f0f0f;
   opacity: 0.5;
-  z-index: 3;
+  z-index: 5;
 }
 
 .nav .container .wrapper {
@@ -97,9 +97,10 @@
   right: -10px;
   border-radius: 50%;
   padding: 3px 7px;
-  background-color: red;
+  background-color: #ad1818;
   color: #e2e2e2;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .nav .container .wrapper .cart__div .icon {
@@ -253,7 +254,7 @@
 }
 
 .nav .container .flash__sale {
-  background-color: #171613;
+  background-color: #cf5423;
   width: 100%;
   padding: 15px 7px;
 }
@@ -267,9 +268,39 @@
   line-height: 1.5em;
 }
 
+.nav .container .flash__sale .flashing__color {
+  color: #d4d4d4;
+}
+
 .nav .container .flash__sale a {
-  color: chocolate;
+  color: #2e1402;
   cursor: pointer;
   text-transform: uppercase;
+  padding-left: 7px;
+}
+
+@media screen and (max-width: 360px) {
+  .nav .container .menu {
+    height: 100vh;
+  }
+  .nav .container .menu .auth__pages {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .nav .container .menu .auth__pages .btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .nav .container .menu .auth__pages .btn button {
+    width: auto;
+  }
 }
 /*# sourceMappingURL=Nav.css.map */

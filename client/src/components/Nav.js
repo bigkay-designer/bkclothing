@@ -10,6 +10,7 @@ function Nav() {
     const [openMenu, SetOpenMenu] = useState(false)
     const {itemCount} = useContext(CartContext)
     const [user, setUser] = useState([])
+    const [flashingColor, setFlashingColor] = useState(false)
     const history = useHistory();
 
     // get logged in user
@@ -34,6 +35,7 @@ function Nav() {
         getLoggedInUser()
     }, [])
 
+    /// flashing color 
     return (
         <div className="nav">
             <div className="container">
@@ -104,7 +106,7 @@ function Nav() {
                     </div>
                 </div>
                 <div className="flash__sale">
-                    <p> Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer <Link to="/">Shop Now</Link> </p>
+                    <p className={`${flashingColor && "flashing__color"}`}> Sale Up To 50% Biggest Discounts. Hurry! Limited Perriod Offer <Link to="/">Shop Now</Link> </p>
                 </div>
             </div>
         </div>

@@ -58,7 +58,7 @@ function Mens() {
     
 
     return (
-        <div className="men product__wrapper">
+        <div className="product__wrapper">
             <div className="products__section">
                 <div className="container">
                     {products.map(product => (

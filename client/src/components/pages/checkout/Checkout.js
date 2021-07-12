@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react'
-import axios from '../../containers/axios'
-import { CartContext } from '../contextApi/cartContext'
+import axios from '../../../containers/axios'
+import { CartContext } from '../../contextApi/cartContext'
 import {useStripe} from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
 import CheckoutItems from './CheckoutItems'
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core'
-import {fetchFromApi} from '../helpers'
+import {fetchFromApi} from '../../helpers'
 
-import '../css/checkout.css'
+import '../../css/checkout.css'
 function Checkout() {
     // History Router
     let history = useHistory()

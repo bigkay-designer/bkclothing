@@ -15,7 +15,7 @@
         overflow-x: hidden;
         padding: 10px;
         .item{
-            box-shadow: 0px 1px 3px rgb(184, 183, 183);
+            // box-shadow: 0px 1px 3px rgb(184, 183, 183);
             a{
                 text-decoration: none;
                 color: inherit;
@@ -26,7 +26,7 @@
                 width: 100%;
                 margin: 0 auto;
                 padding: 10px;
-                box-shadow: 0px 1px 3px rgb(219, 219, 219);
+                // box-shadow: 0px 1px 3px rgb(219, 219, 219);
                 img{
                     cursor: pointer;
                     width: 100%;
@@ -58,13 +58,12 @@
                 }
             }
             .body{
-                margin-top: 20px;
-                padding: 10px;
+                padding: 0 10px ;
                 p{
                     font-family: 'Jost', sans-serif;
                     max-width: fit-content;
                     cursor: pointer;
-                    font-size: 16px;
+                    font-size: 14px;
                 }
             }
         }

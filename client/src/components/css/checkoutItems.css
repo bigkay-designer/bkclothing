@@ -47,7 +47,6 @@
 }
 
 .checkout__items .item .img, .payment__items .item .img {
-  background-color: whitesmoke;
   -webkit-box-flex: 0.30;
       -ms-flex: 0.30;
           flex: 0.30;

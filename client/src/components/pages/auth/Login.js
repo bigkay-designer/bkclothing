@@ -25,7 +25,6 @@ function Login() {
        await  axios.post('/login', newUser)
         .then(res => {
             localStorage.setItem("authorization", `Bearer ${res.data.token}`)
-            localStorage.setItem('user', JSON.stringify(res.data.user))
             setEmail('')
             setPassword('')
             setEmailError('')

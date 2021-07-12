@@ -1,22 +1,19 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Redirect, useHistory} from 'react-router-dom'
 import axios from '../../../containers/axios'
-import { AuthContext } from '../../contextApi/authContext'
 import './css/myAccount.css'
-import OrderHistory from './OrderHistory'
 function MyAccount() {
     let history = useHistory()
-    const [userData, setUserData] = useState({cart: []})
     const [emptyData, setEmptyData] = useState(false)
-    const {user, userError} = useContext(AuthContext)
+    const [user, setUser] = useState([])
     //address section
-    const [address, setAddress] = useState([])
-    const [customerName, setCustomerName] = useState('')
-    //order sesction
-    const [orderCart, setOrderCart] = useState([])
-    const [orderId, setOrderId] = useState(null)
-    // const [sessionId, setSessionId] = useState('')
-    const [total, setTotal] = useState(null)
+    // const [address, setAddress] = useState([])
+    // const [customerName, setCustomerName] = useState('')
+    // //order sesction
+    // const [orderCart, setOrderCart] = useState([])
+    // const [orderId, setOrderId] = useState(null)
+    // // const [sessionId, setSessionId] = useState('')
+    // const [total, setTotal] = useState(null)
     
     // logout func
     const logoutHandler = () => {
@@ -24,10 +21,29 @@ function MyAccount() {
         history.push('/')
     }
 
+    const fetchUserData = async () => {
+        await axios.get('/user', {headers:{"authorization": localStorage.getItem('authorization')}}) 
+        .then(res => {
+            if(res.status === 200){
+                localStorage.setItem('user', JSON.stringify(res.data))
+            }
+        })
+        .catch(error => {
+            if (error.response.data.msg === ('token is invalid' || 'Acess Denied')){
+                setEmptyData(true)
+                localStorage.removeItem('authorization')
+            }
+        });
+    };
+    
+    useEffect(()=> {
+        fetchUserData();
+    }, []);
+
     return (
         <div className="my__account">
             {
-                userError &&
+                emptyData &&
                 <Redirect to="/login" />
             }
             <div className="container">
@@ -44,12 +60,12 @@ function MyAccount() {
                     </div>
                     <div className="content">
                         <ul>
-                            <li>{address.line1}</li>
+                            {/* <li>{address.line1}</li>
                             <li>{address.line2}</li>
                             <li className="postal__code">{address.postal_code}</li>
                             <li>{address.country}</li>
                             <li>{address.city}</li>
-                            <li>{address.state}</li>
+                            <li>{address.state}</li> */}
                         </ul>
                     </div>
                 </section>
@@ -61,10 +77,6 @@ function MyAccount() {
                         {
                             emptyData && <p className="empty_order">Your order history is empty</p>
                         }
-
-                           <OrderHistory
-                                data={userData}
-                            />
                         
                     </div>
                 </section>

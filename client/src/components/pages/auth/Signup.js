@@ -158,10 +158,11 @@ function Signup() {
                                 <label htmlFor="email">SMS</label>
                             </div> */}
                             <div className="disclaimer">
-                                <p>*By checking the SMS box, you are agreeing to receive texts from or on behalf of Burton, our family of companies, or one of its third-party associates, to any telephone number you provide. These texts could be sent using an automated telephone system. Agreement is not a requirement of purchase and you are free to opt-out at any time.</p>
+                                <p>*By checking the SMS box, you are agreeing to receive texts from or on behalf of bkclothing, our family of companies, or one of its third-party associates, to any telephone number you provide. These texts could be sent using an automated telephone system. Agreement is not a requirement of purchase and you are free to opt-out at any time.</p>
                             </div>
                             <div className="terms">
                                 <p>By continuing you agree to our <Link to="">Terms & Conditions </Link>. See out <Link to="">Privacy Notice</Link></p>
+                                <input className="radio__agreement" type="checkbox" required  />
                             </div>
                         </section>
 

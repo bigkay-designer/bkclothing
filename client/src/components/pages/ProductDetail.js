@@ -69,14 +69,8 @@ function ProductDetail() {
     }
     return (
         <div className="product__detail">
-            <div className="product__title">
-                <div className="back__arrow" onClick={()=> locationHistory.goBack()}> <ArrowBackIos /> <span>back</span></div>
-                <div className="group">
-                    <h3>{productDetails.productDesc}</h3>
-                    <p>{productDetails.productName}</p>
-                </div>
-            </div>  
             <div className="product__container">
+            <div className="back__arrow" onClick={()=> locationHistory.goBack()}> <ArrowBackIos /> <span>back</span></div>
                 <div className="img">
                         <div className="default__img">
                             <img src={productImg[currentImgTap].img} alt=""/>
@@ -89,6 +83,12 @@ function ProductDetail() {
                         ))}
                     </div>
                 </div>
+                <div className="product__title">
+                    <div className="group">
+                        <h3>{productDetails.productDesc}</h3>
+                        <p>{productDetails.productName}</p>
+                    </div>
+                </div>  
                 <div className="price">
                     <p>£{productDetails.productPrice} <span>VAT included</span></p>
                 </div>

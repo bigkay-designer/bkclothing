@@ -13,7 +13,7 @@ import ProductDetail from '../components/pages/ProductDetail';
 import SortFilter from '../components/pages/SortFilter';
 import FilterContextProvider from '../components/contextApi/filterContext';
 import ProductDisplay from '../components/pages/ProductDisplay';
-import Checkout from '../components/pages/Checkout';
+import Checkout from '../components/pages/checkout/Checkout';
 import Success from '../components/pages/checkout/Success'
 import Canceled from '../components/pages/checkout/Canceled'
 import NotFound from '../components/NotFound'

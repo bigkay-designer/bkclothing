@@ -82,6 +82,7 @@
 
 .login .container .login__form form .error__alert p {
   color: red;
+  font-size: 14px;
 }
 
 .login .container .login__form form .submit__btn {
