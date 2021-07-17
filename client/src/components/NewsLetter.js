@@ -6,15 +6,17 @@ function NewsLetter() {
     return (
         <div className="newsletter">
             <div className="container">
-                <div className="title">
-                    <h2>subscribe newsletter</h2>
-                    <p>Subscribe newsletter to get 20% on all products.</p>
-                </div>
-                <div className="input">
-                    <form >
-                        <input type="email" required placeholder="Enter your email"/>
-                        <Button>subscribe</Button>
-                    </form>
+                <div className="group">
+                    <div className="title">
+                        <h2>subscribe newsletter</h2>
+                        <p>Subscribe newsletter to get 20% on all products.</p>
+                    </div>
+                    <div className="input">
+                        <form >
+                            <input type="email" required placeholder="Enter your email"/>
+                            <Button>subscribe</Button>
+                        </form>
+                    </div>
                 </div>
                 <div className="socials">
                     <Facebook  className="icon" />

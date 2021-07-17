@@ -25,10 +25,17 @@
 }
 
 
-@media screen and (max-width:360px){
+// Media query
 
+@media screen and (max-width:360px){
     .landing__item{
         min-width: 160px;
         margin: 0;
+    }
+}
+
+@media screen and (min-width:768px){
+    .landing__item{
+        min-width: 470px;
     }
 }

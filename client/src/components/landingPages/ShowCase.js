@@ -1,5 +1,5 @@
 import React from 'react'
-import banner from '../images/banner.jpg'
+import banner from '../images/banner3.jpeg'
 import {Button} from '@material-ui/core'
 import '../css/Showcase.css'
 function ShowCase() {

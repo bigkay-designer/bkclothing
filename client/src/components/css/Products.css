@@ -13,15 +13,8 @@
   grid-gap: 20px;
   width: 100%;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 10px;
-}
-
-@media screen and (max-width: 360px) {
-  .products__section .container {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 .products__section .container .item a {
@@ -82,19 +75,13 @@
   padding: 0 10px;
 }
 
-.products__section .container .item .body p {
-  font-family: 'Jost', sans-serif;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  cursor: pointer;
-  font-size: 14px;
+.products__section .container .item .body a {
+  text-align: center;
 }
 
-@media screen and (max-width: 360px) {
-  .item {
-    min-width: 160px;
-    margin: 0;
-  }
+.products__section .container .item .body p {
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+  font-size: 14px;
 }
 /*# sourceMappingURL=Products.css.map */

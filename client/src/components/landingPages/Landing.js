@@ -18,7 +18,7 @@ function Landing() {
                 <h2>Trending</h2>
             </div>
             <Trending />
-            <Testimonials />
+            {/* <Testimonials /> */}
             <div className="title">
                 <h2>You may like</h2>
             </div>

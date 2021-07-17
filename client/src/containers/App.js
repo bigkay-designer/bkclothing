@@ -75,8 +75,10 @@ function App() {
               </Switch>
               
               {/*  */}
-              <NewsLetter />
-              <Footer />
+              <div className="footer__wrapper">
+                <NewsLetter />
+                <Footer />
+              </div>
             </div>
           </Router>
         </div>

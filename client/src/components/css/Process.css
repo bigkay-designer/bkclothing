@@ -46,4 +46,23 @@
   margin-top: 10px;
   color: #666666;
 }
+
+@media screen and (min-width: 768px) {
+  .process .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .process .container {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
 /*# sourceMappingURL=Process.css.map */

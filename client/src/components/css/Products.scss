@@ -5,17 +5,13 @@
     .container{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        @media screen and(max-width:360px){
-            grid-template-columns: repeat(1, 1fr);
-        }
         grid-template-rows: auto;
         grid-gap: 20px;
         width: 100%;
         margin: 0 auto;
-        overflow-x: hidden;
+        overflow: hidden;
         padding: 10px;
         .item{
-            // box-shadow: 0px 1px 3px rgb(184, 183, 183);
             a{
                 text-decoration: none;
                 color: inherit;
@@ -26,7 +22,6 @@
                 width: 100%;
                 margin: 0 auto;
                 padding: 10px;
-                // box-shadow: 0px 1px 3px rgb(219, 219, 219);
                 img{
                     cursor: pointer;
                     width: 100%;
@@ -59,9 +54,11 @@
             }
             .body{
                 padding: 0 10px ;
+                a{
+                    text-align: center;
+                }
                 p{
                     font-family: 'Jost', sans-serif;
-                    max-width: fit-content;
                     cursor: pointer;
                     font-size: 14px;
                 }
@@ -70,9 +67,4 @@
     }
 }
 
-@media screen and (max-width:360px){
-    .item{
-        min-width: 160px;
-        margin: 0;
-    }
-}
+// media queries

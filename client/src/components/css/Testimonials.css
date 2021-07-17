@@ -71,6 +71,10 @@
   color: ivory;
 }
 
+.testimonials .container .wrapper .content .body {
+  font-size: 1rem;
+}
+
 .testimonials .container .wrapper .content .body h3 {
   color: black;
   text-transform: capitalize;
@@ -126,5 +130,17 @@
 
 .testimonials .nav__btn .btn .prev {
   border: 1px solid #d40101;
+}
+
+@media screen and (min-width: 768px) {
+  .testimonials .container {
+    height: 300px;
+  }
+  .testimonials .container .wrapper .content {
+    min-width: 420px;
+  }
+  .testimonials .container .wrapper .content .body {
+    font-size: 1.2rem;
+  }
 }
 /*# sourceMappingURL=Testimonials.css.map */

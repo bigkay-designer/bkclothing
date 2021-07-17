@@ -50,6 +50,7 @@
                     }
                 }
                 .body{
+                    font-size: 1rem;
                     h3{
                         color: rgb(0, 0, 0);
                         text-transform: capitalize;
@@ -88,6 +89,23 @@
             }
             .prev{
                 border: 1px solid rgb(212, 1, 1);
+            }
+        }
+    }
+}
+
+// media query
+@media screen and (min-width:768px){
+    .testimonials{
+        .container{
+            height: 300px;
+            .wrapper{
+                .content{
+                    min-width: 420px;
+                    .body{
+                        font-size: 1.2rem;
+                    }
+                }
             }
         }
     }

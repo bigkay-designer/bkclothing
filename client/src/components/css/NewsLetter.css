@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;400&display=swap");
 .newsletter {
   background-color: #171613;
+  grid-area: nsl;
 }
 
 .newsletter .container {
@@ -62,5 +63,58 @@
   color: #718191;
   font-size: 32px;
   margin-right: 10px;
+}
+
+@media screen and (min-width: 580px) {
+  .newsletter {
+    width: 100%;
+    overflow: hidden;
+  }
+  .newsletter .container .group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .newsletter .container .group .input {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+  .newsletter .container .socials {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .newsletter .container {
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .newsletter {
+    padding: 10px;
+  }
+  .newsletter .container {
+    margin-top: 30px;
+    max-width: 90%;
+  }
+  .newsletter .container .group {
+    display: block;
+  }
 }
 /*# sourceMappingURL=NewsLetter.css.map */

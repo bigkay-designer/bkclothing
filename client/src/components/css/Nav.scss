@@ -49,8 +49,24 @@
             }
             .cart__div{
                 display: flex;
+                justify-content: flex-end;
                 align-items: center;
                 margin-right: 7px;
+                .bigger__screen__auth{
+                    display: none;
+                    .auth__pages{
+                        display: flex;
+                        align-items: center;
+                        .btn{
+                            display: flex;
+                            align-items: center;
+                            margin: 0 15px;
+                        }
+                        .signup{
+                            background-color: #f2fcf0;
+                        }
+                    }
+                }
                 .cart{
                     margin-left: 10px;
                 }
@@ -87,7 +103,7 @@
             position: fixed;
             top: 0px;
             left: 0;
-            width: 65%;
+            max-width: 65%;
             background-color:#fff;
             height: 85vh;
             box-shadow: 0px 1px 3px lightgrey;
@@ -215,13 +231,70 @@
                             width: auto;
                         }
                     }
-                    .user{
-                        .wrapper{
-                        }
-                    }
                 }
 
             }
         }
     }   
+}
+
+@media screen and (min-width: 992px) {
+    .nav{
+        .container{
+            max-width: 100%;
+            .overlay{
+                display: none;
+            }
+            .wrapper{
+                width: 100%;
+                .logo{
+                    flex: 1;
+                    margin-left: 30px;
+                }
+                .menu__icon{
+                    display: none;
+                }
+                .cart__div{
+                    flex: 0.4;
+                    .bigger__screen__auth{
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .menu{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+                top: 0;
+                max-width: 100%;
+                height: auto;
+                overflow: hidden;
+                background-color: #e5e2e2;
+                .icon__div{
+                    display: none;
+                }
+                .menu__list{
+                    flex: 1;
+                    padding: 7px 0;
+                    ul{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        li{
+                            padding: 0 20px;
+                            margin: 0 30px;
+                            border: none;
+                            font-weight: normal;
+                            color: rgb(37, 37, 37);
+                        }
+                    }
+                }
+                .smaller__screen__auth{
+                    display: none !important;
+                }
+            }
+        }
+    }
 }

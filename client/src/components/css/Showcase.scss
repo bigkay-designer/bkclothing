@@ -5,11 +5,11 @@
         .banner{
           img{
              width: 100%; 
-             min-height: 300px;
-             max-height: 75vh;
+             height: auto;
           }
         }
         .content__wrapper{
+            display: none;
             position: absolute;
             bottom: 0px;
             right: 0;
@@ -19,6 +19,7 @@
         }
         .content{
             margin-bottom: 30px;
+            font-size: 1rem;
             .title{
                 margin: 0 0 10px;
                 text-align: center;
@@ -44,6 +45,26 @@
                     background-color: chocolate;
                     width: 50%;
                     cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+// media query
+
+@media screen and (min-width: 580px) {
+    .showcase{
+        .container{
+            .content__wrapper{
+                // display: flex;
+                // justify-items: center;
+                // align-items: center;
+                // top: 0;
+                // left: 0;
+                // max-width: 50%;
+                .content{
+                    font-size: 1.3em;
                 }
             }
         }

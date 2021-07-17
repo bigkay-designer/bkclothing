@@ -58,6 +58,12 @@ function Checkout() {
 
     }
 
+    // clear cart
+    const clearCartHandler = () => {
+        clearCart()
+        window.scrollTo(0, 0)
+    }
+
     return (
         <div className="checkout">
             <div className="title">
@@ -111,7 +117,7 @@ function Checkout() {
                             <input onChange={(e)=> setEmail(e.target.value)} type="email" placeholder="Email Address" value={email} required />
                             <div className="btn__div">
                                 <Button className="checkout__btn" type="submit" role="link" >checkout</Button>
-                                <Button type="button" role="link" onClick={()=> clearCart()} >clear</Button>
+                                <Button type="button" role="link" onClick={clearCartHandler} >clear</Button>
                             </div>
                         </form>
                     

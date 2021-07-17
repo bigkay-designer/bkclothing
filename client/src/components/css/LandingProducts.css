@@ -59,4 +59,13 @@
     height: 260px;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .wrapper .landing__product {
+    height: 690px;
+  }
+  .wrapper .arrow1, .wrapper .arrow2 {
+    top: 40%;
+  }
+}
 /*# sourceMappingURL=LandingProducts.css.map */

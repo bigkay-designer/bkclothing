@@ -5,11 +5,11 @@
 
 .showcase .container .banner img {
   width: 100%;
-  min-height: 300px;
-  max-height: 75vh;
+  height: auto;
 }
 
 .showcase .container .content__wrapper {
+  display: none;
   position: absolute;
   bottom: 0px;
   right: 0;
@@ -20,6 +20,7 @@
 
 .showcase .container .content {
   margin-bottom: 30px;
+  font-size: 1rem;
 }
 
 .showcase .container .content .title {
@@ -53,5 +54,11 @@
   background-color: chocolate;
   width: 50%;
   cursor: pointer;
+}
+
+@media screen and (min-width: 580px) {
+  .showcase .container .content__wrapper .content {
+    font-size: 1.3em;
+  }
 }
 /*# sourceMappingURL=Showcase.css.map */
