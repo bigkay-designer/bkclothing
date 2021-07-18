@@ -1,0 +1,113 @@
+.show__auth__pages {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.auth__pages {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 10px grey;
+          box-shadow: 0px 0px 10px grey;
+  padding: 20px;
+  width: 260px;
+}
+
+.auth__pages .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f4f4f4;
+  padding: 0 10px;
+  color: #1d1d1df4;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.auth__pages .btn button {
+  color: inherit;
+  width: 100%;
+  padding: 10px;
+}
+
+.auth__pages .btn svg {
+  color: #272727;
+}
+
+.auth__pages .user {
+  width: 100%;
+}
+
+.auth__pages .user .wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth__pages .user .wrapper .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth__pages .user .wrapper .group h4 {
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+.auth__pages .user .wrapper button {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.auth__pages .user .my__account {
+  width: 100%;
+  background-color: #dbdbdb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.auth__pages .user .my__account button {
+  padding-left: 7px;
+}
+/*# sourceMappingURL=navAuth.css.map */

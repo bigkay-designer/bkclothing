@@ -1,0 +1,106 @@
+.large__nav{
+    .container {
+        padding: 10px 0 0;
+        .wrapper{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 15px 30px 10px 20px;
+            .gender__title{
+                ul{
+                    display: flex;
+                    align-items: flex-end;
+                    li{
+                        text-transform: capitalize;
+                        list-style: none;
+                        margin: 0 10px;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        letter-spacing: 1.5px;
+                    }
+                    .men__li, .women__li{
+                        font-weight: 900;
+                    }
+                }
+            }
+            
+            .logo{
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                    cursor: pointer;
+                }
+                h3{
+                    margin: 0 0 0 7px;
+                    padding: 0;
+                    font-size: 2rem;
+                }
+                svg{
+                    font-size: 42px;
+                    color: #000;
+                    background-color: #ff4343;
+                    border-radius: 50%;
+                    padding: 5px;
+                    cursor: pointer;
+                }
+            }
+            .cart__div{
+                display: flex;
+                align-items: center;
+                .larger__screen__auth{
+                    position: relative;
+                }
+                .group{
+                    display: flex;
+                    align-items: center;
+                    svg{
+                        font-size: 1.5rem;
+                        margin: 0 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .menu{
+            padding: 15px 30px 10px 20px;
+            background-color: #dddddd;
+            margin-top: 10px;
+            ul{
+                display: flex;
+                align-items: center;
+                li{
+                    text-transform: capitalize;
+                    list-style: none;
+                    margin: 0 20px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    color: rgb(59, 59, 59);
+                    letter-spacing: 1.5px;
+                }
+            }
+        }
+
+
+        .women__menu{
+            display: none;
+        }
+        .show__women__menu{
+            display: block !important;
+        }
+        .men__menu{
+            display: none;
+        }
+        .show__men__menu{
+            display: block !important;
+        }
+
+    }
+}

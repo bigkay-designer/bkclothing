@@ -1,0 +1,42 @@
+.nav .container .large__screen__nav {
+  display: none;
+}
+
+.nav .container .flash__sale {
+  background-color: #cf5423;
+  width: 100%;
+  padding: 15px 7px;
+}
+
+.nav .container .flash__sale p {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.nav .container .flash__sale .flashing__color {
+  color: #d4d4d4;
+}
+
+.nav .container .flash__sale a {
+  color: #2e1402;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding-left: 7px;
+}
+
+@media screen and (min-width: 992px) {
+  .nav .container .large__screen__nav {
+    display: block;
+  }
+  .nav .container .small__screen__nav {
+    display: none;
+  }
+  .nav .container .flash__sale p {
+    font-size: 1.5rem;
+  }
+}
+/*# sourceMappingURL=nav.css.map */

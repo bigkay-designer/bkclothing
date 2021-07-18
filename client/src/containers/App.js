@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
-import Nav from '../components/Nav'
+import Nav from '../components/nav/Nav'
 import Landing from '../components/landingPages/Landing'
 import NewsLetter from '../components/NewsLetter';
 import Footer from '../components/Footer';
