@@ -57,7 +57,7 @@ function NavAuth({openMenu, setOpenMenu}) {
             }
             {
                 !localStorage.getItem('authorization') && 
-                <div onClick={()=> goToSignup(history, setOpenMenu(false))} className="btn signup">
+                <div onClick={()=> goToSignup(history, setOpenMenu(false))} className="btn signup__btn">
                     <PersonAddOutlined />
                     <Button>signup</Button>
                 </div>

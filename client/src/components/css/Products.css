@@ -83,6 +83,10 @@
   color: red;
 }
 
+.products__section .container .item .body {
+  margin-top: 10px;
+}
+
 .products__section .container .item .body a {
   text-align: center;
 }

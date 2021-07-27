@@ -41,7 +41,7 @@ router.route('/product/post').post((req, res)=> {
 ///// specific product by title
 router.route('/get/:productName').get( async(req, res) => {
   try{
-      const currentProducts = await products.find({productName: req.params.productName}).sort({_id: -1})
+      const currentProducts = await products.find({productCategory: req.params.productName}).sort({_id: -1})
       res.status(200).json(currentProducts)
   }catch (err){
       res.status(500).json({error: err.message})

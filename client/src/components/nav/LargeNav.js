@@ -2,7 +2,7 @@ import React, {useState,useEffect, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, PersonAddOutlined, PersonOutlined, Person,} from '@material-ui/icons'
 import {CartContext} from '../contextApi/cartContext'
-import { goToHome, goToMen, goToWomen, goToSkirts, goToJackets , goToShirts} from '../pageLinks'
+import { goToHome, goToMen, goToWomen, goToSkirts, goToJackets , goToShirts, goToSuits} from '../pageLinks'
 import NavAuth from './NavAuth'
 import './css/largeNav.css'
 function LargeNav() {
@@ -65,7 +65,7 @@ function LargeNav() {
                     <ul>
                         <li onClick={()=> goToHome(history)}>Home</li>
                         <li onClick={()=> goToShirts(history)}>shirts</li>
-                        <li>tracksuits</li>
+                        <li onClick={()=> goToSuits(history)}>suits</li>
                         <li>Contact Us</li>
                     </ul>
                 </div>

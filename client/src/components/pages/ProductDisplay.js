@@ -64,6 +64,11 @@ function Mens() {
             .then(res => {
                 setProducts(res.data)
             })
+        }else if(location.pathname === '/page/mens/suits'){
+            await axios.get(`/get/suits`)
+            .then(res => {
+                setProducts(res.data)
+            })
         }else{
             return setUrlState(true)
         }

@@ -92,17 +92,21 @@ function Checkout() {
             </div>
             
             <div className="cart__items">
-                <div className="cart__table__container">
-                    <div className="cart__tabel">
-                        <div className="cart__row">
-                            <div className="section__header">item</div>
-                            <div className="section__header"></div>
-                            <div className="section__header header__qty">qty</div>
-                            <div className="section__header header__price">price</div>
+                {
+                    cart.length ? 
+                    <div className="cart__table__container">
+                        <div className="cart__tabel">
+                            <div className="cart__row">
+                                <div className="section__header">item</div>
+                                <div className="section__header"></div>
+                                <div className="section__header header__qty">qty</div>
+                                <div className="section__header header__price">price</div>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                    : null
+                }
                 {cart.map((item, index) => (
                         <CheckoutItems
                             key={index}

@@ -73,7 +73,6 @@ function ProductDetail() {
             <div className="product__container">
                 <div className="product__title">
                     <div className="group">
-                        <h3>{productDetails.productDesc}</h3>
                         <p>{productDetails.productName}</p>
                     </div>
                 </div> 
@@ -115,6 +114,10 @@ function ProductDetail() {
                         }
                     </div>
                 </form>
+                <div className="product__desc">
+                    <h3>Details</h3>
+                    <p>{productDetails.productDesc}</p>
+                </div>
             </div>
         </div>
     )

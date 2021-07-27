@@ -1,12 +1,14 @@
 import React, {useState,useEffect, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
-import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, PersonAddOutlined, PersonOutlined,} from '@material-ui/icons'
+import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, ArrowBackIos, ArrowForwardIos} from '@material-ui/icons'
 import {CartContext} from '../contextApi/cartContext'
-import { goToHome, goToSignup, goToLogin, goToMen, goToWomen, logoutHandler, goToMyAccount } from '../pageLinks'
+import { goToHome, goToSkirts, goToJackets , goToShirts, goToSuits} from '../pageLinks'
 import NavAuth from './NavAuth'
 import './css/smallNav.css'
 function SmallNav() {
     const [openMenu, SetOpenMenu] = useState(false)
+    const [menMenu, setMenMenu] = useState(false)
+    const [womenMenu, setWomenMenu] = useState(false)
     const {itemCount} = useContext(CartContext)
     const history = useHistory();
 
@@ -47,15 +49,34 @@ function SmallNav() {
                     <div className={`menu__list`}>
                         <ul>
                             <li onClick={()=> goToHome(history, SetOpenMenu(false))}>Home</li>
-                            <li onClick={()=> goToMen(history, SetOpenMenu(false))}>Men</li>
-                            <li onClick={()=> goToWomen(history, SetOpenMenu(false))}>Women</li>
-                            <li>shirts</li>
-                            <li>tracksuits</li>
+                            <li>
+                                <div onClick={() => setMenMenu(true)} className="title">
+                                    <h3>men</h3>
+                                    <ArrowForwardIos onClick={() => setMenMenu(true)} />
+                                </div>
+                                <div className={`group ${menMenu && "show__group"}`}>
+                                    <ArrowBackIos onClick={()=> setMenMenu(false)} />
+                                    <p onClick={()=> goToShirts(history, SetOpenMenu(false))}>shirts</p>
+                                    <p onClick={()=> goToSuits(history, SetOpenMenu(false))}>suits</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div onClick={() => setWomenMenu(true)} className="title">
+                                    <h3>women</h3>
+                                    <ArrowForwardIos onClick={() => setWomenMenu(true)} />
+                                </div>
+                                <div className={`group ${womenMenu && "show__group"}`}>
+                                    <ArrowBackIos onClick={()=> setWomenMenu(false)} />
+                                    <p onClick={()=> goToSkirts(history, SetOpenMenu(false))}>skirts</p>
+                                    <p onClick={()=> goToJackets(history, SetOpenMenu(false))}>jackets</p>
+                                </div>
+                            </li>
+
                             <li>Contact Us</li>
                         </ul>
                     </div>
                     <div className="smaller__screen__auth">
-                        <NavAuth SetOpenMenu={SetOpenMenu} />
+                        <NavAuth setOpenMenu={SetOpenMenu} />
                     </div>
                 </div>
             </div>
