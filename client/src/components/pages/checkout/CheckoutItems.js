@@ -35,7 +35,7 @@ function CheckItems({id,index,productName,
     return (
         <div className="checkout__items">
             <div className="item">
-                <div className="img">
+                <div className="img img__small__screen">
                     <div className="img__container">
                         <Link to={`/get/product/${productName}/${id}`}>
                             <img src={productImage} alt=""/>
@@ -43,9 +43,23 @@ function CheckItems({id,index,productName,
                     </div>
                 </div>
                 <div className="body">
-
                     <div className="body__title">
                         <h2>{productName}</h2>
+                    </div>
+                    <div className="cart__tabel">
+                        <div className="cart__row">
+                            <div className="cart__cell item__image">
+                                <img src={productImage} alt=""/>
+                            </div>
+                            <div className="cart__cell item__details">
+                               <div className="body__content">
+                                    <p className="item__name">name: {productName}</p>
+                                    <p className="item__size">size: {productSize}</p>
+                                </div>
+                            </div>
+                            <div className="cart__cell item__qty">{productQuantity}</div>
+                            <div className="cart__cell item__price">£{productPrice}</div>
+                        </div>
                     </div>
                     <table>
                         <tbody>
@@ -97,6 +111,7 @@ function CheckItems({id,index,productName,
                 </form>
 
             </div>
+            <div className="border__bottom"></div>
         </div>
     )
 }

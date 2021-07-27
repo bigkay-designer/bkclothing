@@ -66,6 +66,21 @@
                         cursor: pointer;
                     }
                 }
+                .cart__body__div{
+                    display: flex;
+                    position: relative;
+                    p{
+                        position: absolute;
+                        top: -7px;
+                        right: -5px;
+                        border-radius: 50%;
+                        padding: 3px 7px;
+                        background-color: rgb(173, 24, 24);
+                        color: rgb(226, 226, 226);
+                        font-weight: bold;
+                        font-size: 14px;
+                    }
+                }
             }
         }
 

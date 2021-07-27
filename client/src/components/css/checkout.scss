@@ -25,6 +25,11 @@
             margin-top: 10px;
         }
     }
+    .cart__items{
+        .cart__table__container{
+            display: none;
+        }
+    }
     .form__div{
         text-align: center;
         width: 100%;
@@ -53,5 +58,81 @@
             color: #fff;
         }
 
+    }
+}
+
+
+//media query
+@media screen and (min-width: 768px) {
+    .checkout{
+        .cart__items{
+            .cart__table__container{
+                display: inline-block;
+                width: 100%;
+                padding:10px 20px 0 40px;
+            }
+            .cart__tabel{
+                display: table;
+                width: 100%;
+                border-collapse: collapse;
+                .cart__row{
+                    display: table-row;
+                    position: relative;
+                    .section__header{
+                        display: table-cell;
+                        text-align: start;
+                        font-weight: 700;
+                        border: 0;
+                        font-size: 12px;
+                        line-height: 1.5em;
+                        padding: 15px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        background: #efefef;
+                    }
+                    .header__qty, .header__price{
+                        width: 136px;
+                    }
+                }
+            }
+        }
+        .form__div{
+            form{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 0 20px;
+                input{
+                    width: 100%;
+                    border-radius: 0;
+                }
+                .btn__div{
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    button{
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .checkout{
+        .form__div{
+            width: 50%;
+        }
+    }
+}
+
+@media screen  and (min-width: 1200px) {
+    .checkout{
+        max-width: 75%;
+        margin: 0 auto;
+        .form__div{
+            width: 50%;
+        }
     }
 }

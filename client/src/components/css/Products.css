@@ -4,17 +4,28 @@
 }
 
 .products__section .container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-  grid-gap: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 10px;
   width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 10px;
+  margin: auto;
+}
+
+.products__section .container .item {
+  width: 50%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  padding: 0 5px;
+  margin-bottom: 40px;
+  list-style: none;
+  vertical-align: top;
 }
 
 .products__section .container .item a {
@@ -26,15 +37,16 @@
 .products__section .container .item .img {
   position: relative;
   width: 100%;
-  margin: 0 auto;
-  padding: 10px;
 }
 
 .products__section .container .item .img img {
   cursor: pointer;
   width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: bottom;
 }
 
 .products__section .container .item .img .purchase__icon {
@@ -71,10 +83,6 @@
   color: red;
 }
 
-.products__section .container .item .body {
-  padding: 0 10px;
-}
-
 .products__section .container .item .body a {
   text-align: center;
 }
@@ -83,5 +91,37 @@
   font-family: 'Jost', sans-serif;
   cursor: pointer;
   font-size: 14px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .products__section .container .item {
+    width: 33.33%;
+    padding: 0 8px;
+  }
+  .products__section .container .item:nth-child(3n - 2) {
+    padding-left: 0;
+    padding-right: 14px;
+  }
+  .products__section .container .item:nth-child(3n - 1) {
+    padding: 0 7px;
+  }
+  .products__section .container .item:nth-child(3n) {
+    padding-right: 0;
+    padding-left: 11px;
+  }
+  .products__section .container .item .img img {
+    border: 0;
+    max-width: 100%;
+    vertical-align: top;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .products__section .container .item {
+    width: 20%;
+  }
+  .products__section .container .item .img {
+    display: block;
+  }
 }
 /*# sourceMappingURL=Products.css.map */

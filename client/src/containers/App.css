@@ -3,10 +3,6 @@
   box-sizing: border-box;
 }
 
-body{
-  box-sizing: border-box;
-}
-
 @media screen and (min-width: 1200px) {
   .footer__wrapper{
     width: 100%;

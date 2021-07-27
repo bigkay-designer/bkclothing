@@ -60,7 +60,7 @@ function Mens() {
     return (
         <div className="product__wrapper">
             <div className="products__section">
-                <div className="container">
+                <ul className="container">
                     {products.map(product => (
                         <Products 
                             key={product._id}
@@ -74,7 +74,7 @@ function Mens() {
                             productDesc= {product.productDesc}
                         />
                     ))}
-                </div>
+                </ul>
             </div>
         </div>
     )

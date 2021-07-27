@@ -6,7 +6,7 @@ import './css/Products.css'
 function Products({id, image, productPrice, productName}) {
 
     return (
-        <div className="item">
+        <li className="item">
             <div className="img">
                 <div className="img__container">
                     <Link to={`/get/product/${productName}/${id}`}>
@@ -23,7 +23,7 @@ function Products({id, image, productPrice, productName}) {
                     <p>£{productPrice}</p>
                 </Link>
             </div>
-        </div>
+        </li>
     )
 }
 
