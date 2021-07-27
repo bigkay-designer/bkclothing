@@ -2,7 +2,7 @@ import React, {useState,useEffect, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, PersonAddOutlined, PersonOutlined, Person,} from '@material-ui/icons'
 import {CartContext} from '../contextApi/cartContext'
-import { goToHome, goToSignup, goToLogin, goToMen, goToWomen, logoutHandler, goToMyAccount } from '../pageLinks'
+import { goToHome, goToMen, goToWomen, goToSkirts, goToJackets , goToShirts} from '../pageLinks'
 import NavAuth from './NavAuth'
 import './css/largeNav.css'
 function LargeNav() {
@@ -22,10 +22,12 @@ function LargeNav() {
     const openWomenMenuHandler = () => {
         setMen(false)
         setWomen(true)
+        goToWomen(history)
     }
     const openMenuHandler = () => {
         setMen(true)
         setWomen(false)
+        goToMen(history)
     }
     return (
         <div className="large__nav">
@@ -46,7 +48,7 @@ function LargeNav() {
                             <NavAuth openMenu={openMenu} setOpenMenu={setOpenMenu} />
                         </div>
                         <div className="group">
-                            <div onClick={()=> setOpenMenu(!openMenu)} className="person__icon">
+                            <div onMouseEnter={()=> setOpenMenu(true)} className="person__icon">
                                 <Person />
                             </div>
                             <SearchOutlined className="icon search" />
@@ -61,17 +63,17 @@ function LargeNav() {
                 </div>
                 <div className={`men__menu menu ${men && 'show__men__menu'}`}>
                     <ul>
-                        <li>Home</li>
-                        <li>shirts</li>
+                        <li onClick={()=> goToHome(history)}>Home</li>
+                        <li onClick={()=> goToShirts(history)}>shirts</li>
                         <li>tracksuits</li>
                         <li>Contact Us</li>
                     </ul>
                 </div>
                 <div className={`women__menu menu ${women && 'show__women__menu'}`}>
                     <ul>
-                        <li>Home</li>
-                        <li>leggings</li>
-                        <li>tracksuits</li>
+                        <li onClick={()=> goToHome(history)}>Home</li>
+                        <li onClick={()=> goToJackets(history)} >jackets</li>
+                        <li onClick={()=> goToSkirts(history)} >skirts</li>
                         <li>Contact Us</li>
                     </ul>
                 </div>

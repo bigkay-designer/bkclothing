@@ -13,4 +13,11 @@
     "footer nsl";
     position: relative;
   }
+  .grid__filter__pages{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto;
+    width: 85%;
+    margin: 0 auto;
+  }
 }

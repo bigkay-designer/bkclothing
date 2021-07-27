@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react'
 import {CartContext} from '../contextApi/cartContext'
 import axios from '../../containers/axios'
-import {useLocation, useHistory } from 'react-router-dom'
+import {useLocation, useHistory, useParams } from 'react-router-dom'
 import {Button} from '@material-ui/core'
 import '../css/ProductDetail.css'
 import { AddShoppingCart, ArrowBackIos } from '@material-ui/icons'
@@ -69,8 +69,14 @@ function ProductDetail() {
     }
     return (
         <div className="product__detail">
-            <div className="product__container">
             <div className="back__arrow" onClick={()=> locationHistory.goBack()}> <ArrowBackIos /> <span>back</span></div>
+            <div className="product__container">
+                <div className="product__title">
+                    <div className="group">
+                        <h3>{productDetails.productDesc}</h3>
+                        <p>{productDetails.productName}</p>
+                    </div>
+                </div> 
                 <div className="img">
                         <div className="default__img">
                             <img src={productImg[currentImgTap].img} alt=""/>
@@ -82,13 +88,7 @@ function ProductDetail() {
                             </div>
                         ))}
                     </div>
-                </div>
-                <div className="product__title">
-                    <div className="group">
-                        <h3>{productDetails.productDesc}</h3>
-                        <p>{productDetails.productName}</p>
-                    </div>
-                </div>  
+                </div> 
                 <div className="price">
                     <p>£{productDetails.productPrice} <span>VAT included</span></p>
                 </div>

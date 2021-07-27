@@ -49,10 +49,10 @@ function Login() {
     return (
         <div className="login">
             {/* {user && <Redirect to='/myAccount' />} */}
+            <header className="header">
+                <h2>login</h2>
+            </header>
             <div className="container">
-                <header className="header">
-                    <h2>login</h2>
-                </header>
                 <section className="login__form">
                     <form onSubmit={formSubmitHandler}>
                          <div className="form__group">

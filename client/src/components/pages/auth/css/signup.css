@@ -168,4 +168,28 @@
 .signup .container .submit__btn button {
   color: #fff;
 }
+
+@media screen and (min-width: 768px) {
+  .signup {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  .signup .container .signup__form .title {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .signup {
+    max-width: 75%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .signup {
+    max-width: 55%;
+    margin: 0 auto;
+  }
+}
 /*# sourceMappingURL=signup.css.map */

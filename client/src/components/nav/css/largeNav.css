@@ -118,6 +118,7 @@
   color: #e2e2e2;
   font-weight: bold;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .large__nav .container .menu {

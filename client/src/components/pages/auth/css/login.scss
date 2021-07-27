@@ -1,16 +1,16 @@
 .login{
+    .header{
+        margin: 20px 0 10px;
+        text-align: center;
+        h2{
+            text-transform: capitalize;
+            font-weight: 500;
+            color: rgb(27, 27, 27);
+        }
+    }
     .container{
         font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
         color: #171613;
-        .header{
-            margin: 20px 0 10px;
-            text-align: center;
-            h2{
-                text-transform: capitalize;
-                font-weight: 500;
-                color: rgb(27, 27, 27);
-            }
-        }
 
         .login__form{
             width: 90%;
@@ -23,7 +23,7 @@
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    margin: 20px 0 10px;
+                    margin: 0px 0 20px;
                     .wrapper{
                         width: 100%;
                         display: flex;
@@ -45,7 +45,6 @@
                         padding: 10px;
                         border: 1px solid rgb(209, 209, 209);
                         background-color: #fff;
-                        cursor: pointer;
                     }
                 }
 
@@ -73,7 +72,7 @@
         }
         .create__new__Account__form{
             background-color: rgb(240, 240, 240);
-            margin-top: 70px;
+            margin: 70px 0 30px;
             color: #252525;
             .wrapper{
                 width: 85%;
@@ -102,7 +101,7 @@
                     width: 100%;
                     margin: 20px 0;
                     .group{
-                        margin: 10px 0;
+                        margin: 0px 0 20px;
                         display: flex;
                         align-items: center;
                     }
@@ -111,6 +110,94 @@
                         padding-left: 10px;
                     }
                 }
+            }
+        }
+    }
+}
+
+// media query
+@media screen and (min-width: 480px) {
+    .login{
+        max-width: 85%;
+        margin: 0 auto;
+        .container{
+            .login__form{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .login{
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .login{
+        max-width: 100%;
+        padding: 0px 30px;
+        .container{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            grid-gap: 0 20px;
+            margin-bottom: 30px;
+            .login__form{
+                padding: 0 20px;
+            }
+            .create__new__Account__form{
+                margin: 20px 0 0;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1200px) {
+    .login{
+        padding: 0px 30px;
+        max-width: 75%;
+        .container{
+            .create__new__Account__form{
+                
+                .wrapper{
+                    display: grid;
+                    grid-template-columns: 60% 40%;
+                    grid-template-rows: auto;
+                    grid-template-areas: 
+                    "title value"
+                    "btn value";
+                    width: 100%;
+                    margin: 0;
+                    padding:10px;
+                    .submit__btn{
+                        grid-area: btn;
+                        vertical-align: top;
+                        background-color: transparent;
+                        display: flex;
+                        align-items: flex-start;
+                        button{
+                            width: 90%;
+                            background-color: #171613;
+                        }
+                    }
+                    .value__for__signup{
+                        grid-area: value;
+                        padding-left: 10px;
+                        margin: 10px 0 0px;
+                        .group{
+                            margin: 0 0 30px;
+                        }
+                    }
+                    .title{
+                        grid-area: title;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                    }
+                }   
             }
         }
     }

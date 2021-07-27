@@ -205,3 +205,107 @@ Min-width: 480px (small devices and most phones)
 Min-width: 768px (most tablets)
 Min-width: 992px (smaller desktop viewpoints)
 Min-width: 1200px (large devices and wide screens)
+
+
+
+<table>
+<tbody>
+    <tr>
+        <th>uk size:</th>
+        <td>{productSize}</td>
+    </tr>
+    <tr>
+        <th>quantity:</th>
+        <td>{productQuantity}</td>
+    </tr>
+    <tr>
+        <th>price:</th>
+        <td>£{productPrice}</td>
+    </tr>
+</tbody>
+</table>
+
+
+
+
+
+
+.img{
+    flex: 0.30;
+    border-radius: 12px;
+    .img__container{
+        padding: 10px;
+        width: 120px;
+        margin:0 auto;
+        height: 100%;
+        img{
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+        }
+    }
+}
+.body{
+    flex: 0.70;
+    margin-left: 20px;
+    a{
+        color: #000;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .body__title{
+
+        h2{
+            font-weight: normal;
+            padding: 0;
+            margin: 0;
+            text-transform: capitalize;
+        }
+    }
+    table{
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        tr{
+            text-align: left;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 10px 0;
+            th{
+                padding: 0px 5px 0 0px;
+                font-weight: bold;
+                text-transform: capitalize;
+                font-weight: normal;
+                font-style: italic;
+                color: rgb(41, 41, 41);
+
+            }
+            td{
+                font-style: italic;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .edit__div{
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        p{
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            padding: 0 10px 0 0;
+            color: rgb(48, 48, 48);
+            text-transform: capitalize;
+            font-weight: 400;
+            cursor: pointer;
+            span{
+                padding-left: 3px;
+            }
+            svg{
+                font-size: 16px;
+            }
+        }
+        .remove__item{
+            max-width: fit-content;
+        }
+    }
+}

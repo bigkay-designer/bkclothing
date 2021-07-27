@@ -1,17 +1,17 @@
-.login .container {
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  color: #171613;
-}
-
-.login .container .header {
+.login .header {
   margin: 20px 0 10px;
   text-align: center;
 }
 
-.login .container .header h2 {
+.login .header h2 {
   text-transform: capitalize;
   font-weight: 500;
   color: #1b1b1b;
+}
+
+.login .container {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: #171613;
 }
 
 .login .container .login__form {
@@ -38,7 +38,7 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin: 20px 0 10px;
+  margin: 0px 0 20px;
 }
 
 .login .container .login__form form .form__group .wrapper {
@@ -71,7 +71,6 @@
   padding: 10px;
   border: 1px solid #d1d1d1;
   background-color: #fff;
-  cursor: pointer;
 }
 
 .login .container .login__form form .error__alert {
@@ -99,7 +98,7 @@
 
 .login .container .create__new__Account__form {
   background-color: #f0f0f0;
-  margin-top: 70px;
+  margin: 70px 0 30px;
   color: #252525;
 }
 
@@ -142,7 +141,7 @@
 }
 
 .login .container .create__new__Account__form .wrapper .value__for__signup .group {
-  margin: 10px 0;
+  margin: 0px 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,5 +153,109 @@
 .login .container .create__new__Account__form .wrapper .value__for__signup span {
   text-transform: capitalize;
   padding-left: 10px;
+}
+
+@media screen and (min-width: 480px) {
+  .login {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  .login .container .login__form {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .login {
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .login {
+    max-width: 100%;
+    padding: 0px 30px;
+  }
+  .login .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+    grid-gap: 0 20px;
+    margin-bottom: 30px;
+  }
+  .login .container .login__form {
+    padding: 0 20px;
+  }
+  .login .container .create__new__Account__form {
+    margin: 20px 0 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .login {
+    padding: 0px 30px;
+    max-width: 75%;
+  }
+  .login .container .create__new__Account__form .wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 60% 40%;
+        grid-template-columns: 60% 40%;
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "title value" "btn value";
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
+  .login .container .create__new__Account__form .wrapper .submit__btn {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: btn;
+    vertical-align: top;
+    background-color: transparent;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .login .container .create__new__Account__form .wrapper .submit__btn button {
+    width: 90%;
+    background-color: #171613;
+  }
+  .login .container .create__new__Account__form .wrapper .value__for__signup {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+    grid-area: value;
+    padding-left: 10px;
+    margin: 10px 0 0px;
+  }
+  .login .container .create__new__Account__form .wrapper .value__for__signup .group {
+    margin: 0 0 30px;
+  }
+  .login .container .create__new__Account__form .wrapper .title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: title;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 /*# sourceMappingURL=login.css.map */

@@ -4,7 +4,6 @@ import { FavoriteBorder, } from '@material-ui/icons'
 import './css/Products.css'
 
 function Products({id, image, productPrice, productName}) {
-
     return (
         <li className="item">
             <div className="img">

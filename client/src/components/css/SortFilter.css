@@ -253,4 +253,33 @@
   -webkit-box-shadow: 0px 0px 1px #181717;
           box-shadow: 0px 0px 1px #181717;
 }
+
+@media screen and (min-width: 480px) {
+  .sort__filter .sort__filter--btn {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .sort__filter {
+    position: relative;
+    padding: 0 20px;
+    width: 70%;
+    margin: 30px auto;
+  }
+  .sort__filter .sort__filter--btn {
+    display: none;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  .sort__filter .container {
+    display: block;
+    position: relative;
+    height: 100%;
+  }
+  .sort__filter .container .sub__title svg {
+    display: none;
+  }
+}
 /*# sourceMappingURL=SortFilter.css.map */

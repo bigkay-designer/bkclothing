@@ -9,7 +9,6 @@ function NavAuth({openMenu, setOpenMenu}) {
     const [user, setUser] = useState([])
     const history = useHistory();
 
-    console.log(openMenu)
     // get logged in user
     const getLoggedInUser = () => {
         if(localStorage.getItem('authorization')){
@@ -34,7 +33,7 @@ function NavAuth({openMenu, setOpenMenu}) {
 
     /// flashing color 
     return (
-        <div className={`auth__pages ${openMenu && "show__auth__pages"}`}>
+        <div onMouseLeave={()=> setOpenMenu(false)} className={`auth__pages ${openMenu && "show__auth__pages"}`}>
             {
                 localStorage.getItem('authorization') ? 
                 <div className="user">

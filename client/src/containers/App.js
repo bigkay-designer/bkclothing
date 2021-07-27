@@ -26,8 +26,7 @@ function App() {
   const {cart} = useContext(CartContext)
   // Stripe session id from sessionStorage
   const [activeSession, setActiveSession] = useState(false)
-  const [canceledPayment, setCancelPayment] = useState(true)
-
+  const [canceledPayment, setCancelPayment] = useState(true);
   useEffect( ()=> {
     const stripeSession = sessionStorage.getItem('stripe_session_id')
     const successTrans = sessionStorage.getItem('success')
@@ -40,6 +39,7 @@ function App() {
         sessionStorage.clear()
     }
   }, [cart.length])
+  
 
   return (
         <div className="App">
@@ -48,15 +48,8 @@ function App() {
               <Nav />
               <Switch>
                 <Route exact path="/"><Landing /></Route>
-                <Route path={`/all/:gender`}>
-                  <FilterContextProvider>
-                    <SortFilter />
-                    <ProductDisplay />
-                  </FilterContextProvider>
-                </Route>
-                <Route path="/get/product"><ProductDetail /></Route>
                   {/* stripe element router */}
-                <Route path="/checkout"> 
+                <Route path="/checkout" exact={true}> 
                   <Elements stripe={stripePromise}>
                     <Checkout />
                   </Elements>
@@ -71,7 +64,16 @@ function App() {
                 <Route path="/myAccount"><MyAccount /></Route>
                 <Route path="/login"><Login /></Route>
                 <Route path="/signup"><Signup /></Route>
-                <Route path=""><NotFound /></Route>
+                <Route path="/get/product/:name/:id"><ProductDetail /></Route>
+                <Route path={`/page/:gender`} >
+                  <FilterContextProvider>
+                    <div className="grid__filter__pages">
+                      <SortFilter />
+                      <ProductDisplay />
+                    </div>
+                  </FilterContextProvider>
+                  </Route>
+                <Route path="" ><NotFound /></Route>
               </Switch>
               
               {/*  */}

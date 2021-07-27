@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext, useCallback} from 'react'
-import {useLocation} from 'react-router-dom'
+import {useLocation, useParams, useHistory} from 'react-router-dom'
 import Products from '../Products'
 import axios from '../../containers/axios'
 // import item1 from '../images/trending1.jpg'
@@ -9,10 +9,14 @@ import { FilterContext } from '../contextApi/filterContext'
 
 function Mens() {
     // const [genderTitle, setGenderTitle] = useState('')
+    const [linkTitile, setLinkTitle] = useState(['/page/mens', '/page/womens', '/page/womens/skirts', '/page/womens/jackets', '/page/mens/shirts'])
+    const [urlPath, setUrlPath] = useState([])
+    const [urlState, setUrlState] = useState(false)
     const {filter} = useContext(FilterContext)
     const [products, setProducts] = useState([])
     const location = useLocation()
-
+    let history = useHistory()
+    const paramsGender = useParams()
     // When visit page go to the top
     useEffect(()=>{
         window.scrollTo(0, 0)
@@ -30,35 +34,49 @@ function Mens() {
         });
       };
     useEffect(()=> {      
-
         setProducts(prod => multiFilter(prod, filter))
-
     }, [filter,])
 
     /// male and female products page
     const fetchData = useCallback (async ()=> {
-        if(location.pathname === '/all/men'){
+        if(location.pathname === '/page/mens'){
             await axios.get(`/get/all/male`)
             .then(res => {
                 setProducts(res.data)
             })
-        }else if(location.pathname === '/all/women'){
+        }else if(location.pathname === '/page/womens'){
             await axios.get(`/get/all/female`)
             .then(res => {
                 setProducts(res.data)
             })
+        }else if(location.pathname === '/page/womens/skirts'){
+            await axios.get(`/get/skirt`)
+            .then(res => {
+                setProducts(res.data)
+            })
+        }else if(location.pathname === '/page/womens/jackets'){
+            await axios.get(`/get/jacket`)
+            .then(res => {
+                setProducts(res.data)
+            })
+        }else if(location.pathname === '/page/mens/shirts'){
+            await axios.get(`/get/shirt`)
+            .then(res => {
+                setProducts(res.data)
+            })
         }else{
-            return null
+            return setUrlState(true)
         }
     }, [location.pathname,])
 
     useEffect(()=> {
         fetchData()
     }, [fetchData])
-    
-
     return (
         <div className="product__wrapper">
+            {
+                urlState && history.goBack()
+            }
             <div className="products__section">
                 <ul className="container">
                     {products.map(product => (

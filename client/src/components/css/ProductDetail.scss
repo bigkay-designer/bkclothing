@@ -15,7 +15,7 @@
     .product__title{
         margin: 20px 0;
         .group{
-            text-align: left;
+            text-align: center;
             text-transform: capitalize;
             color: #313131;
             p{
@@ -133,6 +133,98 @@
         svg{
             color: #e0e0e0;
             margin-right: 7px;
+        }
+    }
+}
+
+
+// media queries
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .product__detail{
+        .img{
+            display: flex;
+            width: 100%;
+            .img__container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 9em;
+                margin: 0 0px 0 10px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    .product__detail{
+        padding: 10px 0 10px 15px;
+        .product__container{
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "img title"
+            "img price"
+            "img form"
+            "img .";
+            .product__title{
+                grid-area: title;
+            }
+            .img{
+                grid-area: img;
+                padding-right: 20px;
+            }
+            .price{
+                grid-area: price;
+                text-align: center;
+            }
+            form{
+                grid-area: form;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                .add__to__cart{
+                    margin: 0;
+                    width: 50%;
+                    .add__to__cart--btn{
+                        padding: 10px;
+                    }
+                    button{
+                        border-radius: 4px;
+                    }
+                }
+                .size__options{
+                    width: 50%;
+                    margin: 0;
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .product__detail{
+        max-width: 75%; 
+        margin: 0 auto 30px;
+        .img{
+            display: grid;
+            grid-template-columns: 40% 60%;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "as main";
+            .default__img{
+                grid-area: main;
+            }
+            .img__container{
+                grid-area: as;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                .display__img{
+                    width: 9em;
+                }
+            }
         }
     }
 }
