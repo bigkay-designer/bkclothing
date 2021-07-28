@@ -19,8 +19,12 @@ function Checkout() {
     const stripe = useStripe()
 
 
-    //// Stripe submit handler
+    // Onload go to top page
+    useEffect(()=> {
+        window.scrollTo(0, 0)
+    }, [])
 
+    //// Stripe submit handle
     const stripeHandleClick = async (e) => {
         e.preventDefault()
 

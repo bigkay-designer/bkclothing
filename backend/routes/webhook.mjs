@@ -1,7 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
-import bodyParser from 'body-parser'
 import Stripe from 'stripe'
 import Orders from '../models/ordersModel.mjs'
 const router = express.Router()
@@ -9,13 +8,13 @@ const stripe = new Stripe(process.env.STRIPE_SECRET)
 
 
 router.route('/webhook')
-.post(bodyParser.raw({type: 'application/json'}), async(req, res) => {
+.post(async(req, res) => {
     const sig = req.headers['stripe-signature'];
     let event;
 
       // Handle the event
       try{
-        event = stripe.webhooks.constructEvent(req.body, sig, process.env.WEBHOOK_SECRET);
+        event = stripe.webhooks.constructEvent(req['rawBody'], sig, process.env.WEBHOOK_SECRET);
       }catch(error){
         return res.status(400).send(`Webhook error ${error.message}`);
       }

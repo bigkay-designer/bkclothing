@@ -28,7 +28,7 @@ db.once("open", () => console.log("Connected to bkclothing DB"))
 
 // app config
 app.use(express.json({
-    verify: (req, res, buffer)=> req.rawBody = buffer,
+    verify: (req, res, buffer)=> req['rawBody'] = buffer,
 }));
 app.use(express.urlencoded({extended: true}))
 app.use(cors({origin: true}))
