@@ -11,6 +11,7 @@
 .landing__item .img {
   width: 90%;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .landing__item .img img {
@@ -25,8 +26,12 @@
 }
 
 .landing__item .body p {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 5px auto 0;
+  cursor: pointer;
   font-size: 18px;
-  margin-top: 5px;
 }
 
 @media screen and (max-width: 360px) {

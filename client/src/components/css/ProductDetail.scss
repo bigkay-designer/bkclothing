@@ -39,6 +39,7 @@
                 width: 100%;
                 height: 100%;
                 margin: 0 auto;
+                object-fit: cover;
             }
         }
         .img__container{
@@ -54,6 +55,7 @@
                 img{
                     width: 100%;
                     height: 100%;
+                    object-fit: cover;
                 }
 
                 &:hover{
@@ -65,6 +67,7 @@
     .price{
         margin: 20px 0;
         p{
+            
            letter-spacing: 1px; 
            color: rgb(59, 59, 59);
         }
@@ -232,8 +235,13 @@
             grid-template-rows: auto;
             grid-template-areas: 
             "as main";
+            img{
+            }
             .default__img{
                 grid-area: main;
+                img{
+                    height: 668px;
+                }
             }
             .img__container{
                 grid-area: as;

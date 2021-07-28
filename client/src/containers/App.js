@@ -24,7 +24,6 @@ import MyAccount from '../components/pages/auth/MyAccount'
 import Loading from '../components/Loading';
 
 function App() {
-  const [loading, setLoading] = useState(false)
   const stripePromise = loadStripe("pk_test_51ITBiPDkKKCnsU3mzowRSuptSxuYu1YiPtFZfC0octwgDMKJj9uYHHxlwJFlCPSUBIATHHQjtc3MmuJGOkDQTEtp00X30SP1ZT");
   const {cart} = useContext(CartContext)
   // Stripe session id from sessionStorage

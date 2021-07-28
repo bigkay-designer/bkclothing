@@ -1,4 +1,5 @@
 import React, {useRef} from 'react'
+import axios from '../../containers/axios'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import {ArrowForwardIos, ArrowBackIos} from '@material-ui/icons'
 import LandingProductItems from './LandingProductItems'
@@ -6,8 +7,7 @@ import item1 from '../images/trending1.jpg'
 import item2 from '../images/trending2.jpg'
 import item3 from '../images/trending3.jpg'
 import '../css/LandingProducts.css'
-function Trending({leftArrow, rightArrow, refEle}) {
-    
+function Trending() {
     const relElement = useRef(null)
 
     const RightArrowHandler = (moveRight) =>{

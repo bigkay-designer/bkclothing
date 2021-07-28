@@ -25,7 +25,8 @@
   padding: 0 5px;
   margin-bottom: 40px;
   list-style: none;
-  vertical-align: top;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .products__section .container .item a {
@@ -43,10 +44,10 @@
   cursor: pointer;
   width: 100%;
   max-width: 100%;
-  max-height: 100%;
+  height: 260px;
   -o-object-fit: cover;
      object-fit: cover;
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 .products__section .container .item .img .purchase__icon {
@@ -92,9 +93,19 @@
 }
 
 .products__section .container .item .body p {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
   font-family: 'Jost', sans-serif;
   cursor: pointer;
   font-size: 14px;
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .products__section .container .item .img img {
+    height: 320px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -116,13 +127,14 @@
   .products__section .container .item .img img {
     border: 0;
     max-width: 100%;
+    height: 380px;
     vertical-align: top;
   }
 }
 
 @media screen and (min-width: 1025px) {
   .products__section .container .item {
-    width: 25%;
+    width: 33.33%;
   }
   .products__section .container .item:nth-child(4n) {
     padding-right: 0;
@@ -130,6 +142,9 @@
   }
   .products__section .container .item .img {
     display: block;
+  }
+  .products__section .container .item .img img {
+    height: 320px;
   }
 }
 /*# sourceMappingURL=Products.css.map */

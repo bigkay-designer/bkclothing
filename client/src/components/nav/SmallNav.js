@@ -2,7 +2,7 @@ import React, {useState,useEffect, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
 import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, ArrowBackIos, ArrowForwardIos} from '@material-ui/icons'
 import {CartContext} from '../contextApi/cartContext'
-import { goToHome, goToSkirts, goToJackets , goToShirts, goToSuits} from '../pageLinks'
+import { goToHome, goToSkirts, goToJackets , goToShirts, goToSuits, goToMen, goToWomen} from '../pageLinks'
 import NavAuth from './NavAuth'
 import './css/smallNav.css'
 function SmallNav() {
@@ -56,6 +56,7 @@ function SmallNav() {
                                 </div>
                                 <div className={`group ${menMenu && "show__group"}`}>
                                     <ArrowBackIos onClick={()=> setMenMenu(false)} />
+                                    <p onClick={()=> goToMen(history, SetOpenMenu(false))}>all</p>
                                     <p onClick={()=> goToShirts(history, SetOpenMenu(false))}>shirts</p>
                                     <p onClick={()=> goToSuits(history, SetOpenMenu(false))}>suits</p>
                                 </div>
@@ -67,6 +68,7 @@ function SmallNav() {
                                 </div>
                                 <div className={`group ${womenMenu && "show__group"}`}>
                                     <ArrowBackIos onClick={()=> setWomenMenu(false)} />
+                                    <p onClick={()=> goToWomen(history, SetOpenMenu(false))}>all</p>
                                     <p onClick={()=> goToSkirts(history, SetOpenMenu(false))}>skirts</p>
                                     <p onClick={()=> goToJackets(history, SetOpenMenu(false))}>jackets</p>
                                 </div>
