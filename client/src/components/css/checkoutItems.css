@@ -1,8 +1,8 @@
-.checkout__items, .payment__items {
+.checkout__items {
   margin: 30px 0;
 }
 
-.checkout__items .item, .payment__items .item {
+.checkout__items .item {
   width: 100%;
   padding: 10px;
   margin: 0 auto;
@@ -15,62 +15,62 @@
   min-height: 175px;
 }
 
-.checkout__items .item .img, .payment__items .item .img {
+.checkout__items .item .img {
   -webkit-box-flex: 0.30;
       -ms-flex: 0.30;
           flex: 0.30;
   border-radius: 12px;
 }
 
-.checkout__items .item .img .img__container, .payment__items .item .img .img__container {
+.checkout__items .item .img .img__container {
   padding: 10px;
   width: 120px;
   margin: 0 auto;
   height: 100%;
 }
 
-.checkout__items .item .img .img__container img, .payment__items .item .img .img__container img {
+.checkout__items .item .img .img__container img {
   width: 100%;
   max-width: 100%;
   height: 100%;
 }
 
-.checkout__items .item .body, .payment__items .item .body {
+.checkout__items .item .body {
   -webkit-box-flex: 0.70;
       -ms-flex: 0.70;
           flex: 0.70;
   margin-left: 20px;
 }
 
-.checkout__items .item .body .cart__tabel, .payment__items .item .body .cart__tabel {
+.checkout__items .item .body .cart__tabel {
   display: none;
 }
 
-.checkout__items .item .body a, .payment__items .item .body a {
+.checkout__items .item .body a {
   color: #000;
   text-decoration: none;
   font-size: 16px;
 }
 
-.checkout__items .item .body .body__title h2, .payment__items .item .body .body__title h2 {
+.checkout__items .item .body .body__title h2 {
   font-weight: normal;
   padding: 0;
   margin: 0;
   text-transform: capitalize;
 }
 
-.checkout__items .item .body table, .payment__items .item .body table {
+.checkout__items .item .body table {
   border-collapse: separate;
   border-spacing: 0 10px;
 }
 
-.checkout__items .item .body table tr, .payment__items .item .body table tr {
+.checkout__items .item .body table tr {
   text-align: left;
   font-family: Georgia, 'Times New Roman', Times, serif;
   padding: 10px 0;
 }
 
-.checkout__items .item .body table tr th, .payment__items .item .body table tr th {
+.checkout__items .item .body table tr th {
   padding: 0px 5px 0 0px;
   font-weight: bold;
   text-transform: capitalize;
@@ -79,12 +79,12 @@
   color: #292929;
 }
 
-.checkout__items .item .body table tr td, .payment__items .item .body table tr td {
+.checkout__items .item .body table tr td {
   font-style: italic;
   text-transform: uppercase;
 }
 
-.checkout__items .item .body .edit__div, .payment__items .item .body .edit__div {
+.checkout__items .item .body .edit__div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,7 +94,7 @@
   margin-top: 5px;
 }
 
-.checkout__items .item .body .edit__div p, .payment__items .item .body .edit__div p {
+.checkout__items .item .body .edit__div p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,37 +109,37 @@
   cursor: pointer;
 }
 
-.checkout__items .item .body .edit__div p span, .payment__items .item .body .edit__div p span {
+.checkout__items .item .body .edit__div p span {
   padding-left: 3px;
 }
 
-.checkout__items .item .body .edit__div p svg, .payment__items .item .body .edit__div p svg {
+.checkout__items .item .body .edit__div p svg {
   font-size: 16px;
 }
 
-.checkout__items .item .body .edit__div .remove__item, .payment__items .item .body .edit__div .remove__item {
+.checkout__items .item .body .edit__div .remove__item {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
 }
 
-.checkout__items .display__form, .payment__items .display__form {
+.checkout__items .display__form {
   display: block !important;
 }
 
-.checkout__items .edit__form, .payment__items .edit__form {
+.checkout__items .edit__form {
   margin-top: 15px;
   width: 90%;
   margin: 15px auto;
   display: none;
 }
 
-.checkout__items .edit__form form, .payment__items .edit__form form {
+.checkout__items .edit__form form {
   border: 1px solid lightgray;
   padding: 15px 10px;
 }
 
-.checkout__items .edit__form form .form__group, .payment__items .edit__form form .form__group {
+.checkout__items .edit__form form .form__group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,7 +154,7 @@
   margin: 0 10px;
 }
 
-.checkout__items .edit__form form .form__group .size__options, .checkout__items .edit__form form .form__group input, .payment__items .edit__form form .form__group .size__options, .payment__items .edit__form form .form__group input {
+.checkout__items .edit__form form .form__group .size__options, .checkout__items .edit__form form .form__group input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,12 +164,12 @@
           flex-direction: column;
 }
 
-.checkout__items .edit__form form .form__group label, .payment__items .edit__form form .form__group label {
+.checkout__items .edit__form form .form__group label {
   text-transform: uppercase;
   font-size: 14px;
 }
 
-.checkout__items .edit__form form .form__group input, .checkout__items .edit__form form .form__group select, .payment__items .edit__form form .form__group input, .payment__items .edit__form form .form__group select {
+.checkout__items .edit__form form .form__group input, .checkout__items .edit__form form .form__group select {
   padding: 10px;
   width: 120px;
   margin: 0 20px 0 0;
@@ -178,7 +178,7 @@
   outline: none;
 }
 
-.checkout__items .edit__form form .btn, .payment__items .edit__form form .btn {
+.checkout__items .edit__form form .btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -196,21 +196,21 @@
   width: 100%;
 }
 
-.checkout__items .edit__form form .btn button, .payment__items .edit__form form .btn button {
+.checkout__items .edit__form form .btn button {
   width: 100%;
   margin-top: 10px;
 }
 
-.checkout__items .edit__form form .btn button svg, .payment__items .edit__form form .btn button svg {
+.checkout__items .edit__form form .btn button svg {
   margin-right: 10px;
 }
 
-.checkout__items .edit__form form .btn .save__btn, .payment__items .edit__form form .btn .save__btn {
+.checkout__items .edit__form form .btn .save__btn {
   background-color: #025da8;
   color: #fff;
 }
 
-.checkout__items .edit__form form .btn .cancel__btn, .payment__items .edit__form form .btn .cancel__btn {
+.checkout__items .edit__form form .btn .cancel__btn {
   border: 1px solid #025da8;
 }
 

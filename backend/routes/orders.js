@@ -20,8 +20,6 @@ router.route('/get/orders/:id')
 router.route('/order/post/:id')
 .put(async (req, res)=> {
     const {cart, author} = req.body
-    console.log(req.body)
-
     try{
 
         await Orders.findOneAndUpdate({sessionId: req.params.id}, {

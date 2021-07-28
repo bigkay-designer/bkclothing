@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../css/checkoutItems.css'
+import '../../css/order.css'
 
 function Order({id,index,productName,
     productType,
@@ -10,7 +10,7 @@ function Order({id,index,productName,
     productQuantity,
     productSize}) {
     return (
-        <div className="checkout__items">
+        <div className="orders__items">
             <div className="item">
                 <div className="img">
                     <div className="img__container">
@@ -20,7 +20,7 @@ function Order({id,index,productName,
                 <div className="body">
 
                     <div className="body__title">
-                        <h2>{productName}</h2>
+                        <h3>{productName}</h3>
                     </div>
                     <table>
                         <tbody>

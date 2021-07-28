@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js' 
+import ClipLoader from "react-spinners/ClipLoader";
 import Nav from '../components/nav/Nav'
 import Landing from '../components/landingPages/Landing'
 import NewsLetter from '../components/NewsLetter';
@@ -20,8 +21,10 @@ import NotFound from '../components/NotFound'
 import Signup from '../components/pages/auth/Signup'
 import Login from '../components/pages/auth/Login'
 import MyAccount from '../components/pages/auth/MyAccount'
+import Loading from '../components/Loading';
 
 function App() {
+  const [loading, setLoading] = useState(false)
   const stripePromise = loadStripe("pk_test_51ITBiPDkKKCnsU3mzowRSuptSxuYu1YiPtFZfC0octwgDMKJj9uYHHxlwJFlCPSUBIATHHQjtc3MmuJGOkDQTEtp00X30SP1ZT");
   const {cart} = useContext(CartContext)
   // Stripe session id from sessionStorage
@@ -43,6 +46,7 @@ function App() {
 
   return (
         <div className="App">
+          <Loading />
           <Router>
             <div className="app__div">
               <Nav />

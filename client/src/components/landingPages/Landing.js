@@ -7,6 +7,7 @@ import Testimonials from './Testimonials'
 import Trending from './Trending'
 import '../css/Landing.css'
 function Landing() {
+
     useEffect(()=>{
         window.scrollTo(0, 0)
     }, [])
