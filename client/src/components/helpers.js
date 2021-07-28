@@ -10,7 +10,8 @@ export const sessionIdStripe = (id) =>  {
 
 
 
-const API = 'http://localhost:5000'
+// const API = 'http://localhost:5000'
+const API = 'https://www.bkclothing.xyz/'
 
 // success page
 export async function fetchFromApi (endpoint, opts) {

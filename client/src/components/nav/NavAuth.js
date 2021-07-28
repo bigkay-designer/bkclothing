@@ -33,7 +33,7 @@ function NavAuth({openMenu, setOpenMenu}) {
 
     /// flashing color 
     return (
-        <div onMouseLeave={()=> setOpenMenu(false)} className={`auth__pages ${openMenu && "show__auth__pages"}`}>
+        <div className={`auth__pages ${openMenu && "show__auth__pages"}`}>
             {
                 localStorage.getItem('authorization') ? 
                 <div className="user">

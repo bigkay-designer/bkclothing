@@ -48,7 +48,7 @@ function LargeNav() {
                             <NavAuth openMenu={openMenu} setOpenMenu={setOpenMenu} />
                         </div>
                         <div className="group">
-                            <div onMouseEnter={()=> setOpenMenu(true)} className="person__icon">
+                            <div onClick={()=> setOpenMenu(!openMenu)} className="person__icon">
                                 <Person />
                             </div>
                             <SearchOutlined className="icon search" />
