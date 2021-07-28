@@ -4,7 +4,7 @@
   "description": "bkclothing store",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/server.js",
+    "start": "babel src middleware models routes --out-dir dist",
     "server": "nodemon --exec babel-node src/server.js",
     "client": "npm start --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\" "
@@ -23,7 +23,8 @@
     "stripe": "^8.150.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.2",
     "@babel/preset-env": "^7.14.2",
     "nodemon": "^2.0.7"

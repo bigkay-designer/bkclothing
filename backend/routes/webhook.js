@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
 import Stripe from 'stripe'
-import Orders from '../models/orders'
+import Orders from '../models/ordersModel'
 const router = express.Router()
 const stripe = new Stripe(process.env.STRIPE_SECRET)
 

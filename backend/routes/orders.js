@@ -1,8 +1,6 @@
 import express from 'express'
-import Orders from '../models/orders'
+import Orders from '../models/ordersModel'
 const router = express.Router()
-
-import auth from '../middleware/auth'
 
 router.route('/get/orders/:id')
 .get(async (req, res)=> {

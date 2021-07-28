@@ -3,9 +3,8 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
 import auth from '../middleware/auth'
-import User from '../models/user'
-import user from '../models/user'
-import Orders from '../models/orders'
+import User from '../models/userModal'
+import Orders from '../models/ordersModel'
 const router = express.Router()
 
 

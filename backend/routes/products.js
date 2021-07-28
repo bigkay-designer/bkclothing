@@ -1,5 +1,5 @@
 import express from 'express'
-import products from '../models/products'
+import products from '../models/productsModal'
 const router = express.Router()
 
 // gender based router
