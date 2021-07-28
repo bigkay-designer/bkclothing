@@ -1,5 +1,5 @@
 import express from 'express'
-import Orders from '../models/ordersModel'
+import Orders from '../models/ordersModel.mjs'
 const router = express.Router()
 
 router.route('/get/orders/:id')
