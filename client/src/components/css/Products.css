@@ -113,17 +113,6 @@
     width: 33.33%;
     padding: 0 8px;
   }
-  .products__section .container .item:nth-child(3n - 2) {
-    padding-left: 0;
-    padding-right: 14px;
-  }
-  .products__section .container .item:nth-child(3n - 1) {
-    padding: 0 7px;
-  }
-  .products__section .container .item:nth-child(3n) {
-    padding-right: 0;
-    padding-left: 14px;
-  }
   .products__section .container .item .img img {
     border: 0;
     max-width: 100%;
@@ -135,10 +124,6 @@
 @media screen and (min-width: 1025px) {
   .products__section .container .item {
     width: 33.33%;
-  }
-  .products__section .container .item:nth-child(4n) {
-    padding-right: 0;
-    padding-left: 14px;
   }
   .products__section .container .item .img {
     display: block;

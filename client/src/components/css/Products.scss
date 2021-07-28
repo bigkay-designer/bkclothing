@@ -93,17 +93,6 @@
             .item{
                 width: 33.33%;
                 padding: 0 8px;
-                &:nth-child(3n - 2){
-                    padding-left: 0;
-                    padding-right: 14px;
-                }
-                &:nth-child(3n - 1){
-                    padding: 0 7px;
-                }
-                &:nth-child(3n){
-                    padding-right: 0;
-                    padding-left: 14px;
-                }
                 .img{
                     img{
                         border: 0;
@@ -122,10 +111,6 @@
         .container{
             .item{
                 width: 33.33%;
-                &:nth-child(4n){
-                    padding-right: 0;
-                    padding-left: 14px;
-                }
                 .img{
                     display: block;   
                     img{
