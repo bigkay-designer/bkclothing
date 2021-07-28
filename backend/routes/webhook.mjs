@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET)
 
 
 router.route('/webhook')
-.post(async(req, res) => {
+.post( bodyParser.raw({type: "*/*"}), async(req, res) => {
     const sig = req.headers['stripe-signature'];
     let event;
 
