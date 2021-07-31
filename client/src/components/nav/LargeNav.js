@@ -7,6 +7,7 @@ import NavAuth from './NavAuth'
 import './css/largeNav.css'
 function LargeNav() {
     const [openMenu, setOpenMenu] = useState(false)
+    const [overlay, setOverlay] = useState(false)
     const {itemCount} = useContext(CartContext)
     const [men, setMen] = useState(true)
     const [women, setWomen] = useState(false)
@@ -24,18 +25,24 @@ function LargeNav() {
         setWomen(true)
         goToWomen(history)
     }
-    const openMenuHandler = () => {
+    const openMenMenuuHandler = () => {
         setMen(true)
         setWomen(false)
         goToMen(history)
     }
+
+    const openMenuHandler = () => {
+        setOpenMenu(!openMenu)
+        setOverlay(true)
+    }
     return (
         <div className="large__nav">
+            <div onClick={()=> {return setOverlay(false), setOpenMenu(false)}} className={`${overlay && "overlay"}`}></div>
             <div className="container">
                 <div className="wrapper">
                     <div className="gender__title">
                         <ul>
-                            <li className={`${men && "men__li"}`} onClick={openMenuHandler}>mens</li>
+                            <li className={`${men && "men__li"}`} onClick={openMenMenuuHandler}>mens</li>
                             <li className={`${women && "women__li"}`} onClick={openWomenMenuHandler}>womens</li>
                         </ul>
                     </div>
@@ -45,10 +52,10 @@ function LargeNav() {
                     </div>
                     <div className="cart__div">
                         <div className="larger__screen__auth">
-                            <NavAuth openMenu={openMenu} setOpenMenu={setOpenMenu} />
+                            <NavAuth openMenu={openMenu} setOpenMenu={setOpenMenu} setOverlay={setOverlay} />
                         </div>
                         <div className="group">
-                            <div onClick={()=> setOpenMenu(!openMenu)} className="person__icon">
+                            <div onClick={openMenuHandler} className="person__icon">
                                 <Person />
                             </div>
                             <SearchOutlined className="icon search" />

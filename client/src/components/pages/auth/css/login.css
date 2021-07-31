@@ -67,6 +67,7 @@
 }
 
 .login .container .login__form form .form__group input {
+  font-size: 16px;
   width: 100%;
   padding: 10px;
   border: 1px solid #d1d1d1;
@@ -102,18 +103,18 @@
   color: #252525;
 }
 
-.login .container .create__new__Account__form .wrapper {
+.login .container .create__new__Account__form .wrapper, .login .container .create__new__Account__form .wrapper__login__order {
   width: 85%;
   margin: 0 auto;
   padding: 20px 0;
 }
 
-.login .container .create__new__Account__form .wrapper .title h2 {
+.login .container .create__new__Account__form .wrapper .title h2, .login .container .create__new__Account__form .wrapper__login__order .title h2 {
   margin: 0px 0 10px;
   font-weight: 500;
 }
 
-.login .container .create__new__Account__form .wrapper .submit__btn {
+.login .container .create__new__Account__form .wrapper .submit__btn, .login .container .create__new__Account__form .wrapper__login__order .submit__btn {
   width: 100%;
   text-align: center;
   background-color: #171613;
@@ -121,11 +122,11 @@
   margin: 20px 0 10px;
 }
 
-.login .container .create__new__Account__form .wrapper .submit__btn button {
+.login .container .create__new__Account__form .wrapper .submit__btn button, .login .container .create__new__Account__form .wrapper__login__order .submit__btn button {
   color: #fff;
 }
 
-.login .container .create__new__Account__form .wrapper .value__for__signup {
+.login .container .create__new__Account__form .wrapper .value__for__signup, .login .container .create__new__Account__form .wrapper__login__order .value__for__signup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,7 +141,7 @@
   margin: 20px 0;
 }
 
-.login .container .create__new__Account__form .wrapper .value__for__signup .group {
+.login .container .create__new__Account__form .wrapper .value__for__signup .group, .login .container .create__new__Account__form .wrapper__login__order .value__for__signup .group {
   margin: 0px 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,7 +151,7 @@
           align-items: center;
 }
 
-.login .container .create__new__Account__form .wrapper .value__for__signup span {
+.login .container .create__new__Account__form .wrapper .value__for__signup span, .login .container .create__new__Account__form .wrapper__login__order .value__for__signup span {
   text-transform: capitalize;
   padding-left: 10px;
 }
@@ -198,6 +199,10 @@
   .login {
     padding: 0px 30px;
     max-width: 75%;
+  }
+  .login .container .create__new__Account__form .wrapper__login__order .submit__btn {
+    max-width: 50%;
+    margin: 20px auto 10px;
   }
   .login .container .create__new__Account__form .wrapper {
     display: -ms-grid;

@@ -3,14 +3,14 @@
 }
 
 .nav .container .flash__sale {
-  background-color: #cf5423;
+  background-color: #fa9d24;
   width: 100%;
   padding: 15px 7px;
 }
 
 .nav .container .flash__sale p {
   font-family: 'Jost', sans-serif;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1rem;
   color: #fff;
   text-align: center;
@@ -36,7 +36,7 @@
     display: none;
   }
   .nav .container .flash__sale p {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 }
 /*# sourceMappingURL=nav.css.map */

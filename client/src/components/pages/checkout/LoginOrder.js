@@ -47,10 +47,10 @@ function Login() {
     }, [])
     return (
         <div className="login">
+            <header className="header">
+                <h2>login</h2>
+            </header>
             <div className="container">
-                <header className="header">
-                    <h2>login</h2>
-                </header>
                 <section className="login__form">
                     <form onSubmit={formSubmitHandler}>
                          <div className="form__group">
@@ -77,7 +77,7 @@ function Login() {
                 </section>
 
                 <section className="create__new__Account__form">
-                    <div className="wrapper">
+                    <div className="wrapper__login__order">
                         <div className="title">
                             <h2>I'm new to bkclothing </h2>
                             <p>Join the gang get all the member benefits</p>

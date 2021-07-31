@@ -11,7 +11,7 @@ import LoginOrder from './LoginOrder'
 function Success() {
     let history = useHistory()
     const {clearCart, cart} = useContext(CartContext)
-    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : []
+    const user = localStorage.getItem('user')  ? JSON.parse(localStorage.getItem('user')) : []
     //address section
     const [address, setAddress] = useState([])
     const [customerName, setCustomerName] = useState('')
@@ -77,14 +77,16 @@ function Success() {
 
     /// useEffect for database update function
     useEffect(()=> {
+        console.log(user)
         getData()
     }, [getData])
-
+    
     return (
         <div className="success">
             {
-                !user && <LoginOrder />
+                user.length <= 0 ? <LoginOrder /> : null
             }
+            
             <div className="container">
                 <div className="success__content">
                     <div className="success__icon">
@@ -94,12 +96,12 @@ function Success() {
                     <p>we are currently processing your order and will send you a confirmation email shortly!!</p>
                     <div className="btn">
                         {
-                            !user? 
+                            user.length <= 0 ? 
                                 <Button onClick={()=> history.push('/')}>
                                 Continue shopping
                                 </Button>
                             : 
-                                <Button onClick={()=> history.push('/myAccount')} >my account</Button>
+                            <Button onClick={()=> history.push('/myAccount')} >my account</Button>
                         }
                     </div>
                 </div>

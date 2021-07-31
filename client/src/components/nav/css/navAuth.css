@@ -66,9 +66,11 @@
 .auth__pages .user .wrapper .group h4 {
   text-transform: capitalize;
   font-weight: normal;
+  cursor: pointer;
 }
 
 .auth__pages .user .wrapper button {
+  margin-top: 7px;
   text-decoration: underline;
   cursor: pointer;
 }
