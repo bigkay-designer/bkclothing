@@ -7,8 +7,8 @@ const router = express.Router()
 
 router.route('/stripe/charge')
 .post(async (req, res)=>{
-    // const YOUR_DOMAIN = 'http://localhost:3000';
-    const YOUR_DOMAIN = 'https://bkclothing-a57f8.web.app';
+    const YOUR_DOMAIN = 'http://localhost:3000';
+    // const YOUR_DOMAIN = 'https://bkclothing-a57f8.web.app';
 
     const {line_items,customer_email, cart,} = req.body
     if(!line_items && !customer_email){
