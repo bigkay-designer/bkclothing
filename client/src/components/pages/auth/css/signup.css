@@ -85,9 +85,11 @@
 }
 
 .signup .container .signup__form form .form__group input {
+  font-size: 16px;
   width: 100%;
   padding: 10px;
   border: 1px solid #d1d1d1;
+  outline: none;
   background-color: #fff;
   cursor: pointer;
 }

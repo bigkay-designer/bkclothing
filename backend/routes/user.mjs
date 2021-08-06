@@ -57,10 +57,11 @@ router.route('/login')
         if(!user) return res.status(400).json({msg: 'No account with this email has been registered.'});
         const isMatch = await bcrypt.compare(password, user.password);
         if(!isMatch) return res.status(400).json({msg: 'You have entered the wrong password'});
-        const token = jwt.sign({_id: user._id, name: user.firstName, email: user.email}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "1h"});
+        const token = jwt.sign({_id: user._id, name: user.firstName, email: user.email}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "12h"});
         res.json({token, user: {id: user._id, name: user.firstName, email: user.email}})
 
     }catch(error){
+        console.log('error', error.message)
         res.status(500).json({error: `error from login: ${error.message}`})
     }
 })

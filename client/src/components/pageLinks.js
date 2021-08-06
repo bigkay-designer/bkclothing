@@ -16,6 +16,7 @@ export const goToSignup = (history) => history.push('/signup')
 
 export const logoutHandler = (history) => {
     localStorage.removeItem('authorization')
+    localStorage.removeItem('user')
     history.push('/')
 }
 

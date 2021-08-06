@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from '../../../containers/axios'
-import {useHistory, Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import { Link} from '@material-ui/core'
 import { CheckCircle } from '@material-ui/icons'
 import {Button} from '@material-ui/core'
@@ -29,7 +29,7 @@ function Login() {
             setPassword('')
             setEmailError('')
             setPasswordError('')
-            return window.location.replace('myAccount');
+            return window.location.assign('myAccount');
         })
         .catch(error => {
             let errorMsg = error.response.data.msg 

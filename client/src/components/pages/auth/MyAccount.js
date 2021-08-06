@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import {Redirect, useHistory} from 'react-router-dom'
 import axios from '../../../containers/axios'
+import {logoutHandler} from '../../pageLinks'
+import {authorUpdateOnLogin, sessionIdStripe, activeUser} from '../../helpers'
 import './css/myAccount.css'
 function MyAccount() {
     let history = useHistory()
@@ -14,13 +16,8 @@ function MyAccount() {
     // const [orderId, setOrderId] = useState(null)
     // // const [sessionId, setSessionId] = useState('')
     // const [total, setTotal] = useState(null)
-    
-    // logout func
-    const logoutHandler = () => {
-        localStorage.removeItem('authorization')
-        history.push('/')
-    }
 
+    /// geting logged in user
     const fetchUserData = async () => {
         await axios.get('/user', {headers:{"authorization": localStorage.getItem('authorization')}}) 
         .then(res => {
@@ -30,9 +27,10 @@ function MyAccount() {
             }
         })
         .catch(error => {
-            if (error.response.data.msg === ('token is invalid' || 'Acess Denied')){
+            if (error.response.data.msg === ('Session expired' || 'Access Denied')){
                 setEmptyData(true)
                 localStorage.removeItem('authorization')
+                localStorage.removeItem('user')
             }
         });
     };
@@ -40,6 +38,45 @@ function MyAccount() {
     useEffect(()=> {
         fetchUserData();
     }, []);
+
+    //// adding current customer order to the author update route
+
+    const updateOrderAuthor = () => {
+        const fetchData = async () => {
+            await authorUpdateOnLogin(`api/order/author/post/${sessionIdStripe}`, {
+                body: {author: activeUser}
+            })
+            .then((res)=> {
+            })
+            .catch(error => {
+                console.log(`error from updateCart ${error}`)
+            })
+        }
+        return fetchData()
+    }
+
+    ///
+
+    const getOrderData = useCallback(()=> {
+        const fetchData = async () => {
+            await axios.get(`/get/orders/${sessionIdStripe}`,)
+            .then(res => {
+                const resData = res.data[0];
+                if(!resData) {
+                    return null
+                };
+                if(resData.author.length === 0){
+                    return updateOrderAuthor()
+                }
+            })
+            .catch(error => console.log(`error from getData ${error}`))
+        }
+        return fetchData()
+    }, [])
+
+    useEffect(()=> {
+        getOrderData()
+    }, [getOrderData])
 
     return (
         <div className="my__account">
@@ -52,7 +89,7 @@ function MyAccount() {
                     <h2>my account</h2>
                     <div className="group">
                         <p>{`${user ? `Welcome back, ${user.name} ` : ""}`}</p>
-                        <span onClick={logoutHandler}>logout</span>
+                        <span onClick={()=> logoutHandler(history)}>logout</span>
                     </div>
                 </header>
                 <section className="account__details">

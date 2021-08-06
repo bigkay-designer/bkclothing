@@ -6,12 +6,11 @@ import { CheckCircle } from '@material-ui/icons'
 import { CartContext } from '../../contextApi/cartContext'
 import axios from '../../../containers/axios';
 import Order from './Order'
-import { fetchFromApiPut } from '../../helpers'
+import { fetchFromApiPut, activeUser } from '../../helpers'
 import LoginOrder from './LoginOrder'
 function Success() {
     let history = useHistory()
     const {clearCart, cart} = useContext(CartContext)
-    const user = localStorage.getItem('user')  ? JSON.parse(localStorage.getItem('user')) : []
     //address section
     const [address, setAddress] = useState([])
     const [customerName, setCustomerName] = useState('')
@@ -23,15 +22,19 @@ function Success() {
     // Clear cart useEffect
     const sessionIdUri = sessionStorage.getItem('stripe_session_id')    
 
-
+    /// setting expiry time for success page
+    
     // Cart update function
     const updateCart = useCallback (() => {
+        const now = new Date().getTime()
+        const expiryDuration = 1000 * 60 * 60 * 12;
         const fetchData = async () => {
             await fetchFromApiPut(`api/order/post/${sessionIdUri}`, {
-                body: {cart, author: user}
+                body: {cart: cart, author: activeUser}
             })
             .then((res)=> {
                 sessionStorage.setItem('success', 'paid')
+                sessionStorage.setItem('expiry', JSON.stringify(now + expiryDuration))
                 clearCart()
             })
             .catch(error => {
@@ -39,7 +42,7 @@ function Success() {
             })
         }
         return  fetchData()
-    }, [cart, sessionIdUri, clearCart])
+    }, [cart, sessionIdUri, clearCart,])
 
 
     // get then update cart function
@@ -51,6 +54,7 @@ function Success() {
                 if(!resData) {
                     sessionStorage.removeItem('stripe_session_id')
                     sessionStorage.removeItem('success')
+                    sessionStorage.removeItem('expiry')
                     history.push('')
                 };
 
@@ -74,17 +78,26 @@ function Success() {
         fetchData()
     }, [sessionIdUri, updateCart, history])
 
-
+    //// Checking expired session
+    const expiredSession = () => {
+        const now = new Date().getTime()
+        const expiredPurchaseSess = JSON.parse(sessionStorage.getItem('expiry'))
+        if(!expiredPurchaseSess) return null
+        if(now > expiredPurchaseSess){
+            sessionStorage.removeItem('success')
+            sessionStorage.removeItem('expiry')
+        }
+    }
     /// useEffect for database update function
     useEffect(()=> {
-        console.log(user)
         getData()
+        expiredSession()
     }, [getData])
     
     return (
         <div className="success">
             {
-                user.length <= 0 ? <LoginOrder /> : null
+                activeUser.length <= 0 ? <LoginOrder /> : null
             }
             
             <div className="container">
@@ -96,7 +109,7 @@ function Success() {
                     <p>we are currently processing your order and will send you a confirmation email shortly!!</p>
                     <div className="btn">
                         {
-                            user.length <= 0 ? 
+                            activeUser.length <= 0 ? 
                                 <Button onClick={()=> history.push('/')}>
                                 Continue shopping
                                 </Button>

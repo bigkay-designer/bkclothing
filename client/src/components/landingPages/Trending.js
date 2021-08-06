@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import axios from '../../containers/axios'
+// import axios from '../../containers/axios'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import {ArrowForwardIos, ArrowBackIos} from '@material-ui/icons'
 import LandingProductItems from './LandingProductItems'

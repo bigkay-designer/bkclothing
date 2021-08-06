@@ -1,10 +1,10 @@
-import React, {useState,useEffect, useContext} from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import LargeNav from './LargeNav'
 import SmallNav from './SmallNav'
 import './css/nav.css'
 function Nav() {
-    const [flashingColor, setFlashingColor] = useState(false)
+    const [flashingColor] = useState(false)
     return (
         <div className="nav">
             <div className="container">

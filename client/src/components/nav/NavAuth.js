@@ -1,4 +1,4 @@
-import React, {useState,useEffect, useContext} from 'react'
+import React, {useState,useEffect} from 'react'
 import axios from '../../containers/axios'
 import {useHistory} from 'react-router-dom'
 import {PersonAddOutlined, PersonOutlined,} from '@material-ui/icons'
@@ -21,6 +21,7 @@ function NavAuth({openMenu, setOpenMenu, setOverlay}) {
                 .catch(error => {
                     if(error.response.data.msg === 'token is invalid'){
                         localStorage.removeItem('authorization')
+                        localStorage.removeItem('user')
                     }
                 })
             }
@@ -39,17 +40,17 @@ function NavAuth({openMenu, setOpenMenu, setOverlay}) {
                 <div className="user">
                     <div className="wrapper">
                         <div className="group">
-                            <h4 onClick={()=> (goToMyAccount(history, setOpenMenu(false)), setOverlay(false))}>hello {user.name}</h4>
+                            <h4 onClick={()=> ((goToMyAccount(history, setOpenMenu(false)), setOverlay(false)))}>hello {user.name}</h4>
                         </div>
-                        <Button onClick={()=> (logoutHandler(history, setOpenMenu(false)), setOverlay(false))}>logout</Button>
+                        <Button onClick={()=> ((logoutHandler(history, setOpenMenu(false)), setOverlay(false)))}>logout</Button>
                     </div>
-                    <div onClick={()=> (goToMyAccount(history, setOpenMenu(false)), setOverlay(false))} className="my__account">
+                    <div onClick={()=> ((goToMyAccount(history, setOpenMenu(false)), setOverlay(false)))} className="my__account">
                         <PersonOutlined />
                         <Button>my account</Button>
                     </div>
                 </div>
                 :
-                <div onClick={()=> (goToLogin(history, setOpenMenu(false)), setOverlay(false))} className="btn">
+                <div onClick={()=> ((goToLogin(history, setOpenMenu(false)), setOverlay(false)))} className="btn">
                     <PersonOutlined />
                     <Button>login</Button>
                 </div>
@@ -57,7 +58,7 @@ function NavAuth({openMenu, setOpenMenu, setOverlay}) {
             }
             {
                 !localStorage.getItem('authorization') && 
-                <div onClick={()=> (goToSignup(history, setOpenMenu(false)), setOverlay(false))} className="btn signup__btn">
+                <div onClick={()=> ((goToSignup(history, setOpenMenu(false)), setOverlay(false)))} className="btn signup__btn">
                     <PersonAddOutlined />
                     <Button>signup</Button>
                 </div>

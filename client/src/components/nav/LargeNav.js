@@ -1,6 +1,6 @@
 import React, {useState,useEffect, useContext} from 'react'
 import {Link, useHistory} from 'react-router-dom'
-import {Menu, Storefront, ShoppingBasketOutlined, SearchOutlined, Close, PersonAddOutlined, PersonOutlined, Person,} from '@material-ui/icons'
+import {Storefront, ShoppingBasketOutlined, SearchOutlined, Person,} from '@material-ui/icons'
 import {CartContext} from '../contextApi/cartContext'
 import { goToHome, goToMen, goToWomen, goToSkirts, goToJackets , goToShirts, goToSuits} from '../pageLinks'
 import NavAuth from './NavAuth'
@@ -17,7 +17,7 @@ function LargeNav() {
     useEffect(()=> {
         men && setWomen(false)
         women && setMen(false)
-    }, [])
+    }, [men, women])
 
     /// close men and open women
     const openWomenMenuHandler = () => {
@@ -37,7 +37,7 @@ function LargeNav() {
     }
     return (
         <div className="large__nav">
-            <div onClick={()=> {return setOverlay(false), setOpenMenu(false)}} className={`${overlay && "overlay"}`}></div>
+            <div onClick={()=> ((setOverlay(false), setOpenMenu(false)))} className={`${overlay && "overlay"}`}></div>
             <div className="container">
                 <div className="wrapper">
                     <div className="gender__title">

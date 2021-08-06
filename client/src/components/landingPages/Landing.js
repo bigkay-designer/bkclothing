@@ -3,7 +3,7 @@ import MainProducts from './MainProducts'
 import Process from './Process'
 import Showcase from './ShowCase'
 import Suggested from './Suggested'
-import Testimonials from './Testimonials'
+// import Testimonials from './Testimonials'
 import Trending from './Trending'
 import '../css/Landing.css'
 function Landing() {

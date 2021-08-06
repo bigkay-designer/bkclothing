@@ -8,7 +8,7 @@ export default (req, res, next) => {
         try{
             jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
                 if (err) {
-                    return res.status(403).json({msg: "token is invalid"});
+                    return res.status(403).json({msg: "Session expired"});
                 }
                 req.user = user;
                 next();
@@ -19,6 +19,6 @@ export default (req, res, next) => {
             
         }
     }else{
-        return res.status(401).json({msg: "Acess Denied"})
+        return res.status(401).json({msg: "Access Denied"})
     }
 };

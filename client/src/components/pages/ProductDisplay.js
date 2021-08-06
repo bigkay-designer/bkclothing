@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext, useCallback} from 'react'
-import {useLocation, useParams, useHistory} from 'react-router-dom'
+import {useLocation, useHistory} from 'react-router-dom'
 import Products from '../Products'
 import axios from '../../containers/axios'
 // import item1 from '../images/trending1.jpg'
@@ -8,15 +8,11 @@ import axios from '../../containers/axios'
 import { FilterContext } from '../contextApi/filterContext'
 
 function Mens() {
-    // const [genderTitle, setGenderTitle] = useState('')
-    const [linkTitile, setLinkTitle] = useState(['/page/mens', '/page/womens', '/page/womens/skirts', '/page/womens/jackets', '/page/mens/shirts'])
-    const [urlPath, setUrlPath] = useState([])
     const [urlState, setUrlState] = useState(false)
     const {filter} = useContext(FilterContext)
     const [products, setProducts] = useState([])
     const location = useLocation()
     let history = useHistory()
-    const paramsGender = useParams()
     // When visit page go to the top
     useEffect(()=>{
         window.scrollTo(0, 0)

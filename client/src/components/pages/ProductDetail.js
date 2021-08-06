@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react'
 import {CartContext} from '../contextApi/cartContext'
 import axios from '../../containers/axios'
-import {useLocation, useHistory, useParams } from 'react-router-dom'
+import {useLocation, useHistory } from 'react-router-dom'
 import {Button} from '@material-ui/core'
 import '../css/ProductDetail.css'
 import { AddShoppingCart, ArrowBackIos } from '@material-ui/icons'

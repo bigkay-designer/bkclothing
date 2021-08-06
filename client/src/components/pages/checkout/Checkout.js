@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import axios from '../../../containers/axios'
+// import axios from '../../../containers/axios'
 import { CartContext } from '../../contextApi/cartContext'
 import {useStripe} from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
