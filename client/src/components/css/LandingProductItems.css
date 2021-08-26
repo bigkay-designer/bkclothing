@@ -18,6 +18,8 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .landing__item .body {

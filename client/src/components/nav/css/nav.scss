@@ -1,49 +1,48 @@
-.nav{
-    .container {
-        .large__screen__nav{
-            display: none;
-        }
-        .flash__sale{
-            // background-color: #171613;
-            background-color: #fa9d24;
-            width: 100%;
-            padding:15px 7px;
-            p{
-                font-family: 'Jost', sans-serif;
-                font-weight: bold;
-                font-size: 1rem;
-                color: #fff;
-                text-align: center;
-                line-height: 1.5em;
-            }
-            .flashing__color{
-                color: #d4d4d4;
-            }
-            a{
-                color: rgb(46, 20, 2);
-                cursor: pointer;
-                text-transform: uppercase;
-                padding-left: 7px;
-            }
-        }
+.nav {
+  .container {
+    .large__screen__nav {
+      display: none;
     }
+    .flash__sale {
+      // background-color: #171613;
+      background-color: #004715;
+      width: 100%;
+      padding: 15px 7px;
+      p {
+        font-family: 'Jost', sans-serif;
+        font-weight: bold;
+        font-size: 1rem;
+        color: #fff;
+        text-align: center;
+        line-height: 1.5em;
+      }
+      .flashing__color {
+        color: #d4d4d4;
+      }
+      a {
+        color: chocolate;
+        cursor: pointer;
+        text-transform: uppercase;
+        padding-left: 7px;
+      }
+    }
+  }
 }
 
-
 @media screen and (min-width: 992px) {
-    .nav{
-        .container{
-            .large__screen__nav{
-                display: block;
-            }
-            .small__screen__nav{
-                display: none;
-            }
-            .flash__sale{
-                p{
-                    font-size: 1.7rem;
-                }
-            }
+  .nav {
+    .container {
+      .large__screen__nav {
+        display: block;
+      }
+      .small__screen__nav {
+        display: none;
+      }
+      .flash__sale {
+        p {
+          font-size: 1.7rem;
         }
+      }
     }
+  }
 }

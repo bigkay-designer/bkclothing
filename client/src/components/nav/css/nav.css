@@ -3,7 +3,7 @@
 }
 
 .nav .container .flash__sale {
-  background-color: #fa9d24;
+  background-color: #004715;
   width: 100%;
   padding: 15px 7px;
 }
@@ -22,7 +22,7 @@
 }
 
 .nav .container .flash__sale a {
-  color: #2e1402;
+  color: chocolate;
   cursor: pointer;
   text-transform: uppercase;
   padding-left: 7px;

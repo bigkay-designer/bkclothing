@@ -7,6 +7,8 @@
 .main__products img {
   width: 100%;
   min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   cursor: pointer;
 }
 
@@ -42,6 +44,15 @@
     -ms-grid-rows: auto;
         grid-template-rows: auto;
     grid-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main__products img {
+    max-height: 90vh;
+  }
+  .main__products a {
+    font-size: 2.5rem;
   }
 }
 /*# sourceMappingURL=MainProducts.css.map */
