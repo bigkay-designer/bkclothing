@@ -1,5 +1,6 @@
 import React from 'react';
 import banner from '../images/bkclothing-banner.png';
+import bannerImg from '../images/banner-img.jpg';
 import { Button } from '@material-ui/core';
 import '../css/Showcase.css';
 function ShowCase() {
@@ -7,7 +8,11 @@ function ShowCase() {
     <div className="showcase">
       <div className="container">
         <div className="banner">
-          <img src={banner} alt="banner" />
+          <div className="banner__content">
+            <h1>bkclothing deals</h1>
+            <p>free shipping on all online orders!</p>
+          </div>
+          <img src={bannerImg} alt="banner" />
         </div>
         <div className="content__wrapper">
           <div className="content">
