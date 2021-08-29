@@ -1,19 +1,24 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
 }
 
+@media screen and (min-width: 760px) {
+  .footer__wrapper {
+    padding-top: 9rem;
+  }
+}
+
 @media screen and (min-width: 1200px) {
-  .footer__wrapper{
+  .footer__wrapper {
     width: 100%;
     display: grid;
     grid-template-columns: 70% 30%;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "footer nsl";
+    grid-template-areas: 'footer nsl';
     position: relative;
   }
-  .grid__filter__pages{
+  .grid__filter__pages {
     display: grid;
     grid-template-columns: 40% 60%;
     grid-template-rows: auto;
